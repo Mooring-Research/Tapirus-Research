@@ -1,0 +1,155 @@
+---
+title: "Extracting Covariates"
+author: "Sarah Turcic"
+date: "6/8/2022"
+output: html_document
+---
+
+```{r}
+#set wd
+setwd("~/Documents/PLNU Research/Honor's Project-Occupancy/Honor's Proj - Occupancy")
+```
+
+```{r}
+#import location data
+loc <- read.csv("CR_Dataset04_Lowland.csv")
+
+#combine camera and survey name to create unique identifier
+#loc$Srvy_Nm=paste(loc$Srvy_Nm, loc$Camr_Nm, sep = " ") 
+
+loc <- loc[,c(6,8,9)]
+loc <- loc[!is.na(loc$Camr_Nm),]
+loc <- unique(loc)
+
+loc <- loc[!(loc$Latitud == 9.7753 & loc$Camr_Nm == "PNC4"),]
+```
+
+
+```{r}
+#install.packages("maptools")
+library(maptools)
+
+#install.packages("rgdal")
+library(rgdal)
+
+#install.packages("raster")
+library(raster)
+
+#install.packages("sp")
+library(sp)
+```
+
+```{r}
+#convert coordinates to spatial data
+#tell R that x and y are coordinates
+#this piece of code was copied over from email 
+coord <- SpatialPoints(coords = loc[c(3,2)], proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"))
+
+#double check class and content
+coord
+class(coord)
+
+#plot coordinates
+plot(coord)
+plot(coord, pch=1) #change the dot type
+plot(coord, pch=1, col="red") #add color
+```
+
+
+Importing Raster
+```{r}
+#importing Raster (Human Footprint Index)
+HFI <- raster("HFI_CostaRica_EPSG4326.tif")
+
+#Plot HFI
+plot(HFI) #Human Footprint Index
+```
+
+```{r}
+#Plot coordinates with HFI
+plot(HFI)
+plot(coord, pch=1,cex=0.75, add = TRUE)
+```
+
+```{r}
+#Import elevation Raster
+#importing Raster (Human Footprint Index)
+Elev <- raster("SRTM_CostaRica_1arc.tif")
+
+#Plot Elevation
+plot(Elev) #Elevation
+```
+
+```{r}
+#Import Water Cover Raster
+#importing Raster (Water Cover)
+Water <- raster("WaterSurf_CostaRica_EPSG4326.tif")
+
+#Plot Water Cover
+plot(Water) #Water Cover
+```
+
+```{r}
+#Import Forest Cover Raster
+#importing Raster (Forest Cover)
+Forest <- raster("PrimForest_CostaRica_EPSG4326.tif")
+
+#Plot Forest Cover
+plot(Forest) #Forest Cover
+```
+
+NPP
+```{r}
+#import
+NPP <- raster("NPP_CostaRica_1arc.tif")
+
+#plot
+plot(NPP)
+```
+
+```{r}
+#extract HFI info per coordinate
+HFI_Value <- extract(HFI, coord)
+HFI_Value
+
+#extract Elev info per coordinate
+Elevation <- extract(Elev, coord)
+Elevation
+
+#extract Water cover info with buffer
+Water_Index <- extract(Water, coord, buffer=1000, fun=mean)
+Water_Index
+
+#extract Forest cover info per coordinate
+Forest_Cover <- extract(Forest, coord, buffer=500, fun=mean)
+Forest_Cover
+
+#extract NPP
+NPP_value <- extract(NPP, coord)
+
+
+#bind HFI_Value and Elevation to our dataset and rename
+dat2 <- cbind(loc, HFI_Value, Elevation,Forest_Cover, Water_Index, NPP_value)
+head(dat2)
+```
+
+```{r}
+#reading in another file that contains values for 
+second_covs <- read_csv("CR_lowlands_sitecovs.csv")
+second_covs <-second_covs[,-1]
+
+#combining and getting rid of some duplicate columns
+dat2 <- cbind(dat2, second_covs)
+dat2 <- dat2[,c(-9, -10, -11, -12, -13, -14, -15)]
+
+#write csv of site covariates
+write.csv(dat2, "CR_lowlands_covs.csv")
+```
+
+
+
+
+
+
+
+

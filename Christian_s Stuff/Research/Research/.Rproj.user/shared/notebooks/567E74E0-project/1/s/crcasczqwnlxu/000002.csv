@@ -1,0 +1,7 @@
+"0","```r
+ggplot(data=data, aes(y=FM_PERCENT, x=MVPA, col=WEIGHT, pch=SEX))+
+  geom_point(size=2)+
+  scale_color_gradient(low=\"blue\", high=\"red\")+
+  geom_rug( color=\"black\", cex=.2)+
+  labs(title=\"Pediatric FM% for MVPA\", x=\"MVPA (min/day)\", y=\"FM_PERCENT\")
+```"

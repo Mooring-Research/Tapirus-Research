@@ -1,0 +1,9 @@
+"0","```r
+summary(aov(BMI~FM_PERCENT, data=data))
+```"
+"1","             Df Sum Sq Mean Sq F value Pr(>F)    
+FM_PERCENT    1 2556.2  2556.2    1333 <2e-16 ***
+Residuals   423  811.2     1.9                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+"

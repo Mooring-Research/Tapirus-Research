@@ -1,0 +1,18 @@
+---
+title: "Fixes for Master(5.31.22)"
+author: "Ellie Deer"
+date: "6/1/2022"
+output: html_document
+---
+
+Set up and Load in
+```{r}
+setwd("~/Documents/PLNU Research/Honor's Project-Occupancy/Honor's Proj - Occupancy")
+df <- read.csv("Master(5.31.22).csv")
+```
+
+CBQTC Camera8, date = 10/16/2019 - 12/31/2020 (needs to change to 1/3/2020)
+```{r}
+df <- within(df, Camera.End.Date[Camera.Name == "CBQTC8" & Survey.Name == "CBQTC 2019" & Camera.End.Date == "12/31/2020" ] <- "1/3/2020")
+```
+

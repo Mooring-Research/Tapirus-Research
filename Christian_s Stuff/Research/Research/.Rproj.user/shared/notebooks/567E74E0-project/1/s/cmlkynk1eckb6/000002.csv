@@ -1,0 +1,6 @@
+"0","```r
+library (vioplot)
+
+vioplot(WEIGHT~SEX, data=data, names=c(\"F\", \"M\"), col=\"gold\", ylab=\"Weight (kg)\", xlab=\"Sex\")
+title(\"Violin Plot of Weight\")
+```"

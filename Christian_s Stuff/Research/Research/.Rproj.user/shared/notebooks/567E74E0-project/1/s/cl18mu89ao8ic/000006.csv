@@ -1,0 +1,7 @@
+"0","```r
+#Custom functions, for ex. discrete output...
+myfun = function(x) sample(LETTERS,1)
+ggtern(df,aes(x,y,z)) +
+geom_hex_tern(binwidth=0.05,
+fun=myfun)
+```"

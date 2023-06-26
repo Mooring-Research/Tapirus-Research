@@ -1,0 +1,12 @@
+"0","```r
+ 
+ggplot(data=data, aes(y=FM_PERCENT, x=SB, col=WEIGHT, pch=SEX))+
+  geom_point(size=2)+
+  geom_rug(side=\"1\", color=\"black\", cex=.2)+
+  scale_color_gradient(low=\"blue\", high=\"red\")+
+  geom_smooth(method=\"lm\")+
+  labs(title=\"Pediatric FM% for SB\", x=\"SB (min/day)\", y=\"FM_PERCENT\")
+```"
+"1","Warning: Ignoring unknown parameters: side
+`geom_smooth()` using formula 'y ~ x'
+"

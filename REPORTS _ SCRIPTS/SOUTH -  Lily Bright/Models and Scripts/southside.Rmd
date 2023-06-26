@@ -1,0 +1,332 @@
+---
+title: "Southside"
+author: "Lily Bright"
+date: "6/1/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("/Users/lilybright/Documents/PLNU/Summer Research 2022/Offic Data")
+getwd()
+southdat <- read.csv("CR_Dataset01_South.csv")
+```
+
+```{r}
+#PILA 2018
+Pila2018<- southdat[southdat$Srvy_Nm== "PILA 2018",]
+
+#PILA 2019
+Pila2019<- southdat[southdat$Srvy_Nm== "PILA 2019",]
+
+#PILA2020
+Pila2020<- southdat[southdat$Srvy_Nm== "PILA 2020",]
+
+
+```
+
+
+```{r}
+#Kamuk 2018
+Kamuk2018<- southdat[southdat$Srvy_Nm== "Kamuk 2018",]
+
+#Kamuk 2019
+Kamuk2019<- southdat[southdat$Srvy_Nm== "Kamuk 2019",]
+
+#Kamuk 2020
+Kamuk2020<- southdat[southdat$Srvy_Nm== "Kamuk 2020",]
+
+#Kamuk 2021
+Kamuk2021<- southdat[southdat$Srvy_Nm== "Kamuk 2021",]
+```
+
+
+```{r}
+#CBQTC 2017
+CBQTC2017<- southdat[southdat$Srvy_Nm== "CBQTC 2017",]
+
+#CBQTC 2018
+CBQTC2018<- southdat[southdat$Srvy_Nm== "CBQTC 2018",]
+
+#CBQTC 2019
+CBQTC2019<- southdat[southdat$Srvy_Nm== "CBQTC 2019",]
+
+#CBQTC 2020
+CBQTC2020<- southdat[southdat$Srvy_Nm== "CBQTC 2020",]
+
+#CBQTC 2021
+CBQTC2021<- southdat[southdat$Srvy_Nm== "CBQTC 2021",]
+
+```
+
+
+
+```{r}
+#tell R how to read date
+st.date <-as.Date(southdat$Cmr_S_D, "%m/%d/%Y")
+ret.date<-as.Date(southdat$Cmr_E_D, "%m/%d/%Y")
+
+#How many Cameras
+unique(southdat$Camr_Nm)
+cam<- sort(unique(southdat$Camr_Nm)) #46 or might be less if K1-k9 are repeats so 37?
+sort(unique(southdat$Cmr_S_D))
+
+K10 <-master[master$Camera.Name == "K10",]
+K10date<-as.Date(K10$Date, "%m/%d/%Y")
+K10<- cbind(K10, K10date)
+
+```
+
+
+```{r}
+master<- read.csv("Master(5.27.22).csv")
+
+#subsetting to determine if cameras are repeats
+####K1##
+K1 <-master[master$Camera.Name == "K1",]
+K01<-master[master$Camera.Name == "K01",]
+
+#adding date as new column as r cant read the columns as date in an object apparently
+Kdate<-as.Date(K1$Date, "%m/%d/%Y")
+K01date<-as.Date(K01$Date, "%m/%d/%Y")
+K1<- cbind(K1, Kdate)
+K01<- cbind(K01, K01date)
+nrow(K1) #341
+nrow(K01) #532
+
+###K2###
+K2 <-master[master$Camera.Name == "K2",]
+K02<-master[master$Camera.Name == "K02",]
+
+#adding date as new column as r cant read the columns as date in an object apparently
+K2date<-as.Date(K2$Date, "%m/%d/%Y")
+K02date<-as.Date(K02$Date, "%m/%d/%Y")
+K2<- cbind(K2, K2date)
+K02<- cbind(K02, K02date)
+nrow(K2) #341
+nrow(K02) #532
+
+###K3###
+K3 <-master[master$Camera.Name == "K3",]
+K03<-master[master$Camera.Name == "K03",]
+
+#adding date as new column as r cant read the columns as date in an object apparently
+K3date<-as.Date(K3$Date, "%m/%d/%Y")
+K03date<-as.Date(K03$Date, "%m/%d/%Y")
+K3<- cbind(K3, K3date)
+K03<- cbind(K03, K03date)
+nrow(K3) #488 <- has more thank K03
+nrow(K03) #78
+
+
+###K4###
+K4 <-master[master$Camera.Name == "K4",]
+K04<-master[master$Camera.Name == "K04",]
+
+#adding date as new column as r cant read the columns as date in an object apparently
+K4date<-as.Date(K4$Date, "%m/%d/%Y")
+K04date<-as.Date(K04$Date, "%m/%d/%Y")
+K4<- cbind(K4, K4date)
+K04<- cbind(K04, K04date)
+nrow(K4) #1193 <- has more than K04
+nrow(K04) #541
+
+
+###K5###
+K5 <-master[master$Camera.Name == "K5",]
+K05<-master[master$Camera.Name == "K05",]
+
+#adding date as new column as r cant read the columns as date in an object apparently
+K5date<-as.Date(K5$Date, "%m/%d/%Y")
+K05date<-as.Date(K05$Date, "%m/%d/%Y")
+K5<- cbind(K5, K5date)
+K05<- cbind(K05, K05date)
+nrow(K5) #707 <- has morre rows than K05
+nrow(K05) #143
+
+
+###K6###
+K6 <-master[master$Camera.Name == "K6",]
+K06<-master[master$Camera.Name == "K06",]
+
+#adding date as new column as r cant read the columns as date in an object apparently
+K6date<-as.Date(K6$Date, "%m/%d/%Y")
+K06date<-as.Date(K06$Date, "%m/%d/%Y")
+K6<- cbind(K6, K6date)
+K06<- cbind(K06, K06date)
+nrow(K6) #1620 <- K6 has more rows than K06
+nrow(K06) #982
+
+
+###K7###
+K7 <-master[master$Camera.Name == "K7",]
+K07<-master[master$Camera.Name == "K07",]
+
+#adding date as new column as r cant read the columns as date in an object apparently
+K7date<-as.Date(K7$Date, "%m/%d/%Y")
+K07date<-as.Date(K07$Date, "%m/%d/%Y")
+K7<- cbind(K7, K7date)
+K07<- cbind(K07, K07date)
+nrow(K7) #940
+nrow(K07) #1043
+
+
+###K8###
+K8 <-master[master$Camera.Name == "K8",]
+K08<-master[master$Camera.Name == "K08",]
+
+#adding date as new column as r cant read the columns as date in an object apparently
+K8date<-as.Date(K8$Date, "%m/%d/%Y")
+K08date<-as.Date(K08$Date, "%m/%d/%Y")
+K8<- cbind(K8, K8date)
+K08<- cbind(K08, K08date)
+nrow(K8) #164
+nrow(K08) #596
+
+###K9###
+K9 <-master[master$Camera.Name == "K9",]
+K09<-master[master$Camera.Name == "K09",]
+
+#adding date as new column as r cant read the columns as date in an object apparently
+K9date<-as.Date(K9$Date, "%m/%d/%Y")
+K09date<-as.Date(K09$Date, "%m/%d/%Y")
+K9<- cbind(K9, K9date)
+K09<- cbind(K09, K09date)
+nrow(K9) #460
+nrow(K09) #640
+```
+
+
+```{r}
+#How many species tot
+unique(southdat$Common) #35 species
+
+#how many records per species at each site?
+Trecs<- table(southdat$Site, southdat$Common)
+
+```
+
+
+```{r}
+#dr.m period excel 
+pod<- read.csv("4 month period.csv")
+#Creating Vectors of Data for 4 month observation table
+CTID<-pod[,"Location"]
+View(CTID)
+St.m <- c("Feb", "Aug", "Feb","Jun", "Feb", "Feb", 
+          "Jan","Jan","Jan","Jan","Jan","Jan","Feb", "Feb",
+          "Apr","Jul","Jul","Jul","Jul","Jul","Jul", "May", "Jun", "May","May","May",
+          "Dec","May","May","May","May","May")
+
+St.y <- c("2020", "2020", "2020","2020", "2020", "2020",
+          "2020","2020","2020","2020","2020","2020","2020", "2020",
+          "2020","2019","2019","2019","2019","2019","2019", "2020", "2020",
+          "2020","2020","2020", "2019","2020","2020","2020","2020","2020")
+
+E.m <- c("May", "Nov", "May","Sep", "May", "May", 
+          "Apr","Apr","Apr","Apr","Apr","Apr","May", "May",
+          "Jul","Oct","Oct","Oct","Oct","Oct","Oct", "Aug", "Sep", "Aug","Aug","Aug",
+          "Mar","Aug","Aug","Aug","Aug","Aug")
+
+E.y <- c("2020", "2020", "2020","2020", "2020", "2020",
+          "2020","2020","2020","2020","2020","2020","2020", "2020",
+          "2020","2019","2019","2019","2019","2019","2019", "2020", "2020",
+          "2020","2020","2020", "2020","2020","2020","2020","2020","2020")
+
+PTable <- cbind(CTID, St.m, St.y, E.m, E.y)
+```
+
+
+```{r}
+#Made my own unnecessary table but lowkey proud of it so imma leave it
+south<- data.frame(southdat$Camr_Nm, southdat$Cmr_S_D, southdat$Cmr_E_D)
+Cmr_S_D<-as.Date(south$southdat.Cmr_S_D, "%m/%d/%Y")
+Cmr_E_D<-as.Date(south$southdat.Cmr_E_D, "%m/%d/%Y")
+
+#separate dates into year, month and day
+simp<- south %>% separate(southdat.Cmr_S_D, c("St.m","St.d", "St.y"))
+simps <- simp %>% separate(southdat.Cmr_E_D, c("E.m","E.d", "E.y"))                   
+Fsimp <- (simps)
+
+#subset to exclude day
+Tabletime<- cbind(Fsimp$southdat.Camr_Nm, Fsimp$St.m,Fsimp$St.y, Fsimp$E.m, Fsimp$E.y)
+
+duplicated(Tabletime)
+Tabletime<-unique(Tabletime)
+colnames(Tabletime) = c("Camera Name", "St.m", "St.Y", "E.m", "E.y")
+```
+
+
+```{r}
+#havent done yet#
+
+###Spatial Data
+class(southdat$Latitud) #lat/long recognized as numeric (- symbol denotes west hemi/south hemi)
+class(southdat$Longitd)
+
+install.packages("maptools");
+library(maptools)
+install.packages("rgdal");library(rgdal)
+install.packages("raster");library(raster)
+install.packages("sp");library(sp)
+
+coord <- SpatialPoints(coords = southdat[,c(9,8)],
+         proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"))
+coord
+plot(coord) #plots data on blank space with "x's"
+plot(coord, pch = 1) #made plots circles
+
+#import polygon (type of spatial data vector(not object vector its diff))
+#pnca <- readOGR("PNCA_limits_EPSG4326.shp")
+#plot(pnca)
+plot(coord, pch =19, col="red", add =T) #combined two maps and isolate camera traps (red)
+cover
+hist(cover)
+#combine line and point vectors
+
+#import raster
+cover <- raster("SRTM_CostaRica_1arc.tif")
+  #cuts = c(0,1,2,3,4,5) #set area labels (bar on right)
+  #pal <- c("darkgreen", "orange", "grey", "purple", "blue") #assign colors 
+  #colors rep type of vegetation
+plot(cover, breaks =cuts, col = pal) #stacked in order you listed in, (added map cover)
+#plot(pnca, add = T) #add is specific to raster add = true (added lines)
+plot(coord, pch =19, col="red", add =T) #added points (in red)
+
+#plot map with coords (too big)
+plot(cover)
+plot(coord, pch =19, col="black", add =T)
+
+#crop map (too small cuts off some of the coords)
+cover2<- crop(cover, extent(coord))
+plot(cover2)
+plot(coord, pch =19, col="black", add =T)
+
+#crop map with some room
+ext<- extent(coord) + c(-0.02, 0.02,-0.02, 0.02 )
+
+cover2<- crop(cover, ext)
+plot(cover2)
+plot(coord, pch =19, col="black", add =T)
+#head(cts)
+#Extract land cover information from raster using point vector
+#rasValue <- extract(cover, coord) 
+#rasValue
+#rasValue[rasValue==1] <- "Forest" #subsetting data with 1 and marking as forest 
+#rasValue[rasValue==2] <- "Savannah"#subsetting data with 2 and marking as savannah
+
+#cts2<- cbind(cts[,1:6], rasValue)
+#head(cts2)
+
+#code for smaller map
+#plot(coord, pch = 1, col = "red")
+#plot(cover, add = T)
+       #plot(pnca, add=T)
+          #plot(coord, pch=1, col = "white", add=T)
+```
+
+```
+

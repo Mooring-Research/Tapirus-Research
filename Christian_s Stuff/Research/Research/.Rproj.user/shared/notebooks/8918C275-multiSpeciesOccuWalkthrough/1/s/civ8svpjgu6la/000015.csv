@@ -1,0 +1,6 @@
+"0","#V1-V3 = weeks surveyed"
+"0","#rows = cameras"
+"0","bob <- read.csv('multiple species occupancy walkthrough/data/bobcat_3wk.csv', header = F)"
+"2","Warning: cannot open file 'multiple species occupancy walkthrough/data/bobcat_3wk.csv': No such file or directory"
+"2","Error in file(file, ""rt"") : cannot open the connection
+"

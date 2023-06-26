@@ -1,0 +1,16 @@
+"0","```r
+
+plot(MVPA,FM_PERCENT, data=data, col=c(\"purple\"), main=\"Fat-mass Percentage For Moderate to Vigorous Phyisical Activity\", xlab=\"Moderate to Vigorous Physical Activity (min/day)\", ylab=\"Fat-mass Percentage\")
+```"
+"1","Warning in plot.window(...) : \"data\" is not a graphical parameter
+Warning in plot.xy(xy, type, ...) : \"data\" is not a graphical parameter
+Warning in axis(side = side, at = at, labels = labels, ...) :
+  \"data\" is not a graphical parameter
+Warning in axis(side = side, at = at, labels = labels, ...) :
+  \"data\" is not a graphical parameter
+Warning in box(...) : \"data\" is not a graphical parameter
+Warning in title(...) : \"data\" is not a graphical parameter
+"
+"0","```r
+abline(lm(FM_PERCENT~MVPA, data=data), col=c(\"red\"))
+```"

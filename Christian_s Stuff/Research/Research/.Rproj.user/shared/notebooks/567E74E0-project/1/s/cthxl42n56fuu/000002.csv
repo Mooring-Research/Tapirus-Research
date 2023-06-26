@@ -1,0 +1,11 @@
+"0","```r
+library(ggplot2)
+ggplot(data, aes(x=SEX, y=MVPA))+
+  geom_boxplot(fill=\"cornflowerblue\",
+               color=\"black\", notch=TRUE)+
+  geom_point(position=\"jitter\", color=\"blue\", alpha=.5)+
+  geom_rug(side=\"1\", color=\"black\", cex=.2)+
+  labs(title=\"MVPA for SEX\")
+```"
+"1","Warning: Ignoring unknown parameters: side
+"

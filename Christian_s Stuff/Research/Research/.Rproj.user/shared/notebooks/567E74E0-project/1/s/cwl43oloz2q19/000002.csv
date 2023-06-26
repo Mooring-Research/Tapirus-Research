@@ -1,0 +1,44 @@
+"0","```r
+library(tidyverse)
+```"
+"1","Registered S3 methods overwritten by 'dbplyr':
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+✓ tibble  3.1.4     ✓ purrr   0.3.4
+✓ tidyr   1.1.4     ✓ stringr 1.4.0
+✓ readr   2.0.1     ✓ forcats 0.5.1
+── Conflicts ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+x ggtern::aes()            masks ggplot2::aes()
+x ggtern::annotate()       masks ggplot2::annotate()
+x dplyr::combine()         masks gridExtra::combine()
+x tidyr::expand()          masks reshape::expand()
+x dplyr::filter()          masks plotly::filter(), stats::filter()
+x ggtern::ggsave()         masks ggplot2::ggsave()
+x dplyr::lag()             masks stats::lag()
+x reshape::rename()        masks dplyr::rename(), plotly::rename()
+x ggtern::theme_bw()       masks ggplot2::theme_bw()
+x ggtern::theme_classic()  masks ggplot2::theme_classic()
+x ggtern::theme_dark()     masks ggplot2::theme_dark()
+x ggtern::theme_gray()     masks ggplot2::theme_gray()
+x ggtern::theme_light()    masks ggplot2::theme_light()
+x ggtern::theme_linedraw() masks ggplot2::theme_linedraw()
+x ggtern::theme_minimal()  masks ggplot2::theme_minimal()
+x ggtern::theme_void()     masks ggplot2::theme_void()
+"
+"0","```r
+ggplot(data= data,  aes(y=FM_PERCENT, x=LPA, pch=SEX, col=WEIGHT))+
+  geom_point(size=2)+
+  scale_color_gradient(low=\"blue\", high=\"red\")+
+  
+  geom_smooth(method='lm', se = F, size = 1.5, col = 'red') +
+  geom_smooth(method = 'lm', se = T, size = 1.5, col = 'blue')+
+
+  geom_rug(side=\"1\", color=\"black\", alpha=.5)+
+  labs(title=\"Pediatric Fat Mass Percent for LPA in\", x=\"LPA (min/day)\", y=\"Fat Mass Percent\")
+```"
+"1","Warning: Ignoring unknown parameters: side
+`geom_smooth()` using formula 'y ~ x'
+`geom_smooth()` using formula 'y ~ x'
+"

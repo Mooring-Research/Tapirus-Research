@@ -1,0 +1,12 @@
+"0","```r
+ggplot(data=data, aes(y=FM_PERCENT, x=SB_BOUT_LONG))+
+  geom_point(size=2, col=c(\"blue\"))+
+ # scale_color_gradient(low=\"blue\", high=\"red\")+
+  geom_smooth(method = \"lm\", color=\"red\", linetype=1)+
+  geom_rug( color=\"black\", alpha=.5)+
+  labs(title=\"Pediatric Fat Mass Percentage for SB Long Bout\", x=\"SB Long Bout (min/day)\", y=\"FM%\")+
+ stat_regline_equation(label.y =40, aes(label = ..eq.label.. )) +
+  stat_regline_equation(label.y = 35, aes(label = ..rr.label..))
+```"
+"1","`geom_smooth()` using formula 'y ~ x'
+"

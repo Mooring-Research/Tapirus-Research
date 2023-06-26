@@ -1,0 +1,14 @@
+"0","```r
+library(ggpubr)
+ggplot(data=data, aes(y=FM_PERCENT, x=MVPA))+
+  geom_point(size=2, col=\"blue\")+
+  scale_color_gradient(low=\"blue\", high=\"red\")+
+ geom_smooth(method = \"lm\", color=\"red\", linetype=1)+
+  geom_rug(side=\"1\", color=\"black\", alpha=.5)+
+  labs(title=\"Pediatric Fat Mass Percent for MVPA\", x=\"MVPA (min/day)\", y=\"FM%\")+
+  stat_regline_equation(label.y =40, aes(label = ..eq.label.. )) +
+  stat_regline_equation(label.y = 35, aes(label = ..rr.label..))
+```"
+"1","Warning: Ignoring unknown parameters: side
+`geom_smooth()` using formula 'y ~ x'
+"
