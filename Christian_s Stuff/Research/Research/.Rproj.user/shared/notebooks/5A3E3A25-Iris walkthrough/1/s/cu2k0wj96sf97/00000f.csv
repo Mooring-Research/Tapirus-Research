@@ -1,0 +1,7 @@
+"0","attach(iris)
+"
+"2","The following objects are masked from iris (pos = 3):
+
+    Petal.Length, Petal.Width, Sepal.Length, Sepal.Width, Species
+
+"

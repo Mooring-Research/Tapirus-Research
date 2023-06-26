@@ -1,0 +1,15 @@
+"0","```r
+cor.test(FM_PERCENT, MVPA, data=femaleFilter)
+```"
+"1","
+	Pearson's product-moment correlation
+
+data:  FM_PERCENT and MVPA
+t = -3.1998, df = 423, p-value = 0.001479
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.24526583 -0.05947996
+sample estimates:
+       cor 
+-0.1537313 
+"

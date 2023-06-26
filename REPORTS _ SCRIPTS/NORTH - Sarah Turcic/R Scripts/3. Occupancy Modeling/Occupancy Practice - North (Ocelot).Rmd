@@ -1,0 +1,620 @@
+---
+title: "Occupancy Model-North Data (Other Animals)"
+author: "Sarah Turcic"
+date: "6/8/2022"
+output: html_document
+---
+
+```{r}
+#clear environment and console
+rm(list=ls())
+
+#set working directory
+setwd("C:/Work/Point_Loma/Costa Rica Research/Summer 2022/4. Occupancy Modeling")
+dir()
+```
+
+
+```{r}
+## install and load package unmarked
+#install.packages("unmarked")
+library(unmarked)
+```
+
+Step 1
+```{r}
+## read in puma data
+Ocelot<-read.csv("Ocelot_Detection.csv")
+head(Ocelot)
+```
+
+Step 2
+```{r}
+#This is detection data!
+## set up observations in site-by-occasion matrix
+#load in site covariates
+obs<- read.csv("Ocelot_Detection.csv", row.names = "X")
+class(obs)
+
+## It is a dataframe, but has to be a matrix: use as.matrix()
+obs<-as.matrix(obs)
+class(obs)
+```
+
+```{r}
+#load in site covs
+siteCovs <- read.csv("Site_Covariates_North_Updated6.csv", row.names="X")
+head(siteCovs)
+
+#create a data frame with all rows and columns elevation, forest, and length
+siteCovs<-data.frame(Lat=siteCovs[,"Lat"], Long=siteCovs[,"Long"],
+                     HFI=siteCovs[,"HFI_Value"], elev=siteCovs[,"Elevation"], Forest=siteCovs[,"Forest_Cover"], Prod=siteCovs[,"Productivity"], Road=siteCovs[,"d.Road"], River=siteCovs[,"d.River"], EdgeDens=siteCovs[,"EdgeDens"], PatchDens=siteCovs[,"PatchDens"], DisCore=siteCovs[,"DisjCore"])
+
+```
+
+
+```{r}
+## make list with data frame for occasion level covariate (2 dim, variables that change)
+## list structure is necessary because we could have multiple occasion covariates
+## In this case we only have one but still need to set up the list structure
+## name of the list element has to correspond to column names in data frame
+## Remember: occasion covariates can only be used on detection probability
+
+#load in effort table (all we have right now)
+eff <- read.csv("Effort_North.csv", row.names="X")
+
+#create a list
+obsCovs<-list(eff=eff[,])
+```
+
+
+```{r}
+##NOTE: even though we have 3 columns, they all refer to a single covariate
+##because the value of that covariate changes with occasion
+#this function organizes detection and non-detectiond data with covariates
+
+## y =matrix of detection/ non-detection data (y variables in datasest)
+##siteCovs = a data.frame of covariates that vary at site level (elevation, forest, length)
+##obsCovs = list of data.frames that vary within sites (day?)
+
+## combine everything into unmarkedFrameOccu
+#umf<-unmarkedFrameOccu(y=obs, siteCovs = as.data.frame(scale(siteCovs)), obsCovs=obsCovs)
+#scale siteCovs
+umf<-unmarkedFrameOccu(y=obs, siteCovs = as.data.frame(scale(siteCovs)),obsCovs=obsCovs)
+summary(umf)
+
+```
+
+Step 3
+```{r}
+##number of sites (rows), number of occasions (columns)
+dim(obs)
+
+##range of site covariates
+range(siteCovs$elev)
+range(siteCovs$HFI) 
+range(siteCovs$Forest)
+
+##range of occasion covariate
+#remove NA's from occasion covariate
+#we reference obsCovs$eff because we created a list, but this is the only option
+range(obsCovs$eff, na.rm=T)
+```
+
+Step 4
+```{r}
+##calcualate total number of times species was detected at each site
+## missing data (some sites had no 3rd visit) - we need to specify what to do with NAs
+#function takes obs matrix, preforms manipulation on rows (1), and sums them, removing NAs
+#sums up all observation data by site y.# data
+obs.tot<-apply(obs, 1, sum, na.rm=T)
+obs.tot
+range(obs.tot)
+
+#provides index of sites where species was detected at least once
+#all y.# data summed per site
+#if there is at least one detection, classified as detected
+#which funciton returns position where statement is true
+detected<-which(obs.tot>0)
+
+#length of that vector corresponds to number of sites at which species was detected at least once
+n.detected<-length(detected)
+```
+
+
+```{r}
+##raw occupancy
+#get total sites by counting all rows (each is one site)
+J<-dim(obs)[1] ##number of sites
+#or
+J <- nrow(obs)
+
+#raw occupancy calculated by dividing number of detected sites by total sites
+#This is naive occupancy
+raw.occ<-n.detected/J
+raw.occ #0.1230769
+```
+
+Step 5
+```{r}
+## use ?occu to determine arguments of the function to run occupancy model
+## we only need to specify formula and data
+#occu function fits single season occupancy model
+?occu
+```
+
+
+```{r}
+##model without covariates
+
+##two-part formula: first part is for detection component, second part is for occupancy component
+#umf is the frame we created using unmarked
+mod0<-occu(~1~1, umf)
+summary(mod0)
+```
+
+Step 6
+```{r}
+#logit transform to get p between 0 and 1
+plogis(11.34349) ##occupancy probability
+plogis(-4.557805)  ##detection probability
+
+#backTransform converts from link scale to original scale
+##get back-transformed estimates of occupancy with SE, CI 
+backTransform(mod0, "state")
+
+##get backtransformed estimate of detection with SE, CI
+backTransform(mod0,"det")
+
+##function only works for no-covariate models
+```
+***More Efficient Route******************************************************************
+```{r}
+#first do null model (mod0)
+#next do all univariate models
+mod.elev <-occu(~1 ~elev, umf) 
+mod.HFI <-occu(~1 ~HFI, umf)
+mod.Eff <-occu(~eff ~1, umf)
+mod.forest <- occu(~1~Forest,umf)
+mod.prod <- occu(~1~Prod,umf)
+mod.road <- occu(~1~Road,umf)
+mod.river <- occu(~1~River,umf)
+mod.EdgeDens <- occu(~1~EdgeDens,umf)
+mod.PatchDens <- occu(~1~PatchDens,umf)
+mod.DisCore <- occu(~1~DisCore,umf)
+
+#compare univariate AIC's to null model AIC
+UniList<-fitList(mod0, mod.elev, mod.HFI, mod.Eff, mod.forest, mod.prod, mod.road, mod.river, mod.EdgeDens, mod.PatchDens, mod.DisCore)
+modSel(UniList)
+
+#Note which models are better than the null (mod.prod, mod.Eff, mod.PatchDens)
+#use these models in your multivariate models, but disregard other variables
+```
+
+```{r}
+#multivariate models including mod.forest,mod.EdgeDen,mod.elev,mod.HFI	,mod.DisCore,mod.river,mod.PatchDens
+
+mod.forest.edge <- occu(~1~Forest+EdgeDens,umf)
+mod.forest.elev <- occu(~1~Forest+elev,umf)
+mod.forest.HFI<- occu(~1~Forest+HFI,umf)
+mod.forest.dis<- occu(~1~Forest+DisCore,umf)
+mod.forest.river<- occu(~1~Forest+River,umf)
+mod.forest.patch<- occu(~1~Forest+PatchDens,umf)
+
+mod.forest.edge.elev<- occu(~1~Forest+EdgeDens+elev,umf)
+mod.forest.edge.HFI<- occu(~1~Forest+EdgeDens+HFI,umf)
+mod.forest.edge.dis<- occu(~1~Forest+EdgeDens+DisCore,umf)
+mod.foest.edge.river<- occu(~1~Forest+EdgeDens+River,umf)
+mod.forest.edge.patch<- occu(~1~Forest+EdgeDens+PatchDens,umf)
+mod.forest.elev.HFI<- occu(~1~Forest+HFI+elev,umf)
+mod.forest.elev.dis<- occu(~1~Forest+DisCore+elev,umf)
+mod.forest.elev.river<- occu(~1~Forest+River+elev,umf)
+mod.forest.elev.patch<- occu(~1~Forest+PatchDens+elev,umf)
+mod.forest.HFI.dis<- occu(~1~Forest+DisCore+HFI,umf)
+mod.foest.HFI.river<- occu(~1~Forest+River+HFI,umf)
+mod.forest.HFI.patch<- occu(~1~Forest+PatchDens+HFI,umf)
+mod.forest.dis.river<- occu(~1~Forest+DisCore+River,umf)
+mod.forest.dis.patch<- occu(~1~Forest+DisCore+PatchDens,umf)
+mod.forest.river.patch<- occu(~1~Forest+River+PatchDens,umf)
+
+
+#list models and compare AIC (including univariate models)
+MultiList <- fitList(mod0, mod.forest,mod.EdgeDens,mod.elev,mod.HFI	,mod.DisCore,mod.river,mod.PatchDens,mod.forest.edge,mod.forest.elev,mod.forest.HFI,
+mod.forest.dis,mod.forest.river,mod.forest.patch,mod.forest.edge.elev,mod.forest.edge.HFI,mod.forest.edge.dis,mod.foest.edge.river,mod.forest.edge.patch,mod.forest.elev.HFI,mod.forest.elev.dis,mod.forest.elev.river,mod.forest.elev.patch,mod.forest.HFI.dis,mod.foest.HFI.river,mod.forest.HFI.patch,mod.forest.dis.river,mod.forest.dis.patch,mod.forest.river.patch)
+
+#model selection
+modSel(MultiList)
+```
+
+```{r}
+#now check models for significance
+#models are ordered based on AIC
+#best model is mod.eff.prod.patch
+summary(mod.forest.edge)
+plogis(-13.987228 + 6.199449*siteCovs$Forest + -10.358609*siteCovs$EdgeDens)
+
+summary(mod.forest)
+summary(mod.forest.edge.elev)
+summary(mod.forest.elev)
+
+#no significance
+```
+
+```{r}
+#now that we have our null model, let's run all the models
+## run a set of models with different covariates on detection; 
+#~surveycov~sitecov
+mod.elev <-occu(~1 ~elev, umf) 
+mod.HFI <-occu(~1 ~HFI, umf) 
+mod.elev.HFI <-occu(~1 ~elev+HFI, umf) 
+mod.Eff <-occu(~eff ~1, umf) 
+mod.Eff.elev <-occu(~eff ~elev, umf) 
+mod.Eff.HFI <-occu(~eff ~HFI, umf)
+mod.Eff.elev.HFI <-occu(~eff ~elev+HFI, umf) 
+
+#Forest
+mod.forest <- occu(~1~Forest,umf)
+mod.forest.elev <- occu(~1~Forest+elev,umf)
+mod.forest.HFI <- occu(~1~Forest+HFI,umf)
+mod.forest.elev.HFI <- occu(~1~Forest+HFI+elev,umf)
+mod.Eff.forest <- occu(~eff~Forest,umf)
+mod.Eff.forest.elev <- occu(~eff~Forest+elev,umf)
+mod.Eff.forest.HFI <- occu(~eff~Forest+HFI,umf)
+mod.Eff.forest.elev.HFI <- occu(~eff~Forest+HFI+elev,umf)
+
+#Prod
+mod.prod <- occu(~1~Prod,umf)
+mod.prod.elev <- occu(~1~Prod+elev,umf)
+mod.prod.HFI <- occu(~1~Prod+HFI,umf)
+mod.prod.forest <- occu(~1~Prod+Forest,umf)
+mod.prod.forest.elev <- occu(~1~Prod+Forest+elev,umf)
+mod.prod.forest.HFI <- occu(~1~Prod+Forest+HFI,umf)
+mod.prod.elev.HFI <- occu(~1~Prod+elev+HFI,umf)
+mod.eff.prod <- occu(~eff~Prod,umf)
+mod.eff.prod.elev <- occu(~eff~Prod+elev,umf)
+mod.eff.prod.HFI <- occu(~eff~Prod+HFI,umf)
+mod.eff.prod.forest <- occu(~eff~Prod+Forest,umf)
+mod.eff.prod.forest.elev <- occu(~eff~Prod+Forest+elev,umf)
+mod.eff.prod.forest.HFI <- occu(~eff~Prod+Forest+HFI,umf)
+mod.eff.prod.elev.HFI <- occu(~eff~Prod+elev+HFI,umf)
+
+#Road
+mod.road <- occu(~1~Road,umf)
+mod.road.elev <- occu(~1~Road+elev,umf)
+mod.road.HFI <- occu(~1~Road+HFI,umf)
+mod.road.prod <- occu(~1~Road+Prod,umf)
+mod.road.forest <- occu(~1~Road+Forest,umf)
+mod.road.forest.elev <- occu(~1~Road+Forest+elev,umf)
+mod.road.forest.HFI <- occu(~1~Road+Forest+HFI,umf)
+mod.road.forest.prod <- occu(~1~Road+Forest+Prod,umf)
+mod.road.elev.HFI <- occu(~1~Road+elev+HFI,umf)
+mod.road.elev.prod <- occu(~1~Road+elev+Prod,umf)
+mod.road.HFI.prod <- occu(~1~Road+HFI+Prod,umf)
+mod.road.forest.elev.HFI <- occu(~1~Road+Forest+elev+HFI,umf)
+mod.road.forest.elev.prod <- occu(~1~Road+Forest+elev+Prod,umf)
+mod.road.HFI.elev.prod <- occu(~1~Road+HFI+elev+Prod,umf)
+mod.road.forest.HFI.prod <- occu(~1~Road+Forest+HFI+Prod,umf)
+mod.road.forest.HFI.prod.elev <- occu(~1~Road+Forest+HFI+Prod+elev,umf)
+mod.eff.road <- occu(~eff~Road,umf)
+mod.eff.road.elev <- occu(~eff~Road+elev,umf)
+mod.eff.road.HFI <- occu(~eff~Road+HFI,umf)
+mod.eff.road.prod <- occu(~eff~Road+Prod,umf)
+mod.eff.road.forest <- occu(~eff~Road+Forest,umf)
+mod.eff.road.forest.elev <- occu(~eff~Road+Forest+elev,umf)
+mod.eff.road.forest.HFI <- occu(~eff~Road+Forest+HFI,umf)
+mod.eff.road.forest.prod <- occu(~eff~Road+Forest+Prod,umf)
+mod.eff.road.elev.HFI <- occu(~eff~Road+elev+HFI,umf)
+mod.eff.road.elev.prod <- occu(~eff~Road+elev+Prod,umf)
+mod.eff.road.HFI.prod <- occu(~eff~Road+HFI+Prod,umf)
+mod.eff.road.forest.elev.HFI <- occu(~eff~Road+Forest+elev+HFI,umf)
+mod.eff.road.forest.elev.prod <- occu(~eff~Road+Forest+elev+Prod,umf)
+mod.eff.road.HFI.elev.prod <- occu(~eff~Road+HFI+elev+Prod,umf)
+mod.eff.road.forest.HFI.prod <- occu(~eff~Road+Forest+HFI+Prod,umf)
+mod.eff.road.forest.HFI.prod.elev <- occu(~eff~Road+Forest+HFI+Prod+elev,umf)
+
+#River
+mod.river <- occu(~1~River,umf)
+mod.river.elev <- occu(~1~River+elev,umf)
+mod.river.HFI <- occu(~1~River+HFI,umf)
+mod.river.prod <- occu(~1~River+Prod,umf)
+mod.river.forest <- occu(~1~River+Forest,umf)
+mod.river.road <- occu(~1~River+Forest,umf)
+mod.river.forest.elev <- occu(~1~River+Forest+elev,umf)
+mod.river.forest.HFI <- occu(~1~River+Forest+HFI,umf)
+mod.river.forest.prod <- occu(~1~River+Forest+Prod,umf)
+mod.river.forest.road <- occu(~1~River+Forest+Road,umf)
+mod.river.elev.HFI <- occu(~1~River+elev+HFI,umf)
+mod.river.elev.prod <- occu(~1~River+elev+Prod,umf)
+mod.river.elev.road <- occu(~1~River+elev+Road,umf)
+mod.river.HFI.prod <- occu(~1~River+HFI+Prod,umf)
+mod.river.HFI.road <- occu(~1~River+HFI+Road,umf)
+mod.river.prod.road <- occu(~1~River+Road+Prod,umf)
+mod.river.forest.elev.HFI <- occu(~1~River+Forest+elev+HFI,umf)
+mod.river.forest.elev.prod <- occu(~1~River+Forest+elev+Prod,umf)
+mod.river.forest.elev.road <- occu(~1~River+Forest+elev+Road,umf)
+mod.river.HFI.elev.prod <- occu(~1~River+HFI+elev+Prod,umf)
+mod.river.HFI.elev.road <- occu(~1~River+Road+elev+HFI,umf)
+mod.river.forest.HFI.prod <- occu(~1~River+Forest+HFI+Prod,umf)
+mod.river.forest.HFI.road <-occu(~1~River+Forest+Road+HFI,umf)
+mod.river.forest.prod.road <- occu(~1~River+Forest+Prod+Road,umf)
+mod.river.forest.HFI.prod.elev <- occu(~1~River+Forest+HFI+Prod+elev,umf)
+mod.river.forest.HFI.prod.road <-occu(~1~River+Forest+HFI+Prod+Road,umf)
+mod.river.forest.HFI.elev.road <- occu(~1~River+Forest+HFI+Road+elev,umf)
+mod.river.forest.prod.elev.road <-occu(~1~River+Forest+Road+Prod+elev,umf)
+mod.river.HFI.prod.elev.road <-occu(~1~River+Road+HFI+Prod+elev,umf)
+mod.river.forest.elev.HFI.road.prod <- occu(~1~River+Forest+elev+HFI+Road+Prod,umf)
+mod.eff.river <- occu(~eff~River,umf)
+mod.eff.river.elev <- occu(~eff~River+elev,umf)
+mod.eff.river.HFI <- occu(~eff~River+HFI,umf)
+mod.eff.river.prod <- occu(~eff~River+Prod,umf)
+mod.eff.river.forest <- occu(~eff~River+Forest,umf)
+mod.eff.river.road <- occu(~eff~River+Forest,umf)
+mod.eff.river.forest.elev <- occu(~eff~River+Forest+elev,umf)
+mod.eff.river.forest.HFI <- occu(~eff~River+Forest+HFI,umf)
+mod.eff.river.forest.prod <- occu(~eff~River+Forest+Prod,umf)
+mod.eff.river.forest.road <- occu(~eff~River+Forest+Road,umf)
+mod.eff.river.elev.HFI <- occu(~eff~River+elev+HFI,umf)
+mod.eff.river.elev.prod <- occu(~eff~River+elev+Prod,umf)
+mod.eff.river.elev.road <- occu(~eff~River+elev+Road,umf)
+mod.eff.river.HFI.prod <- occu(~eff~River+HFI+Prod,umf)
+mod.eff.river.HFI.road <- occu(~eff~River+HFI+Road,umf)
+mod.eff.river.prod.road <- occu(~eff~River+Road+Prod,umf)
+mod.eff.river.forest.elev.HFI <- occu(~eff~River+Forest+elev+HFI,umf)
+mod.eff.river.forest.elev.prod <- occu(~eff~River+Forest+elev+Prod,umf)
+mod.eff.river.forest.elev.road <- occu(~eff~River+Forest+elev+Road,umf)
+mod.eff.river.HFI.elev.prod <- occu(~eff~River+HFI+elev+Prod,umf)
+mod.eff.river.HFI.elev.road <- occu(~eff~River+Road+elev+HFI,umf)
+mod.eff.river.forest.HFI.prod <- occu(~eff~River+Forest+HFI+Prod,umf)
+mod.eff.river.forest.HFI.road <-occu(~eff~River+Forest+Road+HFI,umf)
+mod.eff.river.forest.prod.road <- occu(~eff~River+Forest+Prod+Road,umf)
+mod.eff.river.forest.HFI.prod.elev <- occu(~eff~River+Forest+HFI+Prod+elev,umf)
+mod.eff.river.forest.HFI.prod.road <-occu(~eff~River+Forest+HFI+Prod+Road,umf)
+mod.eff.river.forest.HFI.elev.road <- occu(~eff~River+Forest+HFI+Road+elev,umf)
+mod.eff.river.forest.prod.elev.road <-occu(~eff~River+Forest+Road+Prod+elev,umf)
+mod.eff.river.HFI.prod.elev.road <-occu(~eff~River+Road+HFI+Prod+elev,umf)
+mod.eff.river.forest.elev.HFI.road.prod <- occu(~eff~River+Forest+elev+HFI+Road+Prod,umf)
+```
+
+
+
+```{r}
+##collect in fitList
+#Function fitList organizes models for model selection
+detList<-fitList(
+mod0,
+mod.elev,
+mod.HFI,
+mod.elev.HFI,
+mod.Eff,
+mod.Eff.elev,
+mod.Eff.HFI,
+mod.Eff.elev.HFI, 
+mod.forest,
+mod.forest.elev,
+mod.forest.HFI,
+mod.forest.elev.HFI,
+mod.Eff.forest,
+mod.Eff.forest.elev,
+mod.Eff.forest.HFI,
+mod.Eff.forest.elev.HFI,
+mod.prod,
+mod.prod.elev,
+mod.prod.HFI,
+mod.prod.forest,
+mod.prod.forest.elev,
+mod.prod.forest.HFI,
+mod.prod.elev.HFI,
+mod.eff.prod,
+mod.eff.prod.elev,
+mod.eff.prod.HFI,
+mod.eff.prod.forest,
+mod.eff.prod.forest.elev,
+mod.eff.prod.forest.HFI,
+mod.eff.prod.elev.HFI,
+mod.road,
+mod.road.elev,
+mod.road.HFI,
+mod.road.prod,
+mod.road.forest,
+mod.road.forest.elev,
+mod.road.forest.HFI,
+mod.road.forest.prod,
+mod.road.elev.HFI,
+mod.road.elev.prod,
+mod.road.HFI.prod,
+mod.road.forest.elev.HFI,
+mod.road.forest.elev.prod,
+mod.road.HFI.elev.prod,
+mod.road.forest.HFI.prod,
+mod.road.forest.HFI.prod.elev,
+mod.eff.road,
+mod.eff.road.elev,
+mod.eff.road.HFI,
+mod.eff.road.prod,
+mod.eff.road.forest,
+mod.eff.road.forest.elev,
+mod.eff.road.forest.HFI,
+mod.eff.road.forest.prod,
+mod.eff.road.elev.HFI,
+mod.eff.road.elev.prod,
+mod.eff.road.HFI.prod,
+mod.eff.road.forest.elev.HFI,
+mod.eff.road.forest.elev.prod,
+mod.eff.road.HFI.elev.prod,
+mod.eff.road.forest.HFI.prod,
+mod.eff.road.forest.HFI.prod.elev,
+mod.river,
+mod.river.elev,
+mod.river.HFI,
+mod.river.prod,
+mod.river.forest,
+mod.river.road,
+mod.river.forest.elev,
+mod.river.forest.HFI,
+mod.river.forest.prod,
+mod.river.forest.road,
+mod.river.elev.HFI,
+mod.river.elev.prod,
+mod.river.elev.road,
+mod.river.HFI.prod,
+mod.river.HFI.road,
+mod.river.prod.road,
+mod.river.forest.elev.HFI,
+mod.river.forest.elev.prod,
+mod.river.forest.elev.road,
+mod.river.HFI.elev.prod,
+mod.river.HFI.elev.road,
+mod.river.forest.HFI.prod,
+mod.river.forest.HFI.road,
+mod.river.forest.prod.road,
+mod.river.forest.HFI.prod.elev,
+mod.river.forest.HFI.prod.road,
+mod.river.forest.HFI.elev.road,
+mod.river.forest.prod.elev.road,
+mod.river.HFI.prod.elev.road,
+mod.river.forest.elev.HFI.road.prod,
+mod.eff.river,
+mod.eff.river.elev,
+mod.eff.river.HFI,
+mod.eff.river.prod,
+mod.eff.river.forest,
+mod.eff.river.road,
+mod.eff.river.forest.elev,
+mod.eff.river.forest.HFI,
+mod.eff.river.forest.prod,
+mod.eff.river.forest.road,
+mod.eff.river.elev.HFI,
+mod.eff.river.elev.prod,
+mod.eff.river.elev.road,
+mod.eff.river.HFI.prod,
+mod.eff.river.HFI.road,
+mod.eff.river.prod.road,
+mod.eff.river.forest.elev.HFI,
+mod.eff.river.forest.elev.prod,
+mod.eff.river.forest.elev.road,
+mod.eff.river.HFI.elev.prod,
+mod.eff.river.HFI.elev.road,
+mod.eff.river.forest.HFI.prod,
+mod.eff.river.forest.HFI.road,
+mod.eff.river.forest.prod.road,
+mod.eff.river.forest.HFI.prod.elev,
+mod.eff.river.forest.HFI.prod.road,
+mod.eff.river.forest.HFI.elev.road,
+mod.eff.river.forest.prod.elev.road,
+mod.eff.river.HFI.prod.elev.road,
+mod.eff.river.forest.elev.HFI.road.prod)
+```
+
+
+```{r}
+##do AIC model selection
+modSel(detList) 
+##top 3 models are similarly good at explaining our data with as few parametres as possible
+#the best one is the simplest one
+```
+
+
+```{r}
+#all models are SUPER close
+##look at output for best models
+summary(mod.prod.forest)
+summary(mod.forest) #significant!!
+summary(mod.forest.elev)
+summary(mod.forest.HFI)
+summary(mod.eff.prod.forest)
+summary(mod.Eff.forest)
+summary(mod.road.forest.prod)
+summary(mod.road.forest)
+summary(mod.river.forest.elev.road) #did not converge
+summary(mod.prod.forest.elev)
+
+#forest model probability
+siteCovs$Forest*7.150167+-6.183049
+plogis(-6.183049+7.150167*siteCovs$Forest) #occupancy prob
+#plog26143) #detection prob
+```
+
+
+```{r}
+#export a csv
+#code from puma data
+detList.puma<-fitList(mod.Eff.forest.HFI,mod.forest.HFI,mod.elev.HFI,mod.Eff.elev.HFI,mod.forest.elev.HFI,mod.Eff.forest.elev.HFI,mod.Eff,mod.forest,mod.elev,mod.Eff.elev,mod.Eff.forest,mod.HFI,mod.Eff.HFI,mod.forest.elev,mod.Eff.forest.elev)
+Puma_AIC_Table<-modSel(detList.puma)
+str(Puma_AIC_Table)
+ModelRankPuma<-as.data.frame(Puma_AIC_Table@Full)
+write.csv(ModelRankPuma, "Puma_AIC_Table_North.csv")
+```
+**************************************************************************************
+
+Step 8
+```{r}
+##plotting covariate relationships
+
+##get expected occupancy probability for a range of elevations using predict
+## In the unmarked package, predict() automatically back-transforms
+## Note: if you don't specify new covariate values, the function automatically
+##       uses the original covariate values used in the model
+## Note: the column name for the new values of elevation has to be the same as the 
+##       name used in the model!
+## Note: You HAVE TO provide the new covariate data with the argument name "newdata"
+##       Otherwise the original covariate values will be used for prediction
+## VERY IMPORTANT NOTE: the predict() function may give you an error, depending on the 
+##      version of unmarked that you use. If it does not work, see alternative code below.
+
+#create a data frame from min to max in increments of 10
+new.forest<-data.frame(Forest=seq(min(scale(siteCovs$Forest)), max(scale(siteCovs$Forest)), 0.1))
+
+
+#if you get an error saying object x not found, ensure you are using the same variable name
+pred.psi<-predict(mod.forest, newdata=new.forest, "state") #ensure named the same if you get error
+
+## Plot predicted occupancy against new values for elevation
+plot(new.forest$Forest, pred.psi$Predicted, type="l", 
+     xlab="Forest Cover", ylab="Occupancy probability", main = "Impact of Forest Cover on Ocelot Occupancy - North", ylim=c(0,1))
+
+##add confidence intervals
+##lty stands for line type, 2 codes a dashed line
+points(new.forest$Forest,pred.psi$lower, type="l", lty=2, col="blue")
+points(new.forest$Forest,pred.psi$upper, type="l", lty=2, col="blue")
+```
+
+```{r}
+#if you need to plot a model with multiple detection or occupancy covariates
+
+##our model
+#occ(~1~Forest+EdgeDens, umf)
+summary(mod.forest.edge)
+
+##output from our model
+#det
+#int: -2.308856
+
+#occ
+#(Intercept)	-13.987228
+#Forest	6.199449
+#EdgeDens	-10.358609
+
+##create new values in a sequence
+newForest <- data.frame(Forest = seq(min(scale(siteCovs$Forest)),max(scale(siteCovs$Forest)), length = 100))
+
+newEdge<- data.frame(Edge = seq(min(scale(siteCovs$EdgeDens)), max(scale(siteCovs$EdgeDens)), length = 100))
+
+plogis(-13.987228+6.199449*newForest$Forest+-10.358609*newEdge$Edge)
+
+##create your plot by keeping one of the covariates constant (mean)
+pred.forest<-plogis(-13.987228+6.199449*newForest$Forest+-10.358609*mean(newEdge$Edge))
+pred.edge<-plogis(-13.987228+6.199449*mean(newForest$Forest)+-10.358609*newEdge$Edge)
+
+#now plot predicted forest with edge constant
+plot(pred.forest, type="l", 
+     xlab="Forest Cover", ylab="Occupancy probability", main = "Forest Cover and Ocelot Occupancy (Edge Density Constant) - North", ylim=c(0,2.0e-6), cex.axis = 0.75)
+#not sure how to add eror bars
+
+#now plot predicted edge with forest constant
+plot(pred.edge, type="l", 
+     xlab="Edge Density", ylab="Occupancy probability", main = "Edge Density and Ocelot Occupancy (Forest Cover Constant) - North", ylim=c(0,0.0007), cex.axis = 0.75)
+#not sure how to add eror bars
+
+```
+
+

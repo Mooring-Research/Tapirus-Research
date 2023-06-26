@@ -1,0 +1,12 @@
+"0","```r
+ggplot(data=data, aes(y=HEIGHT, x=SB, col=WEIGHT, pch=SEX))+
+  geom_point(size=2)+
+  scale_color_gradient(low=\"blue\", high=\"red\")+
+  #geom_smooth(method = \"lm\", color=\"red\", linetype=1)+
+  geom_rug(side=\"1\", color=\"black\", cex=.2)+
+  geom_smooth(type=\"loess\")
+```"
+"1","Warning: Ignoring unknown parameters: side
+Warning: Ignoring unknown parameters: type
+`geom_smooth()` using method = 'loess' and formula 'y ~ x'
+"

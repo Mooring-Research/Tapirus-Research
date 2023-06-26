@@ -1,0 +1,10 @@
+"0","```r
+#some tweaking
+ggplot(Molten, aes(x = xval, y = value, colour = variable)) + 
+    geom_smooth(se = FALSE) + geom_point() + theme_bw() + 
+    scale_x_continuous(\"the x label\") + scale_x_continuous(\"the y label\") +
+    scale_colour_discrete(\"\")
+```"
+"1","Scale for 'x' is already present. Adding another scale for 'x', which will replace the existing scale.
+`geom_smooth()` using method = 'loess' and formula 'y ~ x'
+"

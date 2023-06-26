@@ -1,0 +1,15 @@
+"0","```r
+t.test(femaleFilter$WEIGHT, maleFilter$WEIGHT, data=data, alternative=\"less\")#male weights are greater than female
+```"
+"1","
+	Welch Two Sample t-test
+
+data:  femaleFilter$WEIGHT and maleFilter$WEIGHT
+t = -2.6235, df = 340.43, p-value = 0.004547
+alternative hypothesis: true difference in means is less than 0
+95 percent confidence interval:
+       -Inf -0.8702254
+sample estimates:
+mean of x mean of y 
+ 35.42236  37.76592 
+"

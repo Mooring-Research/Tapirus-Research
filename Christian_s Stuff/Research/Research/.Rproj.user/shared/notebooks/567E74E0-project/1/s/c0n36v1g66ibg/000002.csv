@@ -1,0 +1,29 @@
+"0","```r
+
+library(ggplot2)
+n <- 200
+dataset <- data.frame(xval = runif(n), col1 = rnorm(n), col2 = rnorm(n, sd = 2), col3 = rnorm(n, mean = seq(0, 2, length = n)), col4 = rnorm(n, sd = seq(0, 1, length = n)), col5 = rnorm(n, mean = 1))
+#convert data to long format
+library(reshape)
+```"
+"1","Warning: package ‘reshape’ was built under R version 4.1.2
+
+Attaching package: ‘reshape’
+
+The following object is masked from ‘package:dplyr’:
+
+    rename
+
+The following object is masked from ‘package:plotly’:
+
+    rename
+"
+"0","```r
+Molten <- melt(dataset, id.vars = \"xval\")
+#plot it
+library(ggplot2)
+ggplot(Molten, aes(x = xval, y = value, colour = variable)) + 
+    geom_smooth() + geom_point()
+```"
+"1","`geom_smooth()` using method = 'loess' and formula 'y ~ x'
+"

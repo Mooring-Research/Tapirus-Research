@@ -1,0 +1,15 @@
+"0","```r
+  labs(title=\"Pediatric Height for SB\", x=\"SB (min/day)\", y=\"Height (cm)\")
+```"
+"1","$x
+[1] \"SB (min/day)\"
+
+$y
+[1] \"Height (cm)\"
+
+$title
+[1] \"Pediatric Height for SB\"
+
+attr(,\"class\")
+[1] \"labels\"
+"

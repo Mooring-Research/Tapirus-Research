@@ -1,0 +1,15 @@
+"0","```r
+ 
+#for sb middle bout
+ggplot(data=data, aes(y=FM_PERCENT, x=SB_BOUT_MIDDLE, col=SB_BOUT_MIDDLE_NUMBER))+
+  geom_point( size=SB_BOUT_MIDDLE_NUMBER/5)+
+  scale_color_gradient(low=\"blue\", high=\"red\")+
+  geom_rug(side=\"1\", color=\"black\", alpha=.5)+
+  geom_smooth(method=\"lm\")+
+  labs(title=\"Pediatric Fat Mass Percent for SB Middle bout number\", x=\" SB middle (min/day)\", y=\"Fat Mass Percent\")+
+  stat_regline_equation(label.y =40, aes(label = ..eq.label.. )) +
+  stat_regline_equation(label.y = 35, aes(label = ..rr.label..))
+```"
+"1","Warning: Ignoring unknown parameters: side
+`geom_smooth()` using formula 'y ~ x'
+"

@@ -1,0 +1,15 @@
+"0","```r
+t.test(femaleFilter$LPA, maleFilter$LPA, alternative=\"two.sided\")
+```"
+"1","
+	Welch Two Sample t-test
+
+data:  femaleFilter$LPA and maleFilter$LPA
+t = 1.6412, df = 370.68, p-value = 0.1016
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -1.737694 19.276782
+sample estimates:
+mean of x mean of y 
+ 347.9583  339.1888 
+"

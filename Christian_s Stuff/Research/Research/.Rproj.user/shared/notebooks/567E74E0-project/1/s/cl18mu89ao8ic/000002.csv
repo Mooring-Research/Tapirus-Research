@@ -1,0 +1,11 @@
+"0","```r
+set.seed(1)
+n = 1000
+df = data.frame(x = runif(n),
+y = runif(n),
+z = runif(n),
+wt = runif(n))
+#Equivalent of Hexbin
+ggtern(df,aes(x,y,z)) +
+geom_hex_tern(binwidth=0.1)
+```"

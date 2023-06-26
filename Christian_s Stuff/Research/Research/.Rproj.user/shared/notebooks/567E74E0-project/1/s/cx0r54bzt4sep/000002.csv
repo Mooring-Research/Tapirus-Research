@@ -1,0 +1,72 @@
+"0","```r
+attach(data)
+```"
+"1","The following object is masked _by_ .GlobalEnv:
+
+    SEX
+
+The following objects are masked from data (pos = 3):
+
+    AGE_CATEGORIES, BMI, BMI_ZSCORE, BMI_ZSCORE_CATEGORIES, COUNT_PER_MINUTE, FFM, FM, FM_PERCENT, FMI, HEIGHT, ID, LPA, MVPA, PA, PA_RECOMMENDATION_GROUPS, SB, SB_BOUT_LONG, SB_BOUT_LONG_NUMBER, SB_BOUT_MIDDLE,
+    SB_BOUT_MIDDLE_NUMBER, SB_BOUT_SHORT, SB_BOUT_SHORT_NUMBER, SEX, VALID_DAYS_NUMBER, VAT, WEAR_TIME, WEIGHT
+
+The following objects are masked from data (pos = 5):
+
+    AGE_CATEGORIES, BMI, BMI_ZSCORE, BMI_ZSCORE_CATEGORIES, COUNT_PER_MINUTE, FFM, FM, FM_PERCENT, FMI, HEIGHT, ID, LPA, MVPA, PA_RECOMMENDATION_GROUPS, SB, SB_BOUT_LONG, SB_BOUT_LONG_NUMBER, SB_BOUT_MIDDLE,
+    SB_BOUT_MIDDLE_NUMBER, SB_BOUT_SHORT, SB_BOUT_SHORT_NUMBER, SEX, VALID_DAYS_NUMBER, VAT, WEAR_TIME, WEIGHT
+
+The following objects are masked from data (pos = 6):
+
+    AGE_CATEGORIES, BMI, BMI_ZSCORE, BMI_ZSCORE_CATEGORIES, COUNT_PER_MINUTE, FFM, FM, FM_PERCENT, FMI, HEIGHT, ID, LPA, MVPA, PA_RECOMMENDATION_GROUPS, SB, SB_BOUT_LONG, SB_BOUT_LONG_NUMBER, SB_BOUT_MIDDLE,
+    SB_BOUT_MIDDLE_NUMBER, SB_BOUT_SHORT, SB_BOUT_SHORT_NUMBER, SEX, VALID_DAYS_NUMBER, VAT, WEAR_TIME, WEIGHT
+
+The following objects are masked from data (pos = 11):
+
+    AGE_CATEGORIES, BMI, BMI_ZSCORE, BMI_ZSCORE_CATEGORIES, COUNT_PER_MINUTE, FFM, FM, FM_PERCENT, FMI, HEIGHT, ID, LPA, MVPA, PA_RECOMMENDATION_GROUPS, SB, SB_BOUT_LONG, SB_BOUT_LONG_NUMBER, SB_BOUT_MIDDLE,
+    SB_BOUT_MIDDLE_NUMBER, SB_BOUT_SHORT, SB_BOUT_SHORT_NUMBER, SEX, VALID_DAYS_NUMBER, VAT, WEAR_TIME, WEIGHT
+"
+"0","```r
+cor.test(FM_PERCENT, LPA)
+```"
+"1","
+	Pearson's product-moment correlation
+
+data:  FM_PERCENT and LPA
+t = -1.8463, df = 423, p-value = 0.06555
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.182973548  0.005761528
+sample estimates:
+        cor 
+-0.08940857 
+"
+"0","```r
+cor.test(FM_PERCENT, MVPA)
+```"
+"1","
+	Pearson's product-moment correlation
+
+data:  FM_PERCENT and MVPA
+t = -3.1998, df = 423, p-value = 0.001479
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.24526583 -0.05947996
+sample estimates:
+       cor 
+-0.1537313 
+"
+"0","```r
+cor.test(FM_PERCENT, PA)
+```"
+"1","
+	Pearson's product-moment correlation
+
+data:  FM_PERCENT and PA
+t = -2.7454, df = 423, p-value = 0.006302
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.22460455 -0.03766312
+sample estimates:
+       cor 
+-0.1323102 
+"

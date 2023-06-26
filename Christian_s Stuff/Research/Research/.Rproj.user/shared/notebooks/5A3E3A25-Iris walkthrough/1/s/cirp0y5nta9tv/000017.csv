@@ -1,0 +1,9 @@
+"0","ifelse(p.values<.05, ""significant"", ""not significant"")
+"
+"1","[1]"
+"1"," ""significant""    "
+"1"," ""not significant"""
+"1"," ""significant""    "
+"1"," ""significant""    "
+"1","
+"

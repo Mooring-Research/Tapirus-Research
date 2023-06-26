@@ -1,0 +1,355 @@
+---
+title: "Multi-species occupancy; Rota walkthrough. Christian Anderson 5/24/2023"
+output: html_notebook
+---
+
+# Rota multi-species occupancy walkthrough
+
+### ( <https://www.youtube.com/watch?v=tj_OCO77_sc> ) Christian Anderson 5/24/2023
+
+Read in detection/non-detection data
+
+```{r}
+#V1-V3 = weeks surveyed
+#rows = cameras
+bob <- read.csv('multiple species occupancy walkthrough/data/bobcat_3wk.csv', header = F)
+coy <- read.csv('multiple species occupancy walkthrough/data/Coyote_3wk.csv', header = F)
+fox <- read.csv('multiple species occupancy walkthrough/data/RedFox_3wk.csv', header = F)
+
+head(fox, 10)
+
+
+
+```
+
+site level covariate data (covariates that only vary by site but stay constant for duration of survey)
+
+-   Dist_5km = proportion disturbance within 5km
+
+-   HDens_5km = housing density within 5km
+
+-   latitude / longitude = latitude and longitude (div by 100)
+
+-   People_site = total people recorded / 1000
+
+-   trail = binary indicator of wheter camera was on trail (1) or not (0)
+
+```{r}
+
+occ_covs <- read.csv('data/psi_cov3wk.csv')
+head(occ_covs)
+
+
+
+```
+
+read in detection level covariate on column for every repliacte survey; average temperature over one week replicate period (example of covariate that changes from detection to detection)
+
+```{r}
+det_covs <- read.csv('data/detection data.csv')
+head(det_covs) 
+
+
+```
+
+apply unmarked package
+
+```{r}
+
+library(unmarked)
+
+
+```
+
+![](images/Screenshot%202023-05-24%20104331.png){width="430"}
+
+place detection/non-detection into a named list
+
+```{r}
+#each element of list must be a matrix
+y_list <- list(bobcat = as.matrix(bob),
+               coyote = as.matrix(coy),
+               redfox = as.matrix(fox))
+
+
+```
+
+Place detection covariates into a named list
+
+```{r}
+#each element of the list must be of the same dimension as each detection / non-detection mstrix
+  #same num of rows (each site) and columns(repl survey)
+
+det_list <- list(temp= det_covs)
+  #temperature is a covariate that can change based on when there is a instance of detection 
+  
+
+```
+
+combine data into an unmarkedFrameOccuMulti object:
+
+```{r}
+#fn+f1 pulls up help menu
+msom_data <- unmarkedFrameOccuMulti(y = y_list, 
+                                    siteCovs= occ_covs, 
+                                    obsCovs = det_list)
+    
+```
+
+### Intercept only model, assuming independence
+
+#### Syntax similar to other models
+
+-   need detection formula for each species
+
+-   need occupancy formula for each natural parameter included in model (3)
+
+-   need formulas (specified as character vector)
+
+-   need order of formulas follows detection / non-detection list (bob, coy, fox
+
+### Fit a Model
+
+intercept only model that assumes independence among species. We do this by only allowing 1st order natural paramaters (maxOrder = 1) **assumes species occur independently at each site**
+
+-   essentially the same as fitting three single species occupancy models
+
+```{r}
+fit_1 <- occuMulti(detformulas = c('~1', '~1', '~1'),
+                   stateformulas = c('~1', '~1', '~1'),
+                   maxOrder = 1,
+                   data = msom_data)
+            #state formulas len=3 so three natural parameters, i,e. three species
+            #maxOrder = 1 makes it so that the model ignores natural params above              first order> assumes species occur independently at each site
+
+```
+
+This is equivalent to fitting 3 single-species occupancy models
+
+```{r}
+summary(fit_1)
+
+```
+
+### Intercept-only model, assuming dependence
+
+-   set maxOrder = 2 to estimate up to 2nd order nat. params
+
+-   permits dependence between species
+
+-   fixes all nat params \> maxOrder at 0
+
+```{r}
+fit_2 <- occuMulti(detformulas = c('~1', '~1', '~1'),
+                   stateformulas = c('~1', '~1', '~1',
+                                     '~1', '~1', '~1'),
+                   maxOrder = 2,
+                   data = msom_data)
+                #State Formulas> there are three choose two different possiblities,                   one for each combo
+                #maxOrder = 2 sets natural parameters to 2nd order which allows for                   pairwise interactions between species 
+                
+
+
+```
+
+#### Output interpretation
+
+(Estimate = slope coefficient )
+
+-   bobcat and coyote occur together more frequently than expected by chance (p\<0.01)
+
+-   bobcat and red fox occur together less frequently than expected by chance (p\<0.01)
+
+-   coyote and red fox occur together more frequently than expected by chance (p\<0.01)
+
+-   AIC strongly favors the model incorporating dependence AIC= 6626.111 for fit_2 and AIC= 6710.658 for fit_1; it's much smaller
+
+### Incorporating Covariates
+
+-   any param can be modeled as a function of covariates
+
+-   covariate models for each param can be unique
+
+-   names of detection covariates correspond to names provided in named list
+
+-   names of occupancy covariates correspond to names in data.frame
+
+```{r}
+fit_3 <- occuMulti(detformulas = c('~temp', '~1', '~1'),
+                   stateformulas = c(  '~Dist_5km', '~HDens_5km', '~People_site',
+                                     '~Latitude', '~1', '~1'),
+                   maxOrder = 2, 
+                   data = msom_data)
+```
+
+```         
+'Call: 
+occuMulti(detformulas = c("~temp", "~1", "~1"), stateformulas = c("~Dist_5km",      "~HDens_5km", "~People_site", "~Latitude", "~1", "~1"), data = msom_data,      maxOrder = 2)  
+
+Occupancy (logit-scale):                                                                                       Estimate      SE      z  P(>|z|) 
+[bobcat] (Intercept)         -1.35970 0.19131  -7.11 1.18e-12 
+[bobcat] Dist_5km           -22.95531 5.90074  -3.89 1.00e-04 
+
+##                          ^log odds that a bobcat occurs at a location under the condition that all other species are absent
+
+[coyote] (Intercept)         -1.48520 0.17195  -8.64 5.74e-18 
+[coyote] HDens_5km            0.00424 0.00232   1.83 6.74e-02 
+[redfox] (Intercept)         -2.45677 0.16226 -15.14 8.71e-52 
+[redfox] People_site          5.92772 1.27022   4.67 3.06e-06 
+
+[bobcat:coyote] (Intercept)   8.89548 2.78768   3.19 1.42e-03 
+[bobcat:coyote] Latitude    -18.97578 7.30114  -2.60 9.35e-03 
+##                            ^moving north, bobcat less likely occupy the same site as a coyote
+
+[bobcat:redfox] (Intercept)  -1.55839 0.42126  -3.70 2.16e-04 
+[coyote:redfox] (Intercept)   1.55320 0.26507   5.86 4.64e-09  
+
+Detection (logit-scale):                      Estimate     SE     z  P(>|z|) [bobcat] (Intercept)   -1.248 0.1439 -8.67 4.16e-18 
+[bobcat] temp          -0.306 0.0848 -3.60 3.12e-04 
+[coyote] (Intercept)   -0.322 0.0756 -4.26 2.05e-05 
+[redfox] (Intercept)   -0.494 0.1295 -3.81 1.36e-04  
+
+AIC: 6544.769  
+Number of sites: 1437 
+optim convergence code: 0 
+optim iterations: 133  
+Bootstrap iterations: 0 
+```
+
+#### Sample interpretations:
+
+-   for every I-unit increase disturbance within 5km, the log odds of bobcat occurance, when *coyote and red fox are absent,* declines by 22.96
+
+-   When latitude = 0, bobcats are more likely to occur at a site when coyotes are present (and vice versa, p\<0.01)
+
+-   For every I unit increase in Latitude, the log odds bobcats will occur at a site decreases by 18.98 if coyotes are also present, relative to equivalent sites where coyotes are absent
+
+    -   *i.e., as we move north, bobcats and coyotes are less likely to occupy the same site*
+
+-   For every I-unit increase in temperature, the log odds of bobcat detection decreases by 0.31
+
+### Conditional occupancy probability
+
+Calculation of conditional and marginal occupancy probabilities is done with predict function
+
+-   create a data.frame for predictions
+
+    -   the procedure is equivalent to creating data frames for all other applications of predict
+
+-   Include complete range of observed latitude; hold all other variables at their mean
+
+```{r}
+nd_cond <- data.frame(
+  Dist_5km = rep(mean(occ_covs$Dist_5km), 100), 
+  HDens_5km = rep(mean(occ_covs$HDens_5km), 100), 
+  People_site = rep(mean(occ_covs$People_site), 100), 
+  Latitude = seq(min(occ_covs$Latitude), max(occ_covs$Latitude),
+                 length.out = 100)
+)
+```
+
+### Conditional occupancy probability
+
+### Predicting bobcat occurance when coyotes are present
+
+-   \<species\> indicates which species we assume when predicting occupancy
+
+-   \<cond\> indicateswhich species we are assuming is present or absent
+
+    ```{r}
+    bob_coy_1 <- predict(fit_3, type = 'state' ,species = 'bobcat', 
+                         cond = 'coyote', newdata = nd_cond)
+      #what is the probability that a bobcat will be at a site on the condition that a coyote was present at that site
+      
+    ## Bootstrapping confidence intervals with 100 samples
+
+
+
+    ```
+
+#### Predicting bobcat occurrence when coyotes are absent
+
+-   putting a - in front of coyote tells *predict* you wish to assume coyotes are absent
+
+```{r}
+bob_coy_0 <- predict(fit_3, type = 'state', species = 'bobcat', 
+                     cond = '-coyote', newdata = nd_cond)
+  #condition on coyote being absent
+
+## Bootstrapping confidence intervals with 100 samples
+
+```
+
+#### Plotting
+
+```{r}
+gg_df_cond <- data.frame(
+  latitude = rep(nd_cond$Latitude, 2), 
+  occupancy = c(bob_coy_1$Predicted, 
+                bob_coy_0$Predicted),
+  low = c(bob_coy_1$lower,
+          bob_coy_0$lower),
+  high = c(bob_coy_1$upper,
+           bob_coy_0$upper),
+  conditional = rep(c('Coyote present', 'Coyote absent'),
+                    each = 100)
+)
+```
+
+```{r}
+library(ggplot2)
+
+cond_fig <- ggplot(gg_df_cond, aes(x= latitude, y= occupancy, 
+                                   group = conditional)) +
+  geom_ribbon(aes(ymin = low, ymax = high, fill = conditional)) + 
+  geom_line() +
+  ylab('Conditional bobcat/noccupancy probability') +
+  xlab('Latitude') + 
+  labs(fill = 'Coyote state') + 
+  theme(text = element_text(size = 25), 
+        legend.position = c(0.75, 0.85))
+```
+
+![](images/coyBobpresence.png)
+
+#### Marginal occupancy probability
+
+```{r}
+nd_marg <- data.frame(
+  Dist_5km = seq(min(occ_covs$Dist_5km), max(occ_covs$Dist_5km),
+                 length.out = 100),
+  HDens_5km = rep(mean(occ_covs$HDens_5km), 100), 
+  People_site = rep(mean(occ_covs$People_site), 100), 
+  Latitude = rep(mean(occ_covs$Latitude), 100)
+)
+```
+
+omitting the conditional argument to calculate marginal occupancy probability
+
+```{r}
+bob_marg <- predict(fit_3, type = 'state', species = 'bobcat', 
+                    newdata = nd_marg)
+
+```
+
+#### figure
+
+```{r}
+gg_df_marg <- data.frame(
+  hd = nd_marg$Dist_5km, 
+  occupancy = bob_marg$Predicted, 
+  low = bob_marg$lower, 
+  high = bob_marg$upper
+  
+)
+```
+
+```{r}
+marg_fig <- ggplot(gg_df_marg, aes(x = hd, y= occupancy)) +
+  geom_ribbon(aes(ymin = low, ymax = high), alpha = .5) +
+  geom_line() + 
+  ylab('Marginal bobcat\noccupancy probability') +
+  theme(text = element_text(size = 25))
+```
+
+![](images/Rplot.png)

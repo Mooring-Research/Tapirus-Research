@@ -1,0 +1,7 @@
+"0","```r
+#Calculate Mean of variable wt
+ggtern(df,aes(x,y,z)) +
+geom_hex_tern(binwidth=0.05,
+aes(value=wt),
+fun=mean)
+```"

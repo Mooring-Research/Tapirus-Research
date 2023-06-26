@@ -1,0 +1,82 @@
+"0","```r
+attach(data)
+```"
+"1","The following object is masked _by_ .GlobalEnv:
+
+    SEX
+
+The following objects are masked from data (pos = 4):
+
+    AGE_CATEGORIES, BMI, BMI_ZSCORE, BMI_ZSCORE_CATEGORIES, COUNT_PER_MINUTE, FFM, FM, FM_PERCENT, FMI, HEIGHT, ID, LPA, MVPA, PA_RECOMMENDATION_GROUPS, SB, SB_BOUT_LONG, SB_BOUT_LONG_NUMBER, SB_BOUT_MIDDLE,
+    SB_BOUT_MIDDLE_NUMBER, SB_BOUT_SHORT, SB_BOUT_SHORT_NUMBER, SEX, VALID_DAYS_NUMBER, VAT, WEAR_TIME, WEIGHT
+
+The following objects are masked from data (pos = 5):
+
+    AGE_CATEGORIES, BMI, BMI_ZSCORE, BMI_ZSCORE_CATEGORIES, COUNT_PER_MINUTE, FFM, FM, FM_PERCENT, FMI, HEIGHT, ID, LPA, MVPA, PA_RECOMMENDATION_GROUPS, SB, SB_BOUT_LONG, SB_BOUT_LONG_NUMBER, SB_BOUT_MIDDLE,
+    SB_BOUT_MIDDLE_NUMBER, SB_BOUT_SHORT, SB_BOUT_SHORT_NUMBER, SEX, VALID_DAYS_NUMBER, VAT, WEAR_TIME, WEIGHT
+
+The following objects are masked from data (pos = 10):
+
+    AGE_CATEGORIES, BMI, BMI_ZSCORE, BMI_ZSCORE_CATEGORIES, COUNT_PER_MINUTE, FFM, FM, FM_PERCENT, FMI, HEIGHT, ID, LPA, MVPA, PA_RECOMMENDATION_GROUPS, SB, SB_BOUT_LONG, SB_BOUT_LONG_NUMBER, SB_BOUT_MIDDLE,
+    SB_BOUT_MIDDLE_NUMBER, SB_BOUT_SHORT, SB_BOUT_SHORT_NUMBER, SEX, VALID_DAYS_NUMBER, VAT, WEAR_TIME, WEIGHT
+"
+"0","```r
+cor.test(FM_PERCENT, SB)
+```"
+"1","
+	Pearson's product-moment correlation
+
+data:  FM_PERCENT and SB
+t = 1.3352, df = 423, p-value = 0.1825
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.03052814  0.15892288
+sample estimates:
+       cor 
+0.06478107 
+"
+"0","```r
+cor.test(FM_PERCENT, SB_BOUT_SHORT)
+```"
+"1","
+	Pearson's product-moment correlation
+
+data:  FM_PERCENT and SB_BOUT_SHORT
+t = -0.57974, df = 423, p-value = 0.5624
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.12296827  0.06712426
+sample estimates:
+        cor 
+-0.02817675 
+"
+"0","```r
+cor.test(FM_PERCENT, SB_BOUT_MIDDLE)
+```"
+"1","
+	Pearson's product-moment correlation
+
+data:  FM_PERCENT and SB_BOUT_MIDDLE
+t = 2.1736, df = 423, p-value = 0.03029
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.01008081 0.19824035
+sample estimates:
+      cor 
+0.1051011 
+"
+"0","```r
+cor.test(FM_PERCENT, SB_BOUT_LONG)
+```"
+"1","
+	Pearson's product-moment correlation
+
+data:  FM_PERCENT and SB_BOUT_LONG
+t = 0.55466, df = 423, p-value = 0.5794
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.06833759  0.12176759
+sample estimates:
+       cor 
+0.02695875 
+"

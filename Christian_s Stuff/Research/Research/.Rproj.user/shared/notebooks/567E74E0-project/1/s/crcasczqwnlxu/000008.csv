@@ -1,0 +1,6 @@
+"0","```r
+#R^2=0.007994
+
+plot(data$PA,data$FM_PERCENT, col=c(\"purple\"), main=\"Fat-mass Percentage for Phyisical Activity\", xlab=\"Physical Activity (min/day)\", ylab=\"Fat-mass Percentage\")
+abline(lm(FM_PERCENT~PA, data=data), col=c(\"red\"))
+```"

@@ -1,0 +1,178 @@
+---
+title: "Extracting Covariates"
+author: "Sarah Turcic"
+date: "6/8/2022"
+output: html_document
+---
+
+```{r}
+#clear console
+rm(list=ls())
+```
+
+```{r}
+#set wd
+setwd("C:/Work/Point_Loma/Costa Rica Research/Summer 2022/3. Extracting Covariates")
+```
+
+```{r}
+#import location data
+loc <- read.csv("CT_Locations_CR_Dataset03_North_Sarah.csv")
+```
+
+```{r}
+#install packages
+
+#install.packages("maptools")
+library("maptools")
+
+#install.packages("rgdal")
+library(rgdal)
+
+#install.packages("raster")
+library(raster)
+
+#install.packages("sp")
+library(sp)
+```
+```{r}
+#convert coordinates to spatial data
+#tell R that x and y are coordinates
+#this piece of code was copied over from email 
+coord <- SpatialPoints(coords = loc[,c(3,2)], proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"))
+
+#double check class and content
+coord
+class(coord)
+
+#plot coordinates
+plot(coord)
+plot(coord, pch=1) #change the dot type
+plot(coord, pch=1, col="red") #add color
+```
+
+
+Importing Raster
+```{r}
+#importing Raster (Human Footprint Index)
+HFI <- raster("HFI_CostaRica_EPSG4326.tif")
+
+#Plot HFI
+plot(HFI) #Human Footprint Index
+```
+```{r}
+#Plot coordinates with HFI
+plot(HFI)
+plot(coord, pch=1,cex=0.75, add=TRUE)
+
+```
+```{r}
+#Import elevation Raster
+#importing Raster (Human Footprint Index)
+Elev <- raster("SRTM_CostaRica_1arc.tif")
+
+#Plot Elevation
+plot(Elev) #Elevation
+```
+```{r}
+#Import Water Cover Raster
+#importing Raster (Water Cover)
+Water <- raster("WaterSurf_CostaRica_EPSG4326.tif")
+
+#Plot Water Cover
+plot(Water) #Water Cover
+
+```
+
+```{r}
+#Import Forest Cover Raster
+#importing Raster (Forest Cover)
+Forest <- raster("PrimForest_CostaRica_EPSG4326.tif")
+
+#Plot Forest Cover
+plot(Forest) #Forest Cover
+```
+
+```{r}
+#Import Productivity Raster
+#importing Raster (Productivity)
+dir()
+Prod <- raster("NPP_CostaRica_1arc.tif")
+
+#Plot Productivity
+plot(Prod) #Productivity
+```
+
+
+Polygon Vectors
+```{r}
+#import polygon vector (Shape File)
+#Need to have all other files in same wd in order to access a shape file
+#roads
+dir()
+roads <- readOGR("Roads_CostaRica_EPSG4326.shp")
+plot(roads)
+
+#combine the two maps
+#protected area limit and camera trap location
+plot(roads)
+plot(coord, pch=19, col="red", add=T) 
+
+#distance to road and river is already extracted but need to subset
+#load in dataset
+dir()
+distance <- read.csv("Distances_CR_Dataset03_Sarah.csv")
+colnames(distance) <- c("Camr_Nm", "Lat", "Long", "d.Road", "d.River")
+distance <- distance[,c("Camr_Nm","d.Road","d.River")]
+```
+
+
+```{r}
+#fragmentation metrics are already extracted, but need to  be subset and merged with covariates
+frag <- read.csv("FragMetrics_CR-D3_Sarah.csv")
+head(frag)
+colnames(frag) <- c("Camr_Nm", "Lat", "Long", "d.Road", "EdgeDens","PatchDens","DisjCore")
+frag <- frag[,c(1,5,6,7)]
+```
+
+```{r}
+#extract HFI info per coordinate
+HFI_Value <- extract(HFI, coord)
+HFI_Value
+
+#extract Elev info per coordinate
+Elevation <- extract(Elev, coord)
+Elevation
+
+#extract Water cover info with buffer
+#Water_Index <- extract(Water, coord, buffer=1000, fun=mean)
+#Water_Index
+
+#extract Forest cover info per coordinate
+Forest_Cover <- extract(Forest, coord, buffer=500, fun=mean)
+Forest_Cover
+
+#extract productivity info per coordinate
+Productivity <- extract(Prod, coord)
+Productivity
+
+#bind HFI_Value and Elevation to our dataset and rename
+dat2 <- cbind(loc, HFI_Value, Elevation,Forest_Cover, Productivity)
+dat2 <- merge(dat2, distance, by = "Camr_Nm")
+dat2 <- merge(dat2, frag, by = "Camr_Nm")
+head(dat2)
+
+```
+
+```{r}
+#write csv of site covariates
+write.csv(dat2, "Site_Covariates_North_Updated6.csv")
+```
+
+
+
+
+
+
+
+
