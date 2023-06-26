@@ -1,3 +1,0 @@
-"0",""
-"0","occ_covs <- read.csv('data/psi_cov3wk.csv')"
-"0","head(occ_covs)"

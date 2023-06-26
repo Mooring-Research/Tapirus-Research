@@ -1,3 +1,0 @@
-"0","```r
-data$PA<- data$MVPA+data$LPA #physical activity time
-```"

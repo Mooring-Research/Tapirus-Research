@@ -1,4 +1,0 @@
-"0","data<- CR_Dataset03_North"
-"0",""
-"0","tapirs<- data[grepl('*Tapir*', data$Common), ]"
-"0","tapirs"

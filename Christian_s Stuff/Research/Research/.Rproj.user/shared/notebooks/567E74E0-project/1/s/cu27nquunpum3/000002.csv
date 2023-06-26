@@ -1,6 +1,0 @@
-"0","```r
-data$SEX <- as.character(data$SEX)#change binary to characters
-data[\"SEX\"][data[\"SEX\"] == 1] <- \"M\" #replace numbers with character values
-data[\"SEX\"][data[\"SEX\"] == 0] <- \"F\"
-
-```"
