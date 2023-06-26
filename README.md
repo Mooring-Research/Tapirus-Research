@@ -7,4 +7,4 @@ The data was cleaned with scripts within the "data cleaning and model" scripts u
 
 ### Christian 
 
-#Add more directory info
+# Add more directory info
