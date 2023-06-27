@@ -8,4 +8,5 @@ The data was cleaned with scripts within the "data cleaning and model" scripts u
 ### Christian 
 Converted each species' detection times to solar time and converted mp4 to jpg
 
-# Add more directory info
+# Add more directory info.
+
