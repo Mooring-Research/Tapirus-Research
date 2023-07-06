@@ -1,7 +1,2 @@
-# Tapir-Research
-## Tapir covariate analyses
-
-Analysis of *Tapirus* occupancy and activity. 
-
-### Packages
-We used the unmarked package to perform occupancy analyses and the overlap package to make circadian rythm plots. 
+# Christian's stuff
+Py scripts includes some code to convert video to jpg, random R scripts has some novel graphics and statistical stuf. The R scripts were used to update the Master_CR data set to Master_CR(2023-7-6).csv. The order used to add two wildID files goes combineNewToMaster_CR.R > combineNewToMaster_CRMarch-July2021.R > CR_cleanForIndependenceAt30min.R. 
