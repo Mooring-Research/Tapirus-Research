@@ -1,10 +1,11 @@
 #Add new Kamuk 2021-2022 csv to master csv and derive missing column values
-#Christian Anderson, 2023-7-6
+#Christian Anderson, 2023-7-6, Edited: 2023-7-8
 
-require(dplyr)
-require(lubridate)
 
 rm(list= ls())
+
+require(lubridate)
+require(dplyr)
 setwd("C:/Users/chris/Documents/Research")
 
 new.raw<- read.csv("WildID/Kamuk2021-22_WildID_stuff/Wild_ID_Kamuk_21/Wild_ID_Kamuk_21_July-Feb.csv", comment.char = "#")#note: csv has comments
@@ -71,19 +72,50 @@ new_merged<- merge(new, animals, by = "Species", all.x = TRUE)
 #rename Common.y to Common
 names(new_merged)[which(names(new_merged) == "Common.y")]<- "Common"
 
+#((((((((((((((>> derive independence <<))))))))))))))
+
+#explanation of function: 
+# this func makes vectors of each column lat, long, and datetime and shifts them left one (excluding first value) and right one index (excluding last value) 
+# so that each vector overlaps with the subsequent one
+# comparing each subsequent value of x<- c(1,2,3,4,5,6) looks like
+#x[-1] == x[-nrow(x)] 
+#2,3,4,5,6 compares to 
+#1,2,3,4,5
+test_independence <- function(data) { 
+  
+  # Find the duplicate records based on latitude, longitude, and time difference and current independent value
+  duplicate_indices <- data$Latitude[-1] == data$Latitude[-nrow(data)] & #compares two vectors from same column offset by one on either end, resepectively
+    data$Longitude[-1] == data$Longitude[-nrow(data)] &
+    abs(difftime(data$datetime[-1], data$datetime[-nrow(data)], units = "hours")) <= 0.5
+  
+  # Create a new column 'newIndependent' and set its values based on the duplicate indices
+  data$newIndependent <- 1
+  data$newIndependent[duplicate_indices] <- 0
+  
+  # Return the modified data frame
+  return(data) #return dataframe with independence column filled
+}
+
+#first need datetime column for comparisons
+new_merged$datetime <- as.POSIXct(paste(base::as.Date(new_merged$Date, format = "%m/%d/%Y") , new_merged$Time), tz = "America/Costa_Rica",format = "%Y-%m-%d %H:%M:%S")
 
 
+new_merged<- test_independence(new_merged)
 
-#get column names as printed list
-# get.columns<- function(df){
-#   for(column in list(colnames(df))){
-#     print(paste(sQuote(column), collapse = ", "))
-#   }
-# }
+#remove datetime
+new_merged<- new_merged[,-which(colnames(new_merged) == "datetime")]
 
-# get.columns(master)
-# get.columns(Kamuk)
+#change newIndependent to indendent and delete newIndependent
+new_merged$Independent<- new_merged$newIndependent
+new_merged<- new_merged[,-which(colnames(new_merged) == "newIndependent")]
 
+#convert date back to char in master's date format
+if (class(new_merged$Date) == "Date"){ 
+  new_merged$Date<- as.character(format(new_merged$Date, format= "%m/%d/%Y"))
+  }else{print("Date not date class. Check format to match month/day/Year ")}
+
+
+#(((((>> merge master and new <<)))))
   # #vectorize column names for logical operation
 new_merged_cols<- c(colnames(new_merged))
 master_cols<- c(colnames(master))
@@ -98,10 +130,10 @@ master_cols<- c(colnames(master))
 #remove superfluous column using its index
 Kamuk<- new_merged[,-which(colnames(new_merged) == "Common.x")]
 
-
+names(Kamuk)
 
 #save kamuk on its own
-write.csv(Kamuk, "Tapir Research/Code and Data/all Tapir's data/Costa Rica (Baird Tapir)/Kamuk21-22_clean(2023-7-6).csv",row.names = FALSE)
+#write.csv(Kamuk, "Tapir Research/Code and Data/all Tapir's data/Costa Rica (Baird Tapir)/Kamuk21-22_clean(2023-7-6).csv",row.names = FALSE)
 
 joined_df<- rbind(Kamuk, master)#it all comes together (make sure date formats match)
 
@@ -113,6 +145,6 @@ print(joined_df[grep("/20$", joined_df$Date) ,])
 
 #save combined df
 write.csv(joined_df, 
-          "Tapir Research/Code and Data/all Tapir's data/Costa Rica (Baird Tapir)/Master(2023-7-5).csv",
+          "Tapir Research/Code and Data/all Tapir's data/Costa Rica (Baird Tapir)/Master(2023-7-7)-1.csv",
           row.names= FALSE)
 
