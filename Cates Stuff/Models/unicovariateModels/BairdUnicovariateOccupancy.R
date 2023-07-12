@@ -37,7 +37,7 @@ CR_m.psiRoad.pEff	    <- occu(~Eff~d.Road , CR_umf)
 CR_m.psiTempmax.pEff  <- occu(~Eff~ Avg.Max.Temp, CR_umf) 
 CR_m.psiTempmax.pEff  <- occu(~Eff~ Avg.Max.Temp, CR_umf)
 CR_m.psiNDVI.pEff	    <- occu(~Eff~ NDVI, CR_umf)
-CR_m.pEff.psiPrec	    <- occu(~Eff ~Precip, CR_umf)
+CR_m.psiPrecp.Eff     <- occu(~Eff ~Precip, CR_umf)
 CR_m.psiTempmin.pEff  <- occu(~Eff~ Avg.Min.Temp, CR_umf) 
 CR_m.psiDC.pEff		    <- occu(~Eff~DisjCore ,CR_umf)
 CR_m.psiPD.pEff		    <- occu(~Eff~PatchDens ,CR_umf)
@@ -52,7 +52,7 @@ CR_detlist<-fitList(CR_m.psi1.pEff		,
                        CR_m.psiElev.pEff	,
                        CR_m.psiRoad.pEff	,
                        CR_m.psiNDVI.pEff	,
-                       CR_m.pEff.psiPrec	,
+                       CR_m.psiPrecp.Eff ,
                        CR_m.psiTempmax.pEff,
                        CR_m.psiTempmin.pEff,
                        CR_m.psiDC.pEff		,

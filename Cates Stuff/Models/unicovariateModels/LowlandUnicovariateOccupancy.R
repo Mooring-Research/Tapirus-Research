@@ -30,7 +30,7 @@ AM_cv<- cbind(AM_cv[,c(1:4)], round(scale(AM_cv[,5:ncol(AM_cv)]),3))
 # rownames(AM_eff) == AM_cv$Station
 
 # Checking for sitecov correlations
-as.dist(cor(AM_cv[,-c(1:4)]))
+#as.dist(cor(AM_cv[,-c(1:4)]))
 # Some sitecovs are correlated: Road&Elev, ED&PD&DC (do not include correlated covs in the same model)
 
 #Establish Unmarked Data Frame##############################################################
@@ -46,7 +46,7 @@ AM_m.psi1.pEff     <- occu(~Eff~1, AM_umf)
 AM_m.psiElev.pEff  <- occu(~Eff~Elev , AM_umf)
 AM_m.psiRoad.pEff  <- occu(~Eff~d.Road , AM_umf)  
 AM_m.psiNDVI.pEff  <- occu(~Eff~NDVI , AM_umf)
-AM_m.psiTemp.pEff  <- occu(~Eff~Avg.Max.Temp , AM_umf)
+AM_m.psiTempmax.pEff<- occu(~Eff~Avg.Max.Temp , AM_umf)
 AM_m.psiPrecip.pEff<- occu(~Eff~MAP , AM_umf)
 AM_m.psiReg.pEff   <- occu(~Eff~Dataset , AM_umf)
 AM_m.psiWat.pEff   <- occu(~Eff~Water , AM_umf)
@@ -57,13 +57,13 @@ AM_m.psiRiver.pEff <- occu(~Eff~d.River, AM_umf)
 AM_m.psiNPP.pEff   <- occu(~Eff~NPP , AM_umf)
 AM_m.psiFor.pEff   <- occu(~Eff~Forest , AM_umf)
 AM_m.psiHFI.pEff   <- occu(~Eff~HFI , AM_umf)
-AM_m.psiTempmin.pEff  <- occu(~Eff~ Avg.Min.Temp, AM_umf) 
+AM_m.psiTempmin.pEff<- occu(~Eff~ Avg.Min.Temp, AM_umf) 
 ##collect in fitList
 AM_detlist<-fitList(AM_m.psi1.pEff     ,
                         AM_m.psiElev.pEff  ,
                         AM_m.psiRoad.pEff  ,
                         AM_m.psiNDVI.pEff  ,
-                        AM_m.psiTemp.pEff  ,
+                        AM_m.psiTempmax.pEff  ,
                         AM_m.psiPrecip.pEff,
                         AM_m.psiReg.pEff   ,
                         AM_m.psiWat.pEff   ,

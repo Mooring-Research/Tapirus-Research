@@ -8,6 +8,31 @@ MA_mod.psiRoad.pEff      4 2134.57 37.05 9.0e-09     1.00
 MA_m.psiNDVI.pEff        4 2135.66 38.14 5.2e-09     1.00
 MA_m.psi1.pEff           3 2141.86 44.34 2.4e-10     1.00
 MA_m.psiHFI.pEff         4 2143.70 46.19 9.3e-11     1.00
+
+##P & Psi##
+"MA_m.psi1.pEff"
+"𝜓=  NA"
+"p=  0.6201"
+"MA_m.psiElev.pEff"
+"𝜓=  0.7405"
+"p=  0.6206"
+"MA_m.psiHFI.pEff"
+"𝜓=  0.4861"
+"p=  0.6201"
+"MA_m.psiNDVI.pEff"
+"𝜓=  0.4001"
+"p=  0.6204"
+"MA_m.psiPrec.pEff"
+"𝜓=  0.6969"
+"p=  0.6208"
+"MA_m.psiTempmax.pEff"
+"𝜓=  0.2902"
+"p=  0.6208"
+"MA_m.psiTempmin.pEff"
+"𝜓=  0.2988"
+"p=  0.6208"
+
+
 [1] "Mountain Tapir Model Selection"
                      nPars    AIC delta AICwt cumltvWt
 MT_m.psiTempmax.pEff     4 523.30  0.00 0.211     0.21
@@ -19,13 +44,39 @@ MT_m.psiRoad.pEff        4 525.75  2.46 0.062     0.86
 MT_m.psiPrec.pEff        4 525.81  2.51 0.060     0.92
 MT_mod0                  2 526.45  3.16 0.044     0.97
 MT_m.psiElev.p1          3 527.00  3.70 0.033     1.00
+
+"MT_m.psi1.pEff"
+"𝜓=  NA"
+"p=  0.6214"
+"MT_m.psiElev.p1"
+"𝜓=  0.5739"
+"p=  NA"
+"MT_m.psiElev.pEff"
+"𝜓=  0.5759"
+"p=  0.6218"
+"MT_m.psiNDVI.pEff"
+"𝜓=  0.4352"
+"p=  0.6218"
+"MT_m.psiPrec.pEff"
+"𝜓=  0.5068"
+"p=  0.6214"
+"MT_m.psiRoad.pEff"
+"𝜓=  0.4839"
+"p=  0.6214"
+"MT_m.psiTempmax.pEff"
+"𝜓=  0.4025"
+"p=  0.6218"
+"MT_m.psiTempmin.pEff"
+"𝜓=  0.4057"
+"p=  0.6218"
+
 [1] "Lowland Tapir Model Selection"
                      nPars    AIC delta AICwt cumltvWt
 AM_m.psiHFI.pEff         4 683.60  0.00 0.433     0.43
 AM_m.psiTempmin.pEff     4 686.80  3.20 0.087     0.52
 AM_m.psiRoad.pEff        4 687.00  3.40 0.079     0.60
 AM_m.psiPD.pEff          4 687.13  3.53 0.074     0.67
-AM_m.psiTemp.pEff        4 687.23  3.63 0.070     0.74
+AM_m.psiTempmax.pEff     4 687.23  3.63 0.070     0.74
 AM_m.psiED.pEff          4 687.49  3.89 0.062     0.81
 AM_m.psiReg.pEff         6 688.82  5.22 0.032     0.84
 AM_m.psi1.pEff           3 688.90  5.30 0.031     0.87
@@ -37,6 +88,57 @@ AM_m.psiRiver.pEff       4 690.65  7.05 0.013     0.96
 AM_m.psiNPP.pEff         4 690.77  7.18 0.012     0.98
 AM_m.psiNDVI.pEff        4 690.84  7.25 0.012     0.99
 AM_m.psiFor.pEff         4 690.85  7.25 0.012     1.00
+
+##P & Psi##
+ "AM_m.psi1.pEff"
+ "𝜓=  NA"
+ "p=  0.5487"
+ "AM_m.psiDC.pEff"
+ "𝜓=  0.5584"
+ "p=  0.5487"
+ "AM_m.psiED.pEff"
+ "𝜓=  0.619"
+ "p=  0.5487"
+ "AM_m.psiElev.pEff"
+ "𝜓=  0.5629"
+ "p=  0.5487"
+ "AM_m.psiFor.pEff"
+ "𝜓=  0.4843"
+ "p=  0.5487"
+ "AM_m.psiHFI.pEff"
+ "𝜓=  0.6831"
+ "p=  0.5497"
+ "AM_m.psiNDVI.pEff"
+ "𝜓=  0.4869"
+ "p=  0.5488"
+ "AM_m.psiNPP.pEff"
+ "𝜓=  0.5181"
+ "p=  0.5488"
+ "AM_m.psiPD.pEff"
+ "𝜓=  0.8233"
+ "p=  0.5486"
+ "AM_m.psiPrecip.pEff"
+ "𝜓=  0.4334"
+ "p=  0.5488"
+ "AM_m.psiReg.pEff"
+ "𝜓=  0.4135"
+ "p=  0.5507"
+ "AM_m.psiRiver.pEff"
+ "𝜓=  0.475"
+ "p=  0.5489"
+ "AM_m.psiRoad.pEff"
+ "𝜓=  0.4018"
+ "p=  0.5496"
+ "AM_m.psiTemp.pEff"
+ "𝜓=  0.613"
+ "p=  0.5493"
+ "AM_m.psiTempmin.pEff"
+ "𝜓=  0.4002"
+ "p=  0.5494"
+ "AM_m.psiWat.pEff"
+ "𝜓=  0.5521"
+ "p=  0.5486"
+ 
 [1] "Baird's Tapir Model Selection"
                      nPars     AIC delta   AICwt cumltvWt
 CR_m.psiRoad.pEff        4 1342.33  0.00 1.0e+00     1.00
@@ -50,11 +152,57 @@ CR_m.psiNPP.pEff         4 1367.57 25.24 3.3e-06     1.00
 CR_m.psiRiver.pEff       4 1367.58 25.25 3.3e-06     1.00
 CR_m.psiFor.pEff         4 1367.59 25.26 3.3e-06     1.00
 CR_m.psiPD.pEff          4 1367.88 25.55 2.8e-06     1.00
-CR_m.pEff.psiPrec        4 1367.99 25.66 2.7e-06     1.00
+CR_m.psiPrecip.pEff      4 1367.99 25.66 2.7e-06     1.00
 CR_m.psiED.pEff          4 1368.25 25.91 2.4e-06     1.00
 CR_m.psiDC.pEff          4 1368.25 25.92 2.3e-06     1.00
+ 
+##P and Psi##
+"CR_m.psiPrec.pEff"
+"𝜓=  0.5231"
+"p=  0.4876"
+"CR_m.psi1.pEff"
+"𝜓=  NA"
+"p=  0.4876"
+"CR_m.psiDC.pEff"
+"𝜓=  0.4968"
+"p=  0.4876"
+"CR_m.psiED.pEff"
+"𝜓=  0.5045"
+"p=  0.4876"
+"CR_m.psiElev.pEff"
+"𝜓=  0.633"
+"p=  0.4873"
+"CR_m.psiFor.pEff"
+"𝜓=  0.4647"
+"p=  0.4875"
+"CR_m.psiHFI.pEff"
+"𝜓=  0.3061"
+"p=  0.4872"
+"CR_m.psiNDVI.pEff"
+"𝜓=  0.4263"
+"p=  0.4874"
+"CR_m.psiNPP.pEff"
+"𝜓=  0.4584"
+"p=  0.4873"
+"CR_m.psiPD.pEff"
+"𝜓=  0.4729"
+"p=  0.4876"
+"CR_m.psiRiver.pEff"
+"𝜓=  0.5375"
+"p=  0.4877"
+"CR_m.psiRoad.pEff"
+"𝜓=  0.7871"
+"p=  0.4877"
+"CR_m.psiTempmax.pEff"
+"𝜓=  0.3793"
+"p=  0.4874"
+"CR_m.psiTempmin.pEff"
+"𝜓=  0.3905"
+"p=  0.4874"
 
-## P and Psi ##
+
+*****************************
+## ALL P and Psi ##
 [1] "AM_m.psi1.pEff"
 [1] "𝜓=  NA"
 [1] "p=  0.5487"
