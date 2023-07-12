@@ -1,7 +1,6 @@
 ###------------------------------------------------------------------------------###
-### Combining datasets from AM
-### Sarah Turcic (Edited by: DR on 10Oct2022, CA 12Jul2023
-### Date: 9/12/22
+### Running Unicovariate models on lowland tapir
+### CA 12Jul2023
 ###------------------------------------------------------------------------------###
 
 #> Files needed:
@@ -17,18 +16,18 @@ library(unmarked)
 
 
 #read in tapir occurance records
-AM_tapir<- readRDS("Lowland/tapir_AM.rds")
+AM_tapir<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Amazon (Lowland Tapir)/tapir_AM.rds")
 #read in effort table
-AM_eff<- readRDS("Lowland/eff_AM.rds")
+AM_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Amazon (Lowland Tapir)/eff_AM.rds")
 #read in covariate table
-AM_cv<- read.csv("Lowland/cv_t_AM_v2.csv")
+AM_cv<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Amazon (Lowland Tapir)/cv_t_AM_v2.csv")
 
 #scale covariates
 AM_cv<- cbind(AM_cv[,c(1:4)], round(scale(AM_cv[,5:ncol(AM_cv)]),3))
 
 #ensure rownames match
-rownames(AM_tapir) == rownames(AM_eff)
-rownames(AM_eff) == AM_cv$Station
+# rownames(AM_tapir) == rownames(AM_eff)
+# rownames(AM_eff) == AM_cv$Station
 
 # Checking for sitecov correlations
 as.dist(cor(AM_cv[,-c(1:4)]))
@@ -58,7 +57,7 @@ AM_m.psiRiver.pEff <- occu(~Eff~d.River, AM_umf)
 AM_m.psiNPP.pEff   <- occu(~Eff~NPP , AM_umf)
 AM_m.psiFor.pEff   <- occu(~Eff~Forest , AM_umf)
 AM_m.psiHFI.pEff   <- occu(~Eff~HFI , AM_umf)
-
+AM_m.psiTempmin.pEff  <- occu(~Eff~ Avg.Min.Temp, AM_umf) 
 ##collect in fitList
 AM_detlist<-fitList(AM_m.psi1.pEff     ,
                         AM_m.psiElev.pEff  ,
@@ -74,8 +73,15 @@ AM_detlist<-fitList(AM_m.psi1.pEff     ,
                         AM_m.psiRiver.pEff ,
                         AM_m.psiNPP.pEff   ,
                         AM_m.psiFor.pEff   ,
-                        AM_m.psiHFI.pEff   
+                        AM_m.psiHFI.pEff   ,
+                        AM_m.psiTempmin.pEff
 )
 
 ##do AIC model selection
 modSel(AM_detlist) 
+
+
+sink("unicovariateModselAll.txt", append = TRUE)
+print("Lowland Tapir Model Selection")
+modSel(AM_detlist)
+sink()

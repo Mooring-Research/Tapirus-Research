@@ -15,40 +15,40 @@ dir()#
 library(unmarked)
 
 #occurance recs
-CR_tapir<- readRDS("Baird's/tapir_CR.rds") 
+CR_tapir<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Costa Rica (Baird Tapir)/Scripts/tapir_CR.rds") 
 #effort table
-CR_eff<- readRDS("Baird's/eff_CR.rds")
+CR_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Costa Rica (Baird Tapir)/Scripts/eff_CR.rds")
 #covariates
-CR_cv<- read.csv("Baird's/cv_t3.csv")
+CR_cv<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Costa Rica (Baird Tapir)/cv_t3.csv")
 
 CR_cv<- cbind(CR_cv[,2:5], round(scale(CR_cv[,6:ncol(CR_cv)]),3))
 
-rownames(CR_tapir) == rownames(CR_eff)
-rownames(CR_eff) == CR_cv$Station
+#rownames(CR_tapir) == rownames(CR_eff)
+#rownames(CR_eff) == CR_cv$Station
 
 CR_umf<- unmarkedFrameOccu(y=CR_tapir, siteCovs=CR_cv, obsCovs=list(Eff=CR_eff))
-summary(CR_umf)
+#summary(CR_umf)
 
 #-----------------------------------------------------------------------
 # Running models
-CR_m.psi1.pEff		<- occu(~Eff~1, CR_umf) 
-CR_m.psiElev.pEff	<- occu(~Eff~Elev , CR_umf)
-CR_m.psiRoad.pEff	<- occu(~Eff~d.Road , CR_umf)
-CR_m.psiTempmax.pEff<- occu(~Eff~ Avg.Max.Temp, CR_umf) 
-CR_m.psiNDVI.pEff	<- occu(~Eff~ NDVI, CR_umf)
-CR_m.pEff.psiPrec	<- occu(~Eff ~Precip, CR_umf)
-CR_m.psiTempmax.pEff<- occu(~Eff~ Avg.Max.Temp, CR_umf) 
-CR_m.psiTempmin.pEff<- occu(~Eff~ Avg.Min.Temp, CR_umf) 
-CR_m.psiDC.pEff		<- occu(~Eff~DisjCore ,CR_umf)
-CR_m.psiPD.pEff		<- occu(~Eff~PatchDens ,CR_umf)
-CR_m.psiED.pEff		<- occu(~Eff~EdgeDens ,CR_umf)
-CR_m.psiRiver.pEff	<- occu(~Eff~d.River ,CR_umf)
-CR_m.psiNPP.pEff	<- occu(~Eff~NPP ,CR_umf)
-CR_m.psiHFI.pEff	<- occu(~Eff~HFI ,CR_umf) 
-CR_m.psiFor.pEff	<- occu(~Eff~Forest ,CR_umf)
+CR_m.psi1.pEff		    <- occu(~Eff~1, CR_umf) 
+CR_m.psiElev.pEff	    <- occu(~Eff~Elev , CR_umf)
+CR_m.psiRoad.pEff	    <- occu(~Eff~d.Road , CR_umf)
+CR_m.psiTempmax.pEff  <- occu(~Eff~ Avg.Max.Temp, CR_umf) 
+CR_m.psiTempmax.pEff  <- occu(~Eff~ Avg.Max.Temp, CR_umf)
+CR_m.psiNDVI.pEff	    <- occu(~Eff~ NDVI, CR_umf)
+CR_m.pEff.psiPrec	    <- occu(~Eff ~Precip, CR_umf)
+CR_m.psiTempmin.pEff  <- occu(~Eff~ Avg.Min.Temp, CR_umf) 
+CR_m.psiDC.pEff		    <- occu(~Eff~DisjCore ,CR_umf)
+CR_m.psiPD.pEff		    <- occu(~Eff~PatchDens ,CR_umf)
+CR_m.psiED.pEff		    <- occu(~Eff~EdgeDens ,CR_umf)
+CR_m.psiRiver.pEff	  <- occu(~Eff~d.River ,CR_umf)
+CR_m.psiNPP.pEff	    <- occu(~Eff~NPP ,CR_umf)
+CR_m.psiHFI.pEff	    <- occu(~Eff~HFI ,CR_umf) 
+CR_m.psiFor.pEff	    <- occu(~Eff~Forest ,CR_umf)
 
 ##>> collect in fitList
-detListUni.bd<-fitList(CR_m.psi1.pEff		,
+CR_detlist<-fitList(CR_m.psi1.pEff		,
                        CR_m.psiElev.pEff	,
                        CR_m.psiRoad.pEff	,
                        CR_m.psiNDVI.pEff	,
@@ -65,4 +65,9 @@ detListUni.bd<-fitList(CR_m.psi1.pEff		,
 )
 
 ##do AIC model selection
-modSel(detListUni.bd) 
+modSel(CR_detlist) 
+
+sink("unicovariateModselAll.txt", append = TRUE)
+print("Baird's Tapir Model Selection")
+modSel(CR_detlist)
+sink()

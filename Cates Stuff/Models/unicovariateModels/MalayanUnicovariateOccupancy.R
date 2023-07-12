@@ -1,39 +1,49 @@
+###------------------------------------------------------------------------------###
+### Running Unicovariate models on Malayan tapir
+### CA 12Jul2023
+###------------------------------------------------------------------------------###
+
+#> Files needed:
+#> Collapsed_Capture_Malayan_Tapir.rds >> tapir occurance records
+#> Effort_Malayan_Tapir.rds >> effort table
+#> Ma_T_Final_Covs.csv >> covariate table
 #clear system
 rm(list=ls())
-
+library(unmarked)
 #set wd
-setwd("C:/Users/chris/Documents/Research/Tapir Research/Code and Data/all Tapir's data/Malaysia (Malayan Tapir)")##different for Cate
+#setwd("C:/Users/chris/Documents/Research/Tapir Research/Code and Data/all Tapir's data/Malaysia (Malayan Tapir)")##Directory of R-project "Models" on github
+dir()
 
 
 ######Read in Tapir table and Effort###########
-tapir<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Collapsed_Capture_Malayan_Tapir.rds")
+MA_tapir<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Collapsed_Capture_Malayan_Tapir.rds")
 
-eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Data Processing/Effort_Malayan_Tapir.rds")
+MA_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Data Processing/Effort_Malayan_Tapir.rds")
 
 ######Read in Elev and HFI Table##############
-cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Ma_T_Final_Covs.csv")
+MA_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Ma_T_Final_Covs.csv")
 
-library(unmarked)
+
 
 
 #####Model-Prep######################
 
-umf<- unmarkedFrameOccu(y=tapir[,-1], siteCovs= as.data.frame(scale(cov[,-c(1,2,3,4)])), obsCovs=list(Eff=eff[,-1]))
-summary(umf)
-head(cov)
+MA_umf<- unmarkedFrameOccu(y=MA_tapir[,-1], siteCovs= as.data.frame(scale(MA_cov[,-c(1,2,3,4)])), obsCovs=list(Eff=MA_eff[,-1]))
+#summary(MA_umf)
+#head(MA_cov)
 
 ######Running Models!####################################
 
 # Running model with Eff as survey covariate
-m.psi1.pEff      <- occu(~Eff~1, umf)  # Eff Model
-m.psiElev.pEff   <- occu(~Eff ~Elev, umf)
-m.psiPrec.pEff   <- occu(~Eff ~Precip, umf)
-mod.psiRoad.pEff <- occu(~Eff ~d.Road, umf)
-m.psiTempmax.pEff<- occu(~Eff~ AvgMaxTemp, umf) 
-m.psiNDVI.pEff   <- occu(~Eff~ NDVI, umf) 
-m.psiTempmin.pEff<- occu(~Eff~ AvgMinTemp, umf)
-m.psiHFI.pEff    <- occu(~Eff ~HFI, umf)
-
+MA_m.psi1.pEff      <- occu(~Eff~1, MA_umf)  # Eff Model
+MA_m.psiElev.pEff   <- occu(~Eff ~Elev, MA_umf)
+MA_m.psiPrec.pEff   <- occu(~Eff ~Precip, MA_umf)
+MA_mod.psiRoad.pEff <- occu(~Eff ~d.Road, MA_umf)
+MA_m.psiTempmax.pEff<- occu(~Eff~ AvgMaxTemp, MA_umf) 
+MA_m.psiNDVI.pEff   <- occu(~Eff~ NDVI, MA_umf) 
+MA_m.psiTempmin.pEff<- occu(~Eff~ AvgMinTemp, MA_umf)
+MA_m.psiHFI.pEff    <- occu(~Eff ~HFI, MA_umf)
+MA_m.psiTempmin.pEff<- occu(~Eff~ Avg.Min.Temp, MA_umf) 
 
 
 
@@ -42,15 +52,21 @@ m.psiHFI.pEff    <- occu(~Eff ~HFI, umf)
 
 #detList is the name of the list, fitList compares the models with each other
 #detList.tapir<-fitList(mod0, m.psi1.pEff, m.p1.psiHFI, m.p1.psiElev, m.p1.psiPrec, m.pEff.psiPrec, m.pEff.psiElev, m.pEff.psiHFI)
-detListUni.ma <-fitList(m.psi1.pEff      ,
-                        m.psiElev.pEff   ,
-                        m.psiPrec.pEff   ,
-                        mod.psiRoad.pEff ,
-                        m.psiTempmax.pEff,
-                        m.psiNDVI.pEff   ,
-                        m.psiTempmin.pEff,
-                        m.psiHFI.pEff    
+MA_detlist <-fitList(MA_m.psi1.pEff      ,
+                        MA_m.psiElev.pEff   ,
+                        MA_m.psiPrec.pEff   ,
+                        MA_mod.psiRoad.pEff ,
+                        MA_m.psiTempmax.pEff,
+                        MA_m.psiNDVI.pEff   ,
+                        MA_m.psiHFI.pEff    ,
+                        MA_m.psiTempmin.pEff
+                        
 )
 
 # modSel compares AND ranks the models against eachother!
-modSel(detListUni.ma)
+modSel(MA_detlist)
+
+sink("unicovariateModselAll.txt", append = TRUE)
+  print("Malayan Tapir Model Selection")
+  modSel(MA_detlist)
+sink()
