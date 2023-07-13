@@ -10,7 +10,7 @@ the date field was stored as a "Date" class object in R, which was necessary to 
 same type, leading to lossy dates, i.e., 02/15/2014 was converted to 02/15/20. I fixed the issue by redoing the 
 extraction and additions, using the two Kamuk dataframes we had created on WildID (March-July & July-Feb), converting the date back to a 
 character class before joining it to the master. 
-
+In order to prevent pseudo-replication, a time interval of over 30 minutes was required between two consecutive photographs to ensure that they were distinct and separate observations.
 Secondly, I forgot to make sure that animals sighted within 30 min of each other at the same camera are each independent records. I fixed that with the fourth *and* 
 statement in the function. 
 
