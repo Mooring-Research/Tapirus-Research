@@ -21,16 +21,16 @@ MA_tapir<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's
 MA_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Data Processing/Effort_Malayan_Tapir.rds")
 
 ######Read in Elev and HFI Table##############
-MA_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Ma_T_Final_Covs.csv")
+MA_cv<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Ma_T_Final_Covs.csv")
 
 
 
 
 #####Model-Prep######################
 
-MA_umf<- unmarkedFrameOccu(y=MA_tapir[,-1], siteCovs= as.data.frame(scale(MA_cov[,-c(1,2,3,4)])), obsCovs=list(Eff=MA_eff[,-1]))
+MA_umf<- unmarkedFrameOccu(y=MA_tapir[,-1], siteCovs= as.data.frame(scale(MA_cv[,-c(1,2,3,4)])), obsCovs=list(Eff=MA_eff[,-1]))
 #summary(MA_umf)
-#head(MA_cov)
+#head(MA_cv)
 
 ######Running Models!####################################
 
