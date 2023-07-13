@@ -49,7 +49,7 @@ test_independence <- function(dat) {
 This function takes the location info and offsets each field as a vector, one index off the beginning and end, respectively, and compares those together 
 so that each subsequent index is compared to the previous. This reduced the cost of looping over the (350,000, 29) dataset. 
 
-**** Issues
+### Issues
 It appears that some surveys have several records with incorrect dates, like Chirripo 2016 which has several dates during 2010. The newest 
 version, Master(2023-7-10).csv, is missing the datetime and X.1 columns, but they are not important anyways. 
 
