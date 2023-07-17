@@ -37,12 +37,12 @@ pfpd<- function(x){
   pd(x)
 }
 
-sink("C:/Users/chris/Tapirus-Research/Cates Stuff/Models/unicovariateModselAll.txt", append = TRUE)
+#sink("C:/Users/chris/Tapirus-Research/Cates Stuff/Models/unicovariateModselAll.txt", append = TRUE)
 for (model in models){
   print(model)
   pfpd(get(model))
   
 }
-sink()
+#sink()
 
 
