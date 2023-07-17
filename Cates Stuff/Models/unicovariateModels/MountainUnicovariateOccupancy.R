@@ -22,13 +22,13 @@ MT_tapir<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's
 MT_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Peru (Mountain Tapir)/Model Selection/Effort_Mountain_Tapir_revised_DR.rds")
 
 ######Read in Elev and HFI Table##############
-MT_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Peru (Mountain Tapir)/Model Selection/Mt_T_Covs4.csv")
+MT_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Peru (Mountain Tapir)/MT_covs.csv", comment.char = "#")
 
 
 
 #####Model-Prep######################
-
-MT_umf<- unmarkedFrameOccu(y=MT_tapir[,-1], siteCovs= as.data.frame(scale(MT_cov[,-c(1,2,3,4)])), obsCovs=list(Eff=MT_eff[,-1]))
+#Double check that all modeling columns are scaled correctly 
+MT_umf<- unmarkedFrameOccu(y=MT_tapir[,-1], siteCovs= as.data.frame(scale(MT_cov[,-c(1,2,3,4,5)])), obsCovs=list(Eff=MT_eff[,-1]))
 
 ######Running Models!####################################
 #Running Null model
