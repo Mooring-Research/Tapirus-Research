@@ -21,12 +21,13 @@ CR_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's d
 #covariates
 CR_cv<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Costa Rica (Baird Tapir)/cv_t3.csv")
 
-CR_cv<- cbind(CR_cv[,2:5], round(scale(CR_cv[,6:ncol(CR_cv)]),3))
+# #remove first column and scale all numerical values
+# CR_cv<- cbind(CR_cv[,c(2:5, 7)], round(scale(CR_cv[,c(6, 8:ncol(CR_cv))])))
 
 #rownames(CR_tapir) == rownames(CR_eff)
 #rownames(CR_eff) == CR_cv$Station
 
-CR_umf<- unmarkedFrameOccu(y=CR_tapir, siteCovs=CR_cv, obsCovs=list(Eff=CR_eff))
+CR_umf<- unmarkedFrameOccu(y=CR_tapir, siteCovs= as.data.frame(scale(CR_cv[,-c(1:5)])), obsCovs=list(Eff=CR_eff))
 #summary(CR_umf)
 
 #-----------------------------------------------------------------------
@@ -67,10 +68,10 @@ CR_detlist<-fitList(CR_m.psi1.pEff		,
 ##do AIC model selection
 modSel(CR_detlist) 
 
-sink("unicovariateModselAll.txt", append = TRUE)
+#sink("unicovariateModselAll.txt", append = TRUE)
 print("Baird's Tapir Model Selection")
 modSel(CR_detlist)
-sink()
+#sink()
 
 #function for psi value
 pf <- function(x) {

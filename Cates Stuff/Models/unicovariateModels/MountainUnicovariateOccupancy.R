@@ -6,14 +6,14 @@
 #> Files needed:
 #> Collapsed_Capture_Mountain_Tapir_revised_DR.rds >> tapir occurance records
 #> Effort_Mountain_Tapir_revised_DR.rds >> effort table
-#> Mt_T_Covs4.csv >> covariate table
+#> Mt_T_Covs4.csv now MT_covs.csv (17 jul 2023) >> covariate table
 
 
 #clear system
 rm(list=ls())
 library(unmarked)
-library(corrgram)
-library(ggcorrplot)
+# library(corrgram)
+# library(ggcorrplot)
 
 #set wd
 setwd("C:/Users/chris/Tapirus-Research/Cates Stuff/Models")#Directory of R-project "Models" on github
@@ -27,13 +27,11 @@ MT_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's d
 #MT_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Peru (Mountain Tapir)/Model Selection/Mt_T_Covs4.csv")
 MT_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Peru (Mountain Tapir)/MT_covs.csv", comment.char = "#")
 
-#remove first column
-MT_cov<- MT_cov[, -1]
 
 
 #####Model-Prep######################
 #Double check that all modeling columns are scaled correctly 
-MT_umf<- unmarkedFrameOccu(y=MT_tapir[,-1], siteCovs= as.data.frame(scale(MT_cov[,-c(1,2,3,4)])), obsCovs=list(Eff=MT_eff[,-1]))
+MT_umf<- unmarkedFrameOccu(y=MT_tapir[,-1], siteCovs= as.data.frame(scale(MT_cov[,-c(1:5)])), obsCovs=list(Eff=MT_eff[,-1]))
 
 # correl<- cor(MT_cov[, -c(1,2,3,4,5)])
 # 
@@ -54,7 +52,6 @@ MT_m.psiTempmax.pEff <- occu(~Eff~ AvgMaxTemp, MT_umf)
 MT_m.psiNDVI.pEff    <- occu(~Eff~ NDVI, MT_umf) 
 MT_m.psiTempmin.pEff <- occu(~Eff~ AvgMinTemp, MT_umf)
 MT_m.psiNPP.pEff     <- occu(~Eff~ NPP, MT_umf)
-
 ##################What's the best model?###################################
 
 #detList is the name of the list, fitList compares the models with each other
@@ -67,7 +64,8 @@ MT_detlist<-fitList(
                     MT_m.psiTempmax.pEff ,
                     MT_m.psiNDVI.pEff    ,
                     MT_m.psiTempmin.pEff ,
-                    MT_m.psiNPP.pEff     
+                    MT_m.psiNPP.pEff    ,
+                    MT_m.psiHFI.pEff 
 )
 
 # modSel compares AND ranks the models against each other!

@@ -6,7 +6,7 @@
 #> Files needed:
 #> Collapsed_Capture_Malayan_Tapir.rds >> tapir occurance records
 #> Effort_Malayan_Tapir.rds >> effort table
-#> Ma_T_Final_Covs.csv >> covariate table
+#> Ma_T_Final_Covs.csv now MA_covs.csv 17 jul 2023>> covariate table
 #clear system
 rm(list=ls())
 library(unmarked)
@@ -20,30 +20,29 @@ MA_tapir<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's
 
 MA_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Data Processing/Effort_Malayan_Tapir.rds")
 
-######Read in Elev and HFI Table##############
-MA_cv<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Ma_T_Final_Covs.csv")
 
-
+#MA_cv<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/Ma_T_Final_Covs.csv")
+MA_cv<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Malaysia (Malayan Tapir)/MA_covs.csv")
 
 
 #####Model-Prep######################
 
-MA_umf<- unmarkedFrameOccu(y=MA_tapir[,-1], siteCovs= as.data.frame(scale(MA_cv[,-c(1,2,3,4)])), obsCovs=list(Eff=MA_eff[,-1]))
+MA_umf<- unmarkedFrameOccu(y=MA_tapir[,-1], siteCovs= as.data.frame(scale(MA_cv[,-c(1:5)])), obsCovs=list(Eff=MA_eff[,-1]))
 #summary(MA_umf)
 #head(MA_cv)
 
 ######Running Models!####################################
 
 # Running model with Eff as survey covariate
-MA_m.psi1.pEff      <- occu(~Eff~1, MA_umf)  # Eff Model
+MA_m.psi1.pEff      <- occu(~Eff ~1, MA_umf)  # Eff Model
 MA_m.psiElev.pEff   <- occu(~Eff ~Elev, MA_umf)
 MA_m.psiPrec.pEff   <- occu(~Eff ~Precip, MA_umf)
-MA_mod.psiRoad.pEff <- occu(~Eff ~d.Road, MA_umf)
-MA_m.psiTempmax.pEff<- occu(~Eff~ AvgMaxTemp, MA_umf) 
-MA_m.psiNDVI.pEff   <- occu(~Eff~ NDVI, MA_umf) 
-MA_m.psiTempmin.pEff<- occu(~Eff~ AvgMinTemp, MA_umf)
+MA_m.psiRoad.pEff <- occu(~Eff ~d.Road, MA_umf)
+MA_m.psiTempmax.pEff<- occu(~Eff ~AvgMaxTemp, MA_umf) 
+MA_m.psiNDVI.pEff   <- occu(~Eff ~NDVI, MA_umf) 
+MA_m.psiTempmin.pEff<- occu(~Eff ~AvgMinTemp, MA_umf)
 MA_m.psiHFI.pEff    <- occu(~Eff ~HFI, MA_umf)
-MA_m.psiTempmin.pEff<- occu(~Eff~ Avg.Min.Temp, MA_umf) 
+MA_m.psiNPP.pEff    <- occu(~Eff ~NPP, MA_umf)
 
 
 
@@ -53,13 +52,14 @@ MA_m.psiTempmin.pEff<- occu(~Eff~ Avg.Min.Temp, MA_umf)
 #detList is the name of the list, fitList compares the models with each other
 #detList.tapir<-fitList(mod0, m.psi1.pEff, m.p1.psiHFI, m.p1.psiElev, m.p1.psiPrec, m.pEff.psiPrec, m.pEff.psiElev, m.pEff.psiHFI)
 MA_detlist <-fitList(MA_m.psi1.pEff      ,
-                        MA_m.psiElev.pEff   ,
-                        MA_m.psiPrec.pEff   ,
-                        MA_mod.psiRoad.pEff ,
-                        MA_m.psiTempmax.pEff,
-                        MA_m.psiNDVI.pEff   ,
-                        MA_m.psiHFI.pEff    ,
-                        MA_m.psiTempmin.pEff
+                    MA_m.psiElev.pEff   ,
+                    MA_m.psiPrec.pEff   ,
+                    MA_m.psiRoad.pEff ,
+                    MA_m.psiTempmax.pEff,
+                    MA_m.psiNDVI.pEff   ,
+                    MA_m.psiHFI.pEff    ,
+                    MA_m.psiTempmin.pEff,
+                    MA_m.psiNPP.pEff
                         
 )
 

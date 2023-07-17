@@ -1,3 +1,4 @@
+#this script takes all the models in the environment and grabs their p and psi values
 objs<- ls()
 models<- objs[grepl("^MT_m\\.|^MA_m\\.|^CR_m\\.|^AM_m\\.", objs)]
 
