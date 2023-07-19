@@ -1,0 +1,2546 @@
+19, July 2023
+
+***Correlation Matrix***
+               Precip        Elev           HFI      d.Road        NDVI    AvgMinTemp   AvgMaxTemp         NPP
+Precip      1.0000000  0.92002748 -0.0680528036 -0.14319142 -0.55381106 -0.8695751680 -0.857095830  0.29475710
+Elev        0.9200275  1.00000000 -0.0833028264  0.05524525 -0.43433852 -0.8403993412 -0.844773701  0.12195695
+HFI        -0.0680528 -0.08330283  1.0000000000  0.01126473 -0.04813766  0.0007437804  0.009777253  0.01605033
+d.Road     -0.1431914  0.05524525  0.0112647319  1.00000000  0.20174126 -0.0325680300 -0.102182496 -0.76773024
+NDVI       -0.5538111 -0.43433852 -0.0481376567  0.20174126  1.00000000  0.4708835886  0.438661425 -0.28890150
+AvgMinTemp -0.8695752 -0.84039934  0.0007437804 -0.03256803  0.47088359  1.0000000000  0.994686674 -0.15058088
+AvgMaxTemp -0.8570958 -0.84477370  0.0097772527 -0.10218250  0.43866142  0.9946866743  1.000000000 -0.08964122
+NPP         0.2947571  0.12195695  0.0160503324 -0.76773024 -0.28890150 -0.1505808825 -0.089641219  1.00000000
+[1] "**Malayan Tapir Models**"
+                                     nPars     AIC delta   AICwt cumltvWt
+MA_m.psiNDVIRoad.pEff                    5 2135.92  0.00 0.06794    0.068
+MA_m.NDVIAvgMinTempAvgMaxTemp.pEff       6 2136.20  0.28 0.05910    0.127
+MA_m.HFIRoadNDVI.pEff                    6 2136.65  0.73 0.04707    0.174
+MA_m.HFINDVIAvgMaxTemp.pEff              6 2136.65  0.73 0.04707    0.221
+MA_m.PrecipRoadNDVI.pEff                 6 2136.82  0.91 0.04320    0.264
+MA_m.RoadNDVIAvgMaxTemp.pEff             6 2136.86  0.94 0.04243    0.307
+MA_m.RoadNDVIAvgMinTemp.pEff             6 2137.05  1.13 0.03856    0.345
+MA_m.ElevRoadNDVI.pEff                   6 2137.06  1.14 0.03841    0.384
+MA_m.RoadNDVINPP.pEff                    6 2137.37  1.45 0.03286    0.417
+MA_m.psiPrecipRoad.pEff                  5 2138.23  2.32 0.02134    0.438
+MA_m.psiNDVI.pEff                        4 2138.39  2.47 0.01973    0.458
+MA_m.psiAvgMaxTempNDVI.pEff              5 2138.40  2.49 0.01960    0.477
+MA_m.psiElevNDVI.pEff                    5 2138.82  2.91 0.01588    0.493
+MA_m.psiTempmax.pEff                     4 2138.96  3.04 0.01484    0.508
+MA_m.psiAvgMinTempNDVI.pEff              5 2138.98  3.06 0.01469    0.523
+MA_m.psiHFINDVI.pEff                     5 2139.00  3.08 0.01453    0.537
+MA_m.psiAvgMaxTempRoad.pEff              5 2139.12  3.20 0.01370    0.551
+MA_m.NDVIAvgMaxTempNPP.pEff              6 2139.18  3.27 0.01328    0.564
+MA_m.psiAvgMinTempRoad.pEff              5 2139.31  3.40 0.01244    0.577
+MA_m.psiAvgMinTempAvgMaxTemp.pEff        5 2139.34  3.43 0.01224    0.589
+MA_m.psiPrecipNDVI.pEff                  5 2139.49  3.57 0.01139    0.600
+MA_m.PrecipNDVIAvgMinTemp.pEff           5 2139.49  3.57 0.01139    0.612
+MA_m.ElevNDVINPP.pEff                    6 2139.57  3.65 0.01093    0.623
+MA_m.psiTempmin.pEff                     4 2139.57  3.66 0.01093    0.634
+MA_m.psiElevRoad.pEff                    5 2139.60  3.68 0.01079    0.644
+MA_m.NDVIAvgMinTempNPP.pEff              6 2139.60  3.68 0.01078    0.655
+MA_m.PrecipHFIRoad.pEff                  6 2139.62  3.70 0.01069    0.666
+MA_m.psiElev.pEff                        4 2139.62  3.71 0.01065    0.676
+MA_m.PrecipRoadNPP.pEff                  6 2139.72  3.81 0.01012    0.687
+MA_m.psiPrec.pEff                        4 2139.76  3.85 0.00993    0.697
+MA_m.PrecipNDVINPP.pEff                  6 2139.77  3.85 0.00990    0.706
+MA_m.ElevHFINDVI.pEff                    6 2139.78  3.86 0.00986    0.716
+MA_m.HFINDVINPP.pEff                     6 2139.80  3.88 0.00976    0.726
+MA_m.PrecipElevRoad.pEff                 6 2140.00  4.08 0.00884    0.735
+MA_m.psiHFIAvgMaxTemp.pEff               5 2140.00  4.08 0.00882    0.744
+MA_m.PrecipRoadAvgMaxTemp.pEff           6 2140.21  4.29 0.00796    0.752
+MA_m.HFIRoadAvgMaxTemp.pEff              6 2140.22  4.30 0.00790    0.760
+MA_m.PrecipRoadAvgMinTemp.pEff           6 2140.23  4.31 0.00787    0.767
+MA_m.PrecipNDVIAvgMaxTemp.pEff           6 2140.25  4.33 0.00778    0.775
+MA_m.ElevNDVIAvgMaxTemp.pEff             6 2140.37  4.45 0.00733    0.783
+MA_m.HFIRoadAvgMinTemp.pEff              6 2140.37  4.46 0.00732    0.790
+MA_m.HFINDVIAvgMinTemp.pEff              6 2140.37  4.46 0.00732    0.797
+MA_m.PrecipHFINDVI.pEff                  6 2140.37  4.46 0.00732    0.805
+MA_m.RoadAvgMaxTempNPP.pEff              6 2140.43  4.51 0.00712    0.812
+MA_m.psiAvgMinTempHFI.pEff               5 2140.57  4.65 0.00665    0.818
+MA_m.psiHFIAvgMinTemp.pEff               5 2140.57  4.65 0.00665    0.825
+MA_m.HFIAvgMinTempAvgMaxTemp.pEff        6 2140.60  4.68 0.00655    0.831
+MA_m.PrecipElevNDVI.pEff                 6 2140.62  4.70 0.00647    0.838
+MA_m.RoadAvgMinTempNPP.pEff              6 2140.63  4.72 0.00643    0.844
+MA_m.ElevNDVIAvgMinTemp.pEff             6 2140.73  4.81 0.00612    0.850
+MA_m.ElevRoadNPP.pEff                    6 2140.78  4.87 0.00596    0.856
+MA_m.psiElevAvgMaxTemp.pEff              5 2140.82  4.91 0.00585    0.862
+MA_m.RoadAvgMinTempAvgMaxTemp.pEff       6 2140.87  4.95 0.00571    0.868
+MA_m.PrecipAvgMinTempAvgMaxTemp.pEff     6 2140.89  4.97 0.00566    0.874
+MA_m.psiAvgMaxTempPrecip.pEff            5 2140.89  4.97 0.00565    0.879
+MA_m.psiHFIElev.pEff                     5 2140.92  5.00 0.00557    0.885
+MA_m.ElevHFIRoad.pEff                    6 2140.94  5.02 0.00553    0.890
+MA_m.ElevRoadAvgMaxTemp.pEff             6 2140.95  5.03 0.00548    0.896
+MA_m.psiHFIPrecip.pEff                   5 2141.03  5.11 0.00527    0.901
+MA_m.ElevRoadAvgMinTemp.pEff             6 2141.07  5.15 0.00518    0.906
+MA_m.psiAvgMinTempNPP.pEff               5 2141.14  5.22 0.00500    0.911
+MA_m.psiAvgMinTempElev.pEff              5 2141.21  5.29 0.00482    0.916
+MA_m.ElevAvgMinTempAvgMaxTemp.pEff       6 2141.24  5.32 0.00474    0.921
+MA_m.AvgMinTempAvgMaxTempNPP.pEff        6 2141.28  5.36 0.00466    0.926
+MA_m.psiAvgMinTempPrecip.pEff            5 2141.35  5.44 0.00448    0.930
+MA_m.psiElevPrecip.pEff                  5 2141.51  5.59 0.00416    0.934
+MA_m.psiRoad.pEff                        4 2141.58  5.67 0.00399    0.938
+MA_m.HFIAvgMaxTempNPP.pEff               6 2141.74  5.82 0.00370    0.942
+MA_m.psi1.pEff                           3 2141.86  5.94 0.00348    0.945
+MA_m.psi2.pEff                           3 2141.86  5.94 0.00348    0.949
+MA_m.psi3.pEff                           3 2141.86  5.94 0.00348    0.952
+MA_m.ElevHFIAvgMaxTemp.pEff              6 2141.94  6.03 0.00334    0.956
+MA_m.PrecipHFIAvgMaxTemp.pEff            6 2141.98  6.06 0.00328    0.959
+MA_m.HFIAvgMinTempNPP.pEff               6 2142.18  6.26 0.00297    0.962
+MA_m.PrecipHFINPP.pEff                   6 2142.18  6.26 0.00296    0.965
+MA_m.ElevHFIAvgMinTemp.pEff              6 2142.36  6.44 0.00271    0.968
+MA_m.PrecipAvgMaxTempNPP.pEff            6 2142.37  6.45 0.00270    0.970
+MA_m.PrecipHFIAvgMinTemp.pEff            6 2142.46  6.55 0.00257    0.973
+MA_m.psiHFIRoad.pEff                     5 2142.50  6.58 0.00253    0.975
+MA_m.ElevAvgMaxTempNPP.pEff              6 2142.50  6.58 0.00253    0.978
+MA_m.HFIRoadNPP.pEff                     6 2142.59  6.67 0.00241    0.980
+MA_m.PrecipAvgMinTempNPP.pEff            6 2142.61  6.69 0.00239    0.983
+MA_m.ElevHFINPP.pEff                     6 2142.66  6.74 0.00234    0.985
+MA_m.psiHFI.pEff                         4 2142.73  6.81 0.00225    0.987
+MA_m.ElevAvgMinTempNPP.pEff              6 2142.80  6.88 0.00217    0.990
+MA_m.PrecipElevHFI.pEff                  6 2142.80  6.89 0.00217    0.992
+MA_m.PrecipElevNPP.pEff                  6 2142.81  6.89 0.00217    0.994
+MA_m.PrecipElevAvgMaxTemp.pEff           6 2142.82  6.91 0.00215    0.996
+MA_m.PrecipElevAvgMinTemp.pEff           6 2143.20  7.29 0.00178    0.998
+MA_m.psiNPP.pEff                         4 2143.76  7.84 0.00135    0.999
+MA_m.psiHFINPP.pEff                      5 2144.64  8.72 0.00087    1.000
+
+**P and 𝜓**
+ [1] "MA_m.AvgMinTempAvgMaxTempNPP.pEff"    "MA_m.ElevAvgMaxTempNPP.pEff"          "MA_m.ElevAvgMinTempAvgMaxTemp.pEff"  
+ [4] "MA_m.ElevAvgMinTempNPP.pEff"          "MA_m.ElevHFIAvgMaxTemp.pEff"          "MA_m.ElevHFIAvgMinTemp.pEff"         
+ [7] "MA_m.ElevHFINDVI.pEff"                "MA_m.ElevHFINPP.pEff"                 "MA_m.ElevHFIRoad.pEff"               
+[10] "MA_m.ElevNDVIAvgMaxTemp.pEff"         "MA_m.ElevNDVIAvgMinTemp.pEff"         "MA_m.ElevNDVINPP.pEff"               
+[13] "MA_m.ElevRoadAvgMaxTemp.pEff"         "MA_m.ElevRoadAvgMinTemp.pEff"         "MA_m.ElevRoadNDVI.pEff"              
+[16] "MA_m.ElevRoadNPP.pEff"                "MA_m.HFIAvgMaxTempNPP.pEff"           "MA_m.HFIAvgMinTempAvgMaxTemp.pEff"   
+[19] "MA_m.HFIAvgMinTempNPP.pEff"           "MA_m.HFINDVIAvgMaxTemp.pEff"          "MA_m.HFINDVIAvgMinTemp.pEff"         
+[22] "MA_m.HFINDVINPP.pEff"                 "MA_m.HFIRoadAvgMaxTemp.pEff"          "MA_m.HFIRoadAvgMinTemp.pEff"         
+[25] "MA_m.HFIRoadNDVI.pEff"                "MA_m.HFIRoadNPP.pEff"                 "MA_m.NDVIAvgMaxTempNPP.pEff"         
+[28] "MA_m.NDVIAvgMinTempAvgMaxTemp.pEff"   "MA_m.NDVIAvgMinTempNPP.pEff"          "MA_m.PrecipAvgMaxTempNPP.pEff"       
+[31] "MA_m.PrecipAvgMinTempAvgMaxTemp.pEff" "MA_m.PrecipAvgMinTempNPP.pEff"        "MA_m.PrecipElevAvgMaxTemp.pEff"      
+[34] "MA_m.PrecipElevAvgMinTemp.pEff"       "MA_m.PrecipElevHFI.pEff"              "MA_m.PrecipElevNDVI.pEff"            
+[37] "MA_m.PrecipElevNPP.pEff"              "MA_m.PrecipElevRoad.pEff"             "MA_m.PrecipHFIAvgMaxTemp.pEff"       
+[40] "MA_m.PrecipHFIAvgMinTemp.pEff"        "MA_m.PrecipHFINDVI.pEff"              "MA_m.PrecipHFINPP.pEff"              
+[43] "MA_m.PrecipHFIRoad.pEff"              "MA_m.PrecipNDVIAvgMaxTemp.pEff"       "MA_m.PrecipNDVIAvgMinTemp.pEff"      
+[46] "MA_m.PrecipNDVINPP.pEff"              "MA_m.PrecipRoadAvgMaxTemp.pEff"       "MA_m.PrecipRoadAvgMinTemp.pEff"      
+[49] "MA_m.PrecipRoadNDVI.pEff"             "MA_m.PrecipRoadNPP.pEff"              "MA_m.psi1.pEff"                      
+[52] "MA_m.psi2.pEff"                       "MA_m.psi3.pEff"                       "MA_m.psiAvgMaxTempNDVI.pEff"         
+[55] "MA_m.psiAvgMaxTempPrecip.pEff"        "MA_m.psiAvgMaxTempRoad.pEff"          "MA_m.psiAvgMinTempAvgMaxTemp.pEff"   
+[58] "MA_m.psiAvgMinTempElev.pEff"          "MA_m.psiAvgMinTempHFI.pEff"           "MA_m.psiAvgMinTempNDVI.pEff"         
+[61] "MA_m.psiAvgMinTempNPP.pEff"           "MA_m.psiAvgMinTempPrecip.pEff"        "MA_m.psiAvgMinTempRoad.pEff"         
+[64] "MA_m.psiElev.pEff"                    "MA_m.psiElevAvgMaxTemp.pEff"          "MA_m.psiElevNDVI.pEff"               
+[67] "MA_m.psiElevPrecip.pEff"              "MA_m.psiElevRoad.pEff"                "MA_m.psiHFI.pEff"                    
+[70] "MA_m.psiHFIAvgMaxTemp.pEff"           "MA_m.psiHFIAvgMinTemp.pEff"           "MA_m.psiHFIElev.pEff"                
+[73] "MA_m.psiHFINDVI.pEff"                 "MA_m.psiHFINPP.pEff"                  "MA_m.psiHFIPrecip.pEff"              
+[76] "MA_m.psiHFIRoad.pEff"                 "MA_m.psiNDVI.pEff"                    "MA_m.psiNDVIRoad.pEff"               
+[79] "MA_m.psiNPP.pEff"                     "MA_m.psiPrec.pEff"                    "MA_m.psiPrecipNDVI.pEff"             
+[82] "MA_m.psiPrecipRoad.pEff"              "MA_m.psiRoad.pEff"                    "MA_m.psiTempmax.pEff"                
+[85] "MA_m.psiTempmin.pEff"                 "MA_m.RoadAvgMaxTempNPP.pEff"          "MA_m.RoadAvgMinTempAvgMaxTemp.pEff"  
+[88] "MA_m.RoadAvgMinTempNPP.pEff"          "MA_m.RoadNDVIAvgMaxTemp.pEff"         "MA_m.RoadNDVIAvgMinTemp.pEff"        
+[91] "MA_m.RoadNDVINPP.pEff"               
+
+[1] "MA_m.AvgMinTempAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5057"
+[1] "p=  0.6209"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + AvgMaxTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.242 0.146  1.66  0.0968
+AvgMinTemp    -1.971 1.683 -1.17  0.2415
+AvgMaxTemp     2.266 1.669  1.36  0.1745
+NPP           -0.045 0.173 -0.26  0.7952
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.188 1.022 -5.08 3.87e-07
+Eff            0.493 0.147  3.36 7.74e-04
+
+AIC: 2141.276 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5176"
+[1] "p=  0.6197"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMaxTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   0.2384 0.145  1.645  0.0999
+Elev         -0.1016 0.257 -0.396  0.6924
+AvgMaxTemp    0.2347 0.258  0.909  0.3634
+NPP           0.0786 0.138  0.570  0.5684
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.151 1.013 -5.08 3.72e-07
+Eff            0.488 0.146  3.35 7.94e-04
+
+AIC: 2142.502 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 66 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.5023"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMinTemp + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.242 0.146  1.661  0.0966
+Elev          -0.083 0.257 -0.322  0.7471
+AvgMinTemp    -1.714 1.347 -1.273  0.2032
+AvgMaxTemp     1.946 1.375  1.416  0.1569
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.174 1.018 -5.08 3.76e-07
+Eff            0.491 0.146  3.36 7.77e-04
+
+AIC: 2141.242 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5107"
+[1] "p=  0.6198"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMinTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   0.2391 0.145  1.651  0.0987
+Elev         -0.1446 0.252 -0.573  0.5663
+AvgMinTemp    0.1854 0.256  0.725  0.4682
+NPP           0.0885 0.139  0.637  0.5242
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.156 1.015 -5.08 3.76e-07
+Eff            0.489 0.146  3.35 7.94e-04
+
+AIC: 2142.802 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 65 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevHFIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5285"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   0.2389 0.145  1.645   0.100
+Elev         -0.0608 0.258 -0.236   0.814
+HFI           0.1504 0.188  0.801   0.423
+AvgMaxTemp    0.2539 0.258  0.985   0.324
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.167 1.018 -5.08 3.84e-07
+Eff            0.491 0.146  3.36 7.89e-04
+
+AIC: 2141.944 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 60 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevHFIAvgMinTemp.pEff"
+[1] "𝜓=  0.5183"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.238 0.145  1.640   0.101
+Elev          -0.117 0.254 -0.462   0.644
+HFI            0.148 0.188  0.790   0.429
+AvgMinTemp     0.189 0.253  0.746   0.456
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.017 -5.08 3.84e-07
+Eff             0.49 0.146  3.36 7.90e-04
+
+AIC: 2142.357 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevHFINDVI.pEff"
+[1] "𝜓=  0.5219"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.236 0.146  1.611  0.1073
+Elev          -0.169 0.152 -1.112  0.2660
+HFI            0.164 0.190  0.863  0.3882
+NDVI           0.270 0.153  1.767  0.0773
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.019 -5.07 4.01e-07
+Eff             0.49 0.146  3.35 8.06e-04
+
+AIC: 2139.778 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevHFINPP.pEff"
+[1] "𝜓=  0.4931"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   0.2426 0.145  1.668  0.0952
+Elev         -0.2842 0.143 -1.993  0.0462
+HFI           0.1296 0.182  0.712  0.4762
+NPP           0.0707 0.138  0.513  0.6078
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.016 -5.08 3.75e-07
+Eff             0.49 0.146  3.36 7.85e-04
+
+AIC: 2142.657 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevHFIRoad.pEff"
+[1] "𝜓=  0.4728"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + d.Road, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.246 0.146  1.686  0.0917
+Elev          -0.268 0.142 -1.895  0.0581
+HFI            0.129 0.181  0.716  0.4741
+d.Road        -0.189 0.135 -1.402  0.1611
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.174 1.018 -5.08 3.70e-07
+Eff            0.491 0.146  3.36 7.71e-04
+
+AIC: 2140.935 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 72 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevNDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5303"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.231 0.145  1.593   0.111
+Elev          -0.047 0.258 -0.182   0.856
+NDVI           0.238 0.152  1.565   0.118
+AvgMaxTemp     0.174 0.259  0.672   0.502
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.167 1.020 -5.06 4.09e-07
+Eff            0.491 0.146  3.35 8.09e-04
+
+AIC: 2140.371 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevNDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.5162"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.231 0.145  1.597   0.110
+Elev          -0.126 0.252 -0.500   0.617
+NDVI           0.242 0.154  1.573   0.116
+AvgMinTemp     0.079 0.257  0.307   0.759
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.019 -5.07 4.06e-07
+Eff             0.49 0.146  3.35 8.11e-04
+
+AIC: 2140.73 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevNDVINPP.pEff"
+[1] "𝜓=  0.5232"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.240 0.146  1.64  0.1017
+Elev          -0.190 0.152 -1.25  0.2129
+NDVI           0.308 0.161  1.91  0.0555
+NPP            0.162 0.146  1.11  0.2650
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.019 -5.07 3.99e-07
+Eff             0.49 0.146  3.35 8.05e-04
+
+AIC: 2139.571 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevRoadAvgMaxTemp.pEff"
+[1] "𝜓=  0.4933"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.244 0.146  1.673  0.0944
+Elev          -0.106 0.258 -0.411  0.6809
+d.Road        -0.183 0.134 -1.363  0.1728
+AvgMaxTemp     0.209 0.261  0.802  0.4224
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.174 1.018 -5.08 3.76e-07
+Eff            0.491 0.146  3.36 7.78e-04
+
+AIC: 2140.952 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 67 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevRoadAvgMinTemp.pEff"
+[1] "𝜓=  0.4887"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.244 0.146  1.672  0.0945
+Elev          -0.126 0.254 -0.497  0.6195
+d.Road        -0.196 0.134 -1.457  0.1450
+AvgMinTemp     0.186 0.256  0.728  0.4666
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.174 1.018 -5.08 3.77e-07
+Eff            0.491 0.146  3.36 7.79e-04
+
+AIC: 2141.066 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 67 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevRoadNDVI.pEff"
+[1] "𝜓=  0.4933"
+[1] "p=  0.6203"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.242 0.147  1.641  0.1007
+Elev          -0.144 0.155 -0.929  0.3528
+d.Road        -0.272 0.142 -1.921  0.0547
+NDVI           0.338 0.161  2.096  0.0361
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.170 1.019 -5.07 3.89e-07
+Eff            0.491 0.146  3.36 7.92e-04
+
+AIC: 2137.058 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 47 
+Bootstrap iterations: 0 
+
+[1] "MA_m.ElevRoadNPP.pEff"
+[1] "𝜓=  0.4346"
+[1] "p=  0.6205"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.241 0.146  1.653  0.0984
+Elev          -0.247 0.145 -1.704  0.0883
+d.Road        -0.341 0.216 -1.582  0.1136
+NPP           -0.201 0.225 -0.894  0.3711
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.175 1.019 -5.08 3.75e-07
+Eff            0.492 0.146  3.36 7.74e-04
+
+AIC: 2140.784 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "MA_m.HFIAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5444"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMaxTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.242 0.146 1.660  0.0969
+HFI            0.151 0.185 0.814  0.4156
+AvgMaxTemp     0.315 0.142 2.217  0.0266
+NPP            0.070 0.138 0.508  0.6111
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.016 -5.08 3.76e-07
+Eff             0.49 0.146  3.36 7.86e-04
+
+AIC: 2141.739 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 52 
+Bootstrap iterations: 0 
+
+[1] "MA_m.HFIAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.5239"
+[1] "p=  0.6205"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMinTemp + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.245 0.146  1.67  0.0943
+HFI            0.137 0.183  0.75  0.4533
+AvgMinTemp    -1.601 1.349 -1.19  0.2353
+AvgMaxTemp     1.899 1.352  1.40  0.1602
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.174 1.018 -5.08 3.73e-07
+Eff            0.492 0.146  3.36 7.73e-04
+
+AIC: 2140.597 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 57 
+Bootstrap iterations: 0 
+
+[1] "MA_m.HFIAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5451"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMinTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   0.2423 0.146 1.665   0.096
+HFI           0.1542 0.185 0.832   0.406
+AvgMinTemp    0.3037 0.143 2.120   0.034
+NPP           0.0865 0.139 0.623   0.533
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.168 1.018 -5.08 3.82e-07
+Eff            0.491 0.146  3.36 7.87e-04
+
+AIC: 2142.177 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 47 
+Bootstrap iterations: 0 
+
+[1] "MA_m.HFINDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5241"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.246 0.148  1.664 0.09621
+HFI            0.174 0.183  0.953 0.34036
+d.Road        -0.290 0.141 -2.059 0.03949
+NDVI           0.408 0.149  2.736 0.00623
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.017 -5.08 3.81e-07
+Eff             0.49 0.146  3.36 7.89e-04
+
+AIC: 2136.651 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "MA_m.HFINDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.52"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.247 0.146  1.687  0.0916
+HFI            0.152 0.184  0.827  0.4084
+d.Road        -0.199 0.135 -1.475  0.1403
+AvgMinTemp     0.288 0.141  2.036  0.0417
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.173 1.018 -5.08 3.74e-07
+Eff            0.491 0.146  3.36 7.74e-04
+
+AIC: 2140.375 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 64 
+Bootstrap iterations: 0 
+
+[1] "MA_m.HFINDVINPP.pEff"
+[1] "𝜓=  0.5601"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + NDVI + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.244 0.147 1.663  0.0964
+HFI            0.177 0.182 0.973  0.3307
+NDVI           0.390 0.153 2.551  0.0107
+NPP            0.159 0.145 1.094  0.2739
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.018 -5.07 3.93e-07
+Eff             0.49 0.146  3.35 8.04e-04
+
+AIC: 2139.798 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "MA_m.HFIRoadAvgMaxTemp.pEff"
+[1] "𝜓=  0.5218"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.247 0.146  1.687  0.0916
+HFI            0.149 0.183  0.812  0.4167
+d.Road        -0.179 0.135 -1.331  0.1833
+AvgMaxTemp     0.294 0.142  2.071  0.0383
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.174 1.018 -5.08 3.73e-07
+Eff            0.491 0.146  3.36 7.73e-04
+
+AIC: 2140.221 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 60 
+Bootstrap iterations: 0 
+
+[1] "MA_m.HFIRoadAvgMinTemp.pEff"
+[1] "𝜓=  0.52"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.247 0.146  1.687  0.0916
+HFI            0.152 0.184  0.827  0.4084
+d.Road        -0.199 0.135 -1.475  0.1403
+AvgMinTemp     0.288 0.141  2.036  0.0417
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.173 1.018 -5.08 3.74e-07
+Eff            0.491 0.146  3.36 7.74e-04
+
+AIC: 2140.375 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 64 
+Bootstrap iterations: 0 
+
+[1] "MA_m.HFIRoadNDVI.pEff"
+[1] "𝜓=  0.5241"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.246 0.148  1.664 0.09621
+HFI            0.174 0.183  0.953 0.34036
+d.Road        -0.290 0.141 -2.059 0.03949
+NDVI           0.408 0.149  2.736 0.00623
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.017 -5.08 3.81e-07
+Eff             0.49 0.146  3.36 7.89e-04
+
+AIC: 2136.651 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "MA_m.HFIRoadNPP.pEff"
+[1] "𝜓=  0.4533"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.247 0.145  1.705  0.0883
+HFI            0.158 0.172  0.919  0.3582
+d.Road        -0.425 0.214 -1.988  0.0468
+NPP           -0.302 0.222 -1.364  0.1725
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.172 1.016 -5.09 3.61e-07
+Eff            0.491 0.146  3.37 7.65e-04
+
+AIC: 2142.592 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 58 
+Bootstrap iterations: 0 
+
+[1] "MA_m.NDVIAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5557"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + AvgMaxTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)    0.241 0.147 1.64  0.1009
+NDVI           0.298 0.161 1.85  0.0647
+AvgMaxTemp     0.212 0.153 1.39  0.1656
+NPP            0.161 0.146 1.10  0.2705
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.168 1.020 -5.07 4.00e-07
+Eff            0.491 0.146  3.35 8.06e-04
+
+AIC: 2139.183 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 48 
+Bootstrap iterations: 0 
+
+[1] "MA_m.NDVIAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.533"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + AvgMinTemp + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.242 0.148  1.64  0.1020
+NDVI           0.376 0.168  2.23  0.0255
+AvgMinTemp    -3.030 1.500 -2.02  0.0434
+AvgMaxTemp     3.176 1.477  2.15  0.0315
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.017 -5.08 3.82e-07
+Eff             0.49 0.146  3.36 7.91e-04
+
+AIC: 2136.196 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "MA_m.NDVIAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5552"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + AvgMinTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)    0.241 0.146 1.64  0.1005
+NDVI           0.303 0.163 1.86  0.0624
+AvgMinTemp     0.192 0.156 1.23  0.2186
+NPP            0.171 0.146 1.17  0.2417
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.020 -5.07 4.01e-07
+Eff             0.49 0.146  3.35 8.07e-04
+
+AIC: 2139.599 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5118"
+[1] "p=  0.6203"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMaxTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.240 0.145  1.654  0.0982
+Precip        -0.156 0.290 -0.536  0.5917
+AvgMaxTemp     0.188 0.282  0.665  0.5059
+NPP            0.111 0.151  0.732  0.4642
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.170 1.019 -5.07 3.88e-07
+Eff            0.491 0.146  3.36 7.92e-04
+
+AIC: 2142.371 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 71 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.4886"
+[1] "p=  0.6203"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMinTemp + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)     0.24 0.146  1.648  0.0993
+Precip         -0.19 0.277 -0.686  0.4927
+AvgMinTemp     -2.02 1.417 -1.428  0.1534
+AvgMaxTemp      2.16 1.363  1.582  0.1137
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.169 1.017 -5.08 3.75e-07
+Eff            0.491 0.146  3.36 7.79e-04
+
+AIC: 2140.886 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 46 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5038"
+[1] "p=  0.6196"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMinTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.239 0.145  1.649  0.0992
+Precip        -0.211 0.290 -0.727  0.4673
+AvgMinTemp     0.128 0.284  0.451  0.6520
+NPP            0.128 0.147  0.872  0.3831
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.148 1.013 -5.08 3.72e-07
+Eff            0.488 0.145  3.35 7.98e-04
+
+AIC: 2142.612 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 75 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipElevAvgMaxTemp.pEff"
+[1] "𝜓=  0.5111"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+             Estimate    SE        z P(>|z|)
+(Intercept)  0.234544 0.144  1.62632   0.104
+Precip      -0.000658 0.373 -0.00176   0.999
+Elev        -0.093906 0.362 -0.25914   0.796
+AvgMaxTemp   0.229203 0.279  0.82177   0.411
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.167 1.018 -5.07 3.90e-07
+Eff            0.491 0.146  3.35 7.94e-04
+
+AIC: 2142.823 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipElevAvgMinTemp.pEff"
+[1] "𝜓=  0.4996"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept)   0.2342 0.144  1.6257   0.104
+Precip       -0.0223 0.386 -0.0578   0.954
+Elev         -0.1371 0.356 -0.3855   0.700
+AvgMinTemp    0.1548 0.283  0.5469   0.584
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.018 -5.07 3.91e-07
+Eff             0.49 0.146  3.35 7.96e-04
+
+AIC: 2143.204 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipElevHFI.pEff"
+[1] "𝜓=  0.4874"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + Elev, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.238 0.145  1.641   0.101
+Precip        -0.117 0.344 -0.340   0.734
+HFI            0.132 0.180  0.733   0.464
+Elev          -0.166 0.350 -0.475   0.635
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.017 -5.08 3.83e-07
+Eff             0.49 0.146  3.36 7.91e-04
+
+AIC: 2142.805 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 66 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipElevNDVI.pEff"
+[1] "𝜓=  0.5103"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.233 0.145  1.605  0.1085
+Precip         0.174 0.386  0.450  0.6524
+Elev          -0.337 0.363 -0.927  0.3537
+NDVI           0.286 0.169  1.693  0.0905
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.019 -5.07 4.03e-07
+Eff             0.49 0.146  3.35 8.09e-04
+
+AIC: 2140.621 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipElevNPP.pEff"
+[1] "𝜓=  0.4842"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept)   0.2387 0.145  1.6485  0.0993
+Precip       -0.2867 0.399 -0.7188  0.4723
+Elev         -0.0381 0.386 -0.0985  0.9215
+NPP           0.1331 0.159  0.8386  0.4017
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.018 -5.08 3.86e-07
+Eff             0.49 0.146  3.36 7.93e-04
+
+AIC: 2142.805 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 65 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipElevRoad.pEff"
+[1] "𝜓=  0.4504"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + d.Road, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.244 0.146  1.666  0.0957
+Precip        -0.510 0.403 -1.264  0.2061
+Elev           0.196 0.402  0.488  0.6255
+d.Road        -0.293 0.158 -1.858  0.0632
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.172 1.018 -5.08 3.78e-07
+Eff            0.491 0.146  3.36 7.79e-04
+
+AIC: 2139.995 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 64 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipHFIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5323"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   0.2383 0.145  1.641   0.101
+Precip       -0.0361 0.265 -0.136   0.892
+HFI           0.1516 0.187  0.812   0.417
+AvgMaxTemp    0.2737 0.269  1.018   0.309
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.167 1.018 -5.08 3.86e-07
+Eff            0.491 0.146  3.36 7.90e-04
+
+AIC: 2141.981 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 62 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipHFIAvgMinTemp.pEff"
+[1] "𝜓=  0.5225"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   0.2374 0.145  1.638   0.101
+Precip       -0.0878 0.275 -0.320   0.749
+HFI           0.1492 0.185  0.808   0.419
+AvgMinTemp    0.2093 0.279  0.751   0.453
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.018 -5.07 3.88e-07
+Eff             0.49 0.146  3.36 7.93e-04
+
+AIC: 2142.464 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 66 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipHFINDVI.pEff"
+[1] "𝜓=  0.5253"
+[1] "p=  0.62"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.236 0.146  1.621   0.105
+Precip        -0.128 0.162 -0.793   0.428
+HFI            0.166 0.184  0.902   0.367
+NDVI           0.268 0.165  1.623   0.105
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.018 -5.07 4.00e-07
+Eff             0.49 0.146  3.35 8.09e-04
+
+AIC: 2140.375 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 64 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipHFINPP.pEff"
+[1] "𝜓=  0.4956"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.241 0.145  1.657  0.0976
+Precip        -0.310 0.147 -2.099  0.0358
+HFI            0.123 0.174  0.707  0.4798
+NPP            0.132 0.143  0.922  0.3567
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.018 -5.08 3.83e-07
+Eff             0.49 0.146  3.36 7.89e-04
+
+AIC: 2142.182 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipHFIRoad.pEff"
+[1] "𝜓=  0.4633"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + d.Road, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.246 0.146  1.68  0.0936
+Precip        -0.313 0.142 -2.20  0.0278
+HFI            0.122 0.174  0.70  0.4839
+d.Road        -0.253 0.138 -1.83  0.0675
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.173 1.018 -5.08 3.74e-07
+Eff            0.491 0.146  3.36 7.74e-04
+
+AIC: 2139.615 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 58 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipNDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5564"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)    0.232 0.145 1.60   0.110
+Precip         0.113 0.289 0.39   0.696
+NDVI           0.267 0.165 1.62   0.105
+AvgMaxTemp     0.301 0.273 1.10   0.270
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.167 1.020 -5.07 4.08e-07
+Eff            0.491 0.146  3.35 8.09e-04
+
+AIC: 2140.251 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipNDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.5115"
+[1] "p=  0.62"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.232 0.145  1.601   0.109
+Precip        -0.152 0.160 -0.949   0.342
+NDVI           0.245 0.163  1.507   0.132
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.019 -5.07 4.06e-07
+Eff             0.49 0.146  3.35 8.14e-04
+
+AIC: 2139.49 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 52 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipNDVINPP.pEff"
+[1] "𝜓=  0.5242"
+[1] "p=  0.6199"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.241 0.147  1.64  0.1002
+Precip        -0.192 0.165 -1.17  0.2435
+NDVI           0.292 0.168  1.73  0.0834
+NPP            0.193 0.148  1.30  0.1920
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.160 1.017 -5.07 3.94e-07
+Eff            0.489 0.146  3.35 8.10e-04
+
+AIC: 2139.769 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 74 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipRoadAvgMaxTemp.pEff"
+[1] "𝜓=  0.4603"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   0.2436 0.146  1.667  0.0955
+Precip       -0.2828 0.296 -0.957  0.3388
+d.Road       -0.2451 0.151 -1.620  0.1052
+AvgMaxTemp    0.0489 0.296  0.165  0.8688
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.172 1.018 -5.08 3.77e-07
+Eff            0.491 0.146  3.36 7.79e-04
+
+AIC: 2140.207 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 66 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipRoadAvgMinTemp.pEff"
+[1] "𝜓=  0.4557"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept)    0.244 0.146  1.6671  0.0955
+Precip        -0.306 0.293 -1.0416  0.2976
+d.Road        -0.252 0.144 -1.7468  0.0807
+AvgMinTemp     0.023 0.293  0.0783  0.9376
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.172 1.018 -5.08 3.77e-07
+Eff            0.491 0.146  3.36 7.79e-04
+
+AIC: 2140.228 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 64 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipRoadNDVI.pEff"
+[1] "𝜓=  0.4865"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.242 0.147  1.64  0.1001
+Precip        -0.172 0.164 -1.05  0.2952
+d.Road        -0.300 0.141 -2.13  0.0334
+NDVI           0.309 0.170  1.82  0.0682
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.018 -5.08 3.87e-07
+Eff             0.49 0.146  3.36 7.92e-04
+
+AIC: 2136.823 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 64 
+Bootstrap iterations: 0 
+
+[1] "MA_m.PrecipRoadNPP.pEff"
+[1] "𝜓=  0.4319"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.240 0.146  1.642  0.1006
+Precip        -0.293 0.148 -1.982  0.0475
+d.Road        -0.370 0.212 -1.742  0.0815
+NPP           -0.161 0.226 -0.709  0.4783
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.171 1.018 -5.08 3.76e-07
+Eff            0.491 0.146  3.36 7.76e-04
+
+AIC: 2139.725 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psi1.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ 1, data = MA_umf)
+
+Occupancy (logit-scale):
+ Estimate    SE    z P(>|z|)
+    0.242 0.143 1.69  0.0902
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.017 -5.08 3.76e-07
+Eff             0.49 0.146  3.36 7.89e-04
+
+AIC: 2141.859 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 48 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psi2.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ 1 + 1, data = MA_umf)
+
+Occupancy (logit-scale):
+ Estimate    SE    z P(>|z|)
+    0.242 0.143 1.69  0.0902
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.017 -5.08 3.76e-07
+Eff             0.49 0.146  3.36 7.89e-04
+
+AIC: 2141.859 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 48 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psi3.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ 1 + 1 + 1, data = MA_umf)
+
+Occupancy (logit-scale):
+ Estimate    SE    z P(>|z|)
+    0.242 0.143 1.69  0.0902
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.017 -5.08 3.76e-07
+Eff             0.49 0.146  3.36 7.89e-04
+
+AIC: 2141.859 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 48 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiAvgMaxTempNDVI.pEff"
+[1] "𝜓=  0.5565"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)    0.231 0.145 1.59   0.111
+AvgMaxTemp     0.213 0.152 1.40   0.160
+NDVI           0.241 0.151 1.60   0.110
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.019 -5.07 4.06e-07
+Eff             0.49 0.146  3.35 8.11e-04
+
+AIC: 2138.404 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 62 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiAvgMaxTempPrecip.pEff"
+[1] "𝜓=  0.5223"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp + Precip, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.234 0.144  1.623   0.105
+AvgMaxTemp     0.249 0.268  0.928   0.353
+Precip        -0.069 0.263 -0.263   0.793
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.167 1.019 -5.07 3.92e-07
+Eff            0.491 0.146  3.35 7.96e-04
+
+AIC: 2140.891 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 58 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiAvgMaxTempRoad.pEff"
+[1] "𝜓=  0.5146"
+[1] "p=  0.6205"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp + d.Road, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.244 0.146  1.68  0.0936
+AvgMaxTemp     0.299 0.142  2.11  0.0349
+d.Road        -0.181 0.134 -1.35  0.1766
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.175 1.019 -5.08 3.77e-07
+Eff            0.491 0.146  3.36 7.78e-04
+
+AIC: 2139.121 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 55 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.5176"
+[1] "p=  0.6205"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.242 0.146  1.66  0.0963
+AvgMinTemp    -1.709 1.345 -1.27  0.2041
+AvgMaxTemp     2.010 1.349  1.49  0.1361
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.175 1.019 -5.08 3.78e-07
+Eff            0.492 0.146  3.36 7.77e-04
+
+AIC: 2139.345 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 59 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiAvgMinTempElev.pEff"
+[1] "𝜓=  0.5013"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + Elev, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.234 0.144  1.628   0.104
+AvgMinTemp     0.162 0.252  0.644   0.519
+Elev          -0.152 0.251 -0.604   0.546
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.018 -5.07 3.90e-07
+Eff             0.49 0.146  3.35 7.96e-04
+
+AIC: 2141.208 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 58 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiAvgMinTempHFI.pEff"
+[1] "𝜓=  0.5552"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + HFI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.239 0.145 1.647  0.0995
+AvgMinTemp     0.287 0.140 2.049  0.0405
+HFI            0.158 0.186 0.848  0.3964
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.018 -5.08 3.86e-07
+Eff             0.49 0.146  3.36 7.91e-04
+
+AIC: 2140.567 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 59 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiAvgMinTempNDVI.pEff"
+[1] "𝜓=  0.5535"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)    0.231 0.145 1.60   0.110
+AvgMinTemp     0.182 0.154 1.19   0.236
+NDVI           0.247 0.154 1.61   0.108
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.019 -5.07 4.07e-07
+Eff             0.49 0.146  3.35 8.13e-04
+
+AIC: 2138.98 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 53 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5495"
+[1] "p=  0.6203"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   0.2391 0.145 1.654  0.0981
+AvgMinTemp    0.3071 0.143 2.144  0.0320
+NPP           0.0912 0.139 0.657  0.5111
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.169 1.018 -5.07 3.88e-07
+Eff            0.491 0.146  3.36 7.92e-04
+
+AIC: 2141.136 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiAvgMinTempPrecip.pEff"
+[1] "𝜓=  0.5061"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.233 0.144  1.621   0.105
+Precip        -0.127 0.272 -0.469   0.639
+AvgMinTemp     0.177 0.277  0.639   0.523
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.018 -5.07 3.93e-07
+Eff             0.49 0.146  3.35 7.99e-04
+
+AIC: 2141.353 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 59 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiAvgMinTempRoad.pEff"
+[1] "𝜓=  0.5114"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + d.Road, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.244 0.146  1.68  0.0936
+AvgMinTemp     0.292 0.141  2.07  0.0389
+d.Road        -0.200 0.134 -1.50  0.1348
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.174 1.019 -5.08 3.78e-07
+Eff            0.491 0.146  3.36 7.79e-04
+
+AIC: 2139.313 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 52 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiElev.pEff"
+[1] "𝜓=  0.4288"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Elev, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.236 0.144  1.64  0.1018
+Elev          -0.287 0.140 -2.05  0.0402
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.018 -5.08 3.86e-07
+Eff             0.49 0.146  3.36 7.93e-04
+
+AIC: 2139.623 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 53 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiElevAvgMaxTemp.pEff"
+[1] "𝜓=  0.5168"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   0.2346 0.144  1.627   0.104
+Elev         -0.0944 0.256 -0.369   0.712
+AvgMaxTemp    0.2294 0.257  0.892   0.372
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.167 1.018 -5.07 3.90e-07
+Eff            0.491 0.146  3.35 7.94e-04
+
+AIC: 2140.823 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 52 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiElevNDVI.pEff"
+[1] "𝜓=  0.5079"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.232 0.145  1.60  0.1093
+Elev          -0.189 0.151 -1.25  0.2115
+NDVI           0.252 0.151  1.67  0.0947
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.019 -5.07 4.04e-07
+Eff             0.49 0.146  3.35 8.12e-04
+
+AIC: 2138.825 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 77 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiElevPrecip.pEff"
+[1] "𝜓=  0.4632"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + Precip, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.234 0.144  1.627   0.104
+Elev          -0.177 0.348 -0.508   0.611
+Precip        -0.118 0.343 -0.344   0.731
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.018 -5.07 3.89e-07
+Eff             0.49 0.146  3.35 7.96e-04
+
+AIC: 2141.505 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 56 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiElevRoad.pEff"
+[1] "𝜓=  0.4415"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.244 0.146  1.68  0.0936
+Elev          -0.280 0.141 -1.99  0.0463
+d.Road        -0.190 0.134 -1.42  0.1560
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.173 1.018 -5.08 3.73e-07
+Eff            0.491 0.146  3.36 7.77e-04
+
+AIC: 2139.597 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 55 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiHFI.pEff"
+[1] "𝜓=  0.5393"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ HFI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.246 0.144 1.709  0.0875
+HFI            0.157 0.171 0.921  0.3572
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.016 -5.08 3.69e-07
+Eff             0.49 0.146  3.36 7.84e-04
+
+AIC: 2142.731 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 48 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiHFIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5571"
+[1] "p=  0.6203"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)    0.239 0.145 1.65  0.0997
+HFI            0.155 0.186 0.83  0.4068
+AvgMaxTemp     0.305 0.140 2.18  0.0296
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.168 1.018 -5.08 3.85e-07
+Eff            0.491 0.146  3.36 7.89e-04
+
+AIC: 2140 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 58 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiHFIAvgMinTemp.pEff"
+[1] "𝜓=  0.5552"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.239 0.145 1.647  0.0995
+HFI            0.158 0.186 0.848  0.3964
+AvgMinTemp     0.287 0.140 2.049  0.0405
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.018 -5.08 3.86e-07
+Eff             0.49 0.146  3.36 7.91e-04
+
+AIC: 2140.567 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 58 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiHFIElev.pEff"
+[1] "𝜓=  0.4825"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + Elev, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.240 0.145  1.653  0.0984
+HFI            0.134 0.183  0.731  0.4651
+Elev          -0.275 0.141 -1.953  0.0508
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.017 -5.08 3.81e-07
+Eff             0.49 0.146  3.36 7.88e-04
+
+AIC: 2140.92 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 56 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiHFINDVI.pEff"
+[1] "𝜓=  0.5643"
+[1] "p=  0.62"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.239 0.146 1.638  0.1015
+HFI            0.181 0.183 0.994  0.3204
+NDVI           0.336 0.142 2.369  0.0178
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.160 1.018 -5.07 3.97e-07
+Eff            0.489 0.146  3.35 8.09e-04
+
+AIC: 2139.002 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 58 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiHFINPP.pEff"
+[1] "𝜓=  0.5246"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.247 0.144 1.716  0.0862
+HFI            0.155 0.170 0.914  0.3608
+NPP            0.042 0.136 0.308  0.7581
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.016 -5.09 3.67e-07
+Eff             0.49 0.146  3.36 7.82e-04
+
+AIC: 2144.641 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiHFIPrecip.pEff"
+[1] "𝜓=  0.4833"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + Precip, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.236 0.144  1.632  0.1026
+HFI            0.132 0.174  0.754  0.4506
+Precip        -0.266 0.138 -1.928  0.0538
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.017 -5.08 3.87e-07
+Eff             0.49 0.146  3.35 7.94e-04
+
+AIC: 2141.03 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 57 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiHFIRoad.pEff"
+[1] "𝜓=  0.4951"
+[1] "p=  0.6203"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.253 0.145  1.743  0.0814
+HFI            0.157 0.171  0.916  0.3596
+d.Road        -0.196 0.132 -1.489  0.1364
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.171 1.016 -5.09 3.57e-07
+Eff            0.491 0.146  3.36 7.68e-04
+
+AIC: 2142.501 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 55 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiNDVI.pEff"
+[1] "𝜓=  0.5805"
+[1] "p=  0.62"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)    0.234 0.144 1.62  0.1052
+NDVI           0.325 0.140 2.32  0.0204
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.019 -5.07 4.05e-07
+Eff             0.49 0.146  3.35 8.15e-04
+
+AIC: 2138.391 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 54 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiNDVIRoad.pEff"
+[1] "𝜓=  0.5134"
+[1] "p=  0.6199"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + d.Road, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.244 0.147  1.66 0.09687
+NDVI           0.402 0.148  2.71 0.00675
+d.Road        -0.291 0.140 -2.08 0.03747
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.157 1.015 -5.08 3.79e-07
+Eff            0.489 0.146  3.35 7.97e-04
+
+AIC: 2135.917 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 48 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiNPP.pEff"
+[1] "𝜓=  0.5107"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   0.2438 0.143 1.704  0.0884
+NPP           0.0426 0.136 0.313  0.7541
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.170 1.018 -5.08 3.76e-07
+Eff            0.491 0.146  3.36 7.86e-04
+
+AIC: 2143.757 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 53 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiPrec.pEff"
+[1] "𝜓=  0.4311"
+[1] "p=  0.6201"
+
+
+Call:
+occu(formula = ~Eff ~ Precip, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.233 0.144  1.62   0.105
+Precip        -0.278 0.137 -2.02   0.043
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.018 -5.07 3.93e-07
+Eff             0.49 0.146  3.35 7.99e-04
+
+AIC: 2139.764 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 50 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiPrecipNDVI.pEff"
+[1] "𝜓=  0.5115"
+[1] "p=  0.62"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.232 0.145  1.601   0.109
+Precip        -0.152 0.160 -0.949   0.342
+NDVI           0.245 0.163  1.507   0.132
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.16 1.019 -5.07 4.06e-07
+Eff             0.49 0.146  3.35 8.14e-04
+
+AIC: 2139.49 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 52 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiPrecipRoad.pEff"
+[1] "𝜓=  0.4279"
+[1] "p=  0.6205"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.245 0.146  1.68  0.0939
+Precip        -0.326 0.142 -2.30  0.0215
+d.Road        -0.255 0.138 -1.85  0.0639
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.176 1.019 -5.08 3.79e-07
+Eff            0.492 0.146  3.36 7.79e-04
+
+AIC: 2138.234 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 66 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiRoad.pEff"
+[1] "𝜓=  0.4509"
+[1] "p=  0.6203"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.249 0.144  1.73  0.0841
+d.Road        -0.197 0.131 -1.50  0.1330
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.173 1.017 -5.09 3.64e-07
+Eff            0.491 0.146  3.36 7.73e-04
+
+AIC: 2141.585 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 51 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiTempmax.pEff"
+[1] "𝜓=  0.5767"
+[1] "p=  0.6203"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)    0.235 0.144 1.63  0.1031
+AvgMaxTemp     0.309 0.140 2.21  0.0273
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.168 1.019 -5.07 3.91e-07
+Eff            0.491 0.146  3.35 7.94e-04
+
+AIC: 2138.959 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 44 
+Bootstrap iterations: 0 
+
+[1] "MA_m.psiTempmin.pEff"
+[1] "𝜓=  0.5718"
+[1] "p=  0.6202"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)    0.235 0.144 1.63  0.1029
+AvgMinTemp     0.289 0.140 2.07  0.0382
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)    -5.17 1.019 -5.07 3.92e-07
+Eff             0.49 0.146  3.35 7.97e-04
+
+AIC: 2139.573 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 58 
+Bootstrap iterations: 0 
+
+[1] "MA_m.RoadAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.48"
+[1] "p=  0.6206"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + AvgMaxTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.241 0.146  1.653  0.0984
+d.Road        -0.321 0.217 -1.480  0.1388
+AvgMaxTemp     0.266 0.147  1.806  0.0709
+NPP           -0.186 0.226 -0.823  0.4107
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.177 1.019 -5.08 3.79e-07
+Eff            0.492 0.146  3.36 7.75e-04
+
+AIC: 2140.428 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 61 
+Bootstrap iterations: 0 
+
+[1] "MA_m.RoadAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.509"
+[1] "p=  0.6206"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + AvgMinTemp + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.245 0.146  1.680   0.093
+d.Road        -0.124 0.177 -0.700   0.484
+AvgMinTemp    -0.878 1.789 -0.491   0.624
+AvgMaxTemp     1.176 1.794  0.656   0.512
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.180 1.020 -5.08 3.78e-07
+Eff            0.492 0.146  3.36 7.74e-04
+
+AIC: 2140.869 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 76 
+Bootstrap iterations: 0 
+
+[1] "MA_m.RoadAvgMinTempNPP.pEff"
+[1] "𝜓=  0.478"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + AvgMinTemp + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.241 0.146  1.654  0.0981
+d.Road        -0.338 0.216 -1.571  0.1163
+AvgMinTemp     0.258 0.147  1.752  0.0798
+NPP           -0.185 0.227 -0.816  0.4143
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.173 1.018 -5.08 3.76e-07
+Eff            0.491 0.146  3.36 7.76e-04
+
+AIC: 2140.633 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "MA_m.RoadNDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5187"
+[1] "p=  0.6204"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + NDVI + AvgMaxTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    0.242 0.147  1.64  0.1008
+d.Road        -0.265 0.142 -1.86  0.0624
+NDVI           0.329 0.162  2.03  0.0422
+AvgMaxTemp     0.162 0.157  1.03  0.3024
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.172 1.020 -5.07 3.92e-07
+Eff            0.491 0.146  3.36 7.92e-04
+
+AIC: 2136.859 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "MA_m.RoadNDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.5169"
+[1] "p=  0.6205"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + NDVI + AvgMinTemp, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.241 0.147  1.638  0.1013
+d.Road        -0.276 0.141 -1.956  0.0504
+NDVI           0.333 0.163  2.034  0.0419
+AvgMinTemp     0.148 0.158  0.934  0.3502
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.176 1.021 -5.07 3.95e-07
+Eff            0.492 0.147  3.36 7.92e-04
+
+AIC: 2137.05 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "MA_m.RoadNDVINPP.pEff"
+[1] "𝜓=  0.4832"
+[1] "p=  0.6203"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + NDVI + NPP, data = MA_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)    0.241 0.147  1.637  0.1015
+d.Road        -0.411 0.215 -1.914  0.0556
+NDVI           0.373 0.151  2.467  0.0136
+NPP           -0.166 0.226 -0.736  0.4618
+
+Detection (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -5.169 1.019 -5.07 3.89e-07
+Eff            0.491 0.146  3.36 7.91e-04
+
+AIC: 2137.37 
+Number of sites: 326
+ID of sites removed due to NA: 36 188 226
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+

@@ -1,0 +1,80 @@
+***MA covariate 2-way combinations
+           Precip Elev                   HFI                   Road                   NDVI                  
+Precip     NA     MA_m.PrecipElev.pEff MA_m.PrecipHFI.pEff MA_m.PrecipRoad.pEff MA_m.PrecipNDVI.pEff
+Elev       NA     NA                     MA_m.ElevHFI.pEff   MA_m.ElevRoad.pEff   MA_m.ElevNDVI.pEff  
+HFI        NA     NA                     NA                    MA_m.HFIRoad.pEff    MA_m.HFINDVI.pEff   
+Road       NA     NA                     NA                    NA                     MA_m.RoadNDVI.pEff  
+NDVI       NA     NA                     NA                    NA                     NA                    
+AvgMinTemp NA     NA                     NA                    NA                     NA                    
+AvgMaxTemp NA     NA                     NA                    NA                     NA                    
+NPP        NA     NA                     NA                    NA                     NA                    
+           AvgMinTemp                   AvgMaxTemp                       NPP                      
+Precip     MA_m.PrecipAvgMinTemp.pEff MA_m.PrecipAvgMaxTemp.pEff     MA_m.PrecipNPP.pEff    
+Elev       MA_m.ElevAvgMinTemp.pEff   MA_m.ElevAvgMaxTemp.pEff       MA_m.ElevNPP.pEff      
+HFI        MA_m.HFIAvgMinTemp.pEff    MA_m.HFIAvgMaxTemp.pEff        MA_m.HFINPP.pEff       
+Road       MA_m.RoadAvgMinTemp.pEff   MA_m.RoadAvgMaxTemp.pEff       MA_m.RoadNPP.pEff      
+NDVI       MA_m.NDVIAvgMinTemp.pEff   MA_m.NDVIAvgMaxTemp.pEff       MA_m.NDVINPP.pEff      
+AvgMinTemp NA                           MA_m.AvgMinTempAvgMaxTemp.pEff MA_m.AvgMinTempNPP.pEff
+AvgMaxTemp NA                           NA                               MA_m.AvgMaxTempNPP.pEff
+NPP        NA                           NA                               NA                       
+
+**MA covariate 3-way combinations**
+
+MA_m.PrecipElevHFI.pEff
+MA_m.PrecipElevRoad.pEff
+MA_m.PrecipElevNDVI.pEff
+MA_m.PrecipElevAvgMinTemp.pEff
+MA_m.PrecipElevAvgMaxTemp.pEff
+MA_m.PrecipElevNPP.pEff
+MA_m.PrecipHFIRoad.pEff
+MA_m.PrecipHFINDVI.pEff
+MA_m.PrecipHFIAvgMinTemp.pEff
+MA_m.PrecipHFIAvgMaxTemp.pEff
+MA_m.PrecipHFINPP.pEff
+MA_m.PrecipRoadNDVI.pEff
+MA_m.PrecipRoadAvgMinTemp.pEff
+MA_m.PrecipRoadAvgMaxTemp.pEff
+MA_m.PrecipRoadNPP.pEff
+MA_m.PrecipNDVIAvgMinTemp.pEff
+MA_m.PrecipNDVIAvgMaxTemp.pEff
+MA_m.PrecipNDVINPP.pEff
+MA_m.PrecipAvgMinTempAvgMaxTemp.pEff
+MA_m.PrecipAvgMinTempNPP.pEff
+MA_m.PrecipAvgMaxTempNPP.pEff
+MA_m.ElevHFIRoad.pEff
+MA_m.ElevHFINDVI.pEff
+MA_m.ElevHFIAvgMinTemp.pEff
+MA_m.ElevHFIAvgMaxTemp.pEff
+MA_m.ElevHFINPP.pEff
+MA_m.ElevRoadNDVI.pEff
+MA_m.ElevRoadAvgMinTemp.pEff
+MA_m.ElevRoadAvgMaxTemp.pEff
+MA_m.ElevRoadNPP.pEff
+MA_m.ElevNDVIAvgMinTemp.pEff
+MA_m.ElevNDVIAvgMaxTemp.pEff
+MA_m.ElevNDVINPP.pEff
+MA_m.ElevAvgMinTempAvgMaxTemp.pEff
+MA_m.ElevAvgMinTempNPP.pEff
+MA_m.ElevAvgMaxTempNPP.pEff
+MA_m.HFIRoadNDVI.pEff
+MA_m.HFIRoadAvgMinTemp.pEff
+MA_m.HFIRoadAvgMaxTemp.pEff
+MA_m.HFIRoadNPP.pEff
+MA_m.HFINDVIAvgMinTemp.pEff
+MA_m.HFINDVIAvgMaxTemp.pEff
+MA_m.HFINDVINPP.pEff
+MA_m.HFIAvgMinTempAvgMaxTemp.pEff
+MA_m.HFIAvgMinTempNPP.pEff
+MA_m.HFIAvgMaxTempNPP.pEff
+MA_m.RoadNDVIAvgMinTemp.pEff
+MA_m.RoadNDVIAvgMaxTemp.pEff
+MA_m.RoadNDVINPP.pEff
+MA_m.RoadAvgMinTempAvgMaxTemp.pEff
+MA_m.RoadAvgMinTempNPP.pEff
+MA_m.RoadAvgMaxTempNPP.pEff
+MA_m.NDVIAvgMinTempAvgMaxTemp.pEff
+MA_m.NDVIAvgMinTempNPP.pEff
+MA_m.NDVIAvgMaxTempNPP.pEff
+MA_m.AvgMinTempAvgMaxTempNPP.pEff
+
+ 

@@ -1,0 +1,2474 @@
+19, July 2023
+
+***Correlation Matrix***
+                   Elev         HFI      Forest         NPP       d.Road      d.River    EdgeDens   PatchDens    DisjCore
+Elev        1.000000000 -0.41373704 -0.16175617 -0.37256392 -0.002512321 -0.110998197  0.14799154  0.16417668  0.16949968
+HFI        -0.413737038  1.00000000  0.12469666  0.47262999 -0.611497271  0.116176837  0.11571443  0.07227365  0.02352229
+Forest     -0.161756174  0.12469666  1.00000000  0.12063465 -0.108328339  0.102111882 -0.58063872 -0.50803513 -0.54481659
+NPP        -0.372563920  0.47262999  0.12063465  1.00000000 -0.274419504  0.535995583 -0.03594443 -0.10409084 -0.06895074
+d.Road     -0.002512321 -0.61149727 -0.10832834 -0.27441950  1.000000000  0.044858403  0.03575438  0.10366310  0.11074533
+d.River    -0.110998197  0.11617684  0.10211188  0.53599558  0.044858403  1.000000000 -0.05649666 -0.05813049 -0.03942161
+EdgeDens    0.147991536  0.11571443 -0.58063872 -0.03594443  0.035754381 -0.056496663  1.00000000  0.71379310  0.85581982
+PatchDens   0.164176679  0.07227365 -0.50803513 -0.10409084  0.103663104 -0.058130492  0.71379310  1.00000000  0.85486803
+DisjCore    0.169499679  0.02352229 -0.54481659 -0.06895074  0.110745328 -0.039421609  0.85581982  0.85486803  1.00000000
+NDVI       -0.508424543  0.16470899  0.27073845  0.18475185  0.031248676 -0.008107024 -0.27221000 -0.23097199 -0.23406049
+AvgMinTemp -0.974375091  0.40086876  0.17983894  0.38709854  0.043627982  0.190914532 -0.15058190 -0.14342708 -0.15551354
+AvgMaxTemp -0.973007349  0.45562434  0.17024375  0.37573118  0.010793676  0.177163067 -0.11687152 -0.11763579 -0.13173399
+Precip     -0.513142110 -0.13014796  0.04333436  0.02182619  0.382753275 -0.137995837 -0.08466848 -0.16423858 -0.09769082
+                   NDVI  AvgMinTemp  AvgMaxTemp      Precip
+Elev       -0.508424543 -0.97437509 -0.97300735 -0.51314211
+HFI         0.164708993  0.40086876  0.45562434 -0.13014796
+Forest      0.270738454  0.17983894  0.17024375  0.04333436
+NPP         0.184751845  0.38709854  0.37573118  0.02182619
+d.Road      0.031248676  0.04362798  0.01079368  0.38275328
+d.River    -0.008107024  0.19091453  0.17716307 -0.13799584
+EdgeDens   -0.272210002 -0.15058190 -0.11687152 -0.08466848
+PatchDens  -0.230971990 -0.14342708 -0.11763579 -0.16423858
+DisjCore   -0.234060485 -0.15551354 -0.13173399 -0.09769082
+NDVI        1.000000000  0.46737271  0.45920803  0.29845554
+AvgMinTemp  0.467372705  1.00000000  0.99627377  0.50987773
+AvgMaxTemp  0.459208031  0.99627377  1.00000000  0.48612303
+Precip      0.298455542  0.50987773  0.48612303  1.00000000
+[1] "\n**Baird's Tapir Models**"
+                                     nPars     AIC delta   AICwt cumltvWt
+CR_m.ElevRoadNPP.pEff                    6 1335.33  0.00 2.6e-01     0.26
+CR_m.psiElevRoad.pEff                    5 1337.47  2.14 8.9e-02     0.35
+CR_m.RoadAvgMaxTempNPP.pEff              6 1337.58  2.24 8.5e-02     0.44
+CR_m.ElevRoadAvgMinTemp.pEff             6 1337.98  2.65 6.9e-02     0.50
+CR_m.RoadAvgMinTempNPP.pEff              6 1338.08  2.74 6.6e-02     0.57
+CR_m.RoadAvgMinTempAvgMaxTemp.pEff       6 1338.74  3.40 4.8e-02     0.62
+CR_m.ElevHFIRoad.pEff                    6 1338.85  3.52 4.5e-02     0.66
+CR_m.ElevRoadAvgMaxTemp.pEff             6 1338.91  3.57 4.4e-02     0.71
+CR_m.PrecipElevRoad.pEff                 6 1339.03  3.70 4.1e-02     0.75
+CR_m.psiAvgMaxTempRoad.pEff              5 1339.12  3.79 3.9e-02     0.79
+CR_m.ElevRoadNDVI.pEff                   6 1339.33  4.00 3.5e-02     0.82
+CR_m.psiAvgMinTempRoad.pEff              5 1339.65  4.32 3.0e-02     0.85
+CR_m.HFIRoadAvgMaxTemp.pEff              6 1340.48  5.14 2.0e-02     0.87
+CR_m.RoadNDVIAvgMaxTemp.pEff             6 1340.68  5.35 1.8e-02     0.89
+CR_m.PrecipRoadAvgMaxTemp.pEff           6 1341.04  5.70 1.5e-02     0.91
+CR_m.RoadNDVIAvgMinTemp.pEff             6 1341.17  5.84 1.4e-02     0.92
+CR_m.HFIRoadAvgMinTemp.pEff              6 1341.31  5.97 1.3e-02     0.93
+CR_m.HFINDVIAvgMinTemp.pEff              6 1341.31  5.97 1.3e-02     0.95
+CR_m.PrecipRoadAvgMinTemp.pEff           6 1341.58  6.25 1.1e-02     0.96
+CR_m.psiRoad.pEff                        4 1342.34  7.00 7.9e-03     0.97
+CR_m.psiNDVIRoad.pEff                    5 1342.40  7.07 7.6e-03     0.97
+CR_m.psiPrecipRoad.pEff                  5 1343.52  8.19 4.3e-03     0.98
+CR_m.RoadNDVINPP.pEff                    6 1343.81  8.47 3.8e-03     0.98
+CR_m.PrecipRoadNDVI.pEff                 6 1344.05  8.72 3.3e-03     0.98
+CR_m.psiHFIRoad.pEff                     5 1344.10  8.77 3.2e-03     0.99
+CR_m.HFIRoadNDVI.pEff                    6 1344.30  8.97 2.9e-03     0.99
+CR_m.HFINDVIAvgMaxTemp.pEff              6 1344.30  8.97 2.9e-03     0.99
+CR_m.PrecipRoadNPP.pEff                  6 1345.08  9.74 2.0e-03     1.00
+CR_m.PrecipHFIRoad.pEff                  6 1345.34 10.00 1.8e-03     1.00
+CR_m.HFIRoadNPP.pEff                     6 1345.55 10.21 1.6e-03     1.00
+CR_m.ElevAvgMinTempAvgMaxTemp.pEff       6 1348.99 13.66 2.8e-04     1.00
+CR_m.ElevHFIAvgMinTemp.pEff              6 1350.94 15.60 1.1e-04     1.00
+CR_m.ElevHFINPP.pEff                     6 1351.89 16.56 6.6e-05     1.00
+CR_m.ElevHFIAvgMaxTemp.pEff              6 1352.53 17.20 4.8e-05     1.00
+CR_m.psiAvgMinTempAvgMaxTemp.pEff        5 1352.68 17.35 4.5e-05     1.00
+CR_m.HFIAvgMinTempAvgMaxTemp.pEff        6 1352.73 17.40 4.3e-05     1.00
+CR_m.PrecipElevHFI.pEff                  6 1352.76 17.43 4.3e-05     1.00
+CR_m.psiHFIElev.pEff                     5 1353.01 17.67 3.8e-05     1.00
+CR_m.PrecipElevAvgMinTemp.pEff           6 1353.40 18.06 3.1e-05     1.00
+CR_m.NDVIAvgMinTempAvgMaxTemp.pEff       6 1353.59 18.26 2.8e-05     1.00
+CR_m.HFIAvgMaxTempNPP.pEff               6 1353.70 18.37 2.7e-05     1.00
+CR_m.PrecipAvgMinTempAvgMaxTemp.pEff     6 1353.78 18.45 2.6e-05     1.00
+CR_m.HFIAvgMinTempNPP.pEff               6 1353.89 18.55 2.4e-05     1.00
+CR_m.psiHFI.pEff                         4 1353.99 18.66 2.3e-05     1.00
+CR_m.psiHFIAvgMaxTemp.pEff               5 1354.38 19.04 1.9e-05     1.00
+CR_m.psiHFINPP.pEff                      5 1354.41 19.08 1.9e-05     1.00
+CR_m.HFINDVINPP.pEff                     6 1354.51 19.17 1.8e-05     1.00
+CR_m.AvgMinTempAvgMaxTempNPP.pEff        6 1354.57 19.24 1.7e-05     1.00
+CR_m.psiElevPrecip.pEff                  5 1354.58 19.24 1.7e-05     1.00
+CR_m.psiAvgMinTempHFI.pEff               5 1354.62 19.29 1.7e-05     1.00
+CR_m.psiHFIAvgMinTemp.pEff               5 1354.62 19.29 1.7e-05     1.00
+CR_m.psiHFINDVI.pEff                     5 1354.63 19.30 1.7e-05     1.00
+CR_m.ElevHFINDVI.pEff                    6 1354.85 19.51 1.5e-05     1.00
+CR_m.PrecipHFIAvgMaxTemp.pEff            6 1355.35 20.02 1.2e-05     1.00
+CR_m.PrecipElevAvgMaxTemp.pEff           6 1355.60 20.27 1.0e-05     1.00
+CR_m.PrecipHFIAvgMinTemp.pEff            6 1355.72 20.39 9.7e-06     1.00
+CR_m.psiHFIPrecip.pEff                   5 1355.99 20.66 8.5e-06     1.00
+CR_m.PrecipElevNPP.pEff                  6 1356.03 20.69 8.4e-06     1.00
+CR_m.PrecipHFINPP.pEff                   6 1356.32 20.99 7.2e-06     1.00
+CR_m.PrecipElevNDVI.pEff                 6 1356.44 21.11 6.8e-06     1.00
+CR_m.PrecipHFINDVI.pEff                  6 1356.49 21.16 6.6e-06     1.00
+CR_m.psiAvgMinTempElev.pEff              5 1357.44 22.11 4.1e-06     1.00
+CR_m.psiAvgMaxTempPrecip.pEff            5 1357.97 22.64 3.2e-06     1.00
+CR_m.PrecipNDVIAvgMaxTemp.pEff           6 1359.39 24.06 1.6e-06     1.00
+CR_m.ElevNDVIAvgMinTemp.pEff             6 1359.44 24.10 1.5e-06     1.00
+CR_m.ElevAvgMinTempNPP.pEff              6 1359.44 24.11 1.5e-06     1.00
+CR_m.psiAvgMinTempPrecip.pEff            5 1359.45 24.12 1.5e-06     1.00
+CR_m.psiElev.pEff                        4 1359.45 24.12 1.5e-06     1.00
+CR_m.PrecipAvgMaxTempNPP.pEff            6 1359.65 24.31 1.4e-06     1.00
+CR_m.psiElevAvgMaxTemp.pEff              5 1360.71 25.38 8.0e-07     1.00
+CR_m.psiTempmax.pEff                     4 1361.05 25.72 6.8e-07     1.00
+CR_m.PrecipAvgMinTempNPP.pEff            6 1361.14 25.81 6.5e-07     1.00
+CR_m.psiElevNDVI.pEff                    5 1361.40 26.07 5.7e-07     1.00
+CR_m.psiTempmin.pEff                     4 1362.32 26.99 3.6e-07     1.00
+CR_m.ElevAvgMaxTempNPP.pEff              6 1362.66 27.33 3.0e-07     1.00
+CR_m.ElevNDVIAvgMaxTemp.pEff             6 1362.71 27.38 3.0e-07     1.00
+CR_m.psiAvgMaxTempNDVI.pEff              5 1362.78 27.45 2.9e-07     1.00
+CR_m.ElevNDVINPP.pEff                    6 1363.32 27.99 2.2e-07     1.00
+CR_m.psiAvgMinTempNDVI.pEff              5 1363.94 28.60 1.6e-07     1.00
+CR_m.psiAvgMinTempNPP.pEff               5 1364.31 28.98 1.3e-07     1.00
+CR_m.NDVIAvgMaxTempNPP.pEff              6 1364.75 29.42 1.1e-07     1.00
+CR_m.psiNDVI.pEff                        4 1365.48 30.15 7.4e-08     1.00
+CR_m.NDVIAvgMinTempNPP.pEff              6 1365.92 30.59 5.9e-08     1.00
+CR_m.psi1.pEff                           3 1366.26 30.92 5.0e-08     1.00
+CR_m.psi2.pEff                           3 1366.26 30.92 5.0e-08     1.00
+CR_m.psi3.pEff                           3 1366.26 30.92 5.0e-08     1.00
+CR_m.psiPrecipNDVI.pEff                  5 1366.33 31.00 4.8e-08     1.00
+CR_m.PrecipNDVIAvgMinTemp.pEff           5 1366.33 31.00 4.8e-08     1.00
+CR_m.psiNPP.pEff                         4 1367.57 32.24 2.6e-08     1.00
+CR_m.psiPrec.pEff                        4 1367.99 32.65 2.1e-08     1.00
+CR_m.PrecipNDVINPP.pEff                  6 1368.06 32.73 2.0e-08     1.00
+**
+**Summaries**
+ [1] "CR_m.AvgMinTempAvgMaxTempNPP.pEff"    "CR_m.ElevAvgMaxTempNPP.pEff"          "CR_m.ElevAvgMinTempAvgMaxTemp.pEff"  
+ [4] "CR_m.ElevAvgMinTempNPP.pEff"          "CR_m.ElevHFIAvgMaxTemp.pEff"          "CR_m.ElevHFIAvgMinTemp.pEff"         
+ [7] "CR_m.ElevHFINDVI.pEff"                "CR_m.ElevHFINPP.pEff"                 "CR_m.ElevHFIRoad.pEff"               
+[10] "CR_m.ElevNDVIAvgMaxTemp.pEff"         "CR_m.ElevNDVIAvgMinTemp.pEff"         "CR_m.ElevNDVINPP.pEff"               
+[13] "CR_m.ElevRoadAvgMaxTemp.pEff"         "CR_m.ElevRoadAvgMinTemp.pEff"         "CR_m.ElevRoadNDVI.pEff"              
+[16] "CR_m.ElevRoadNPP.pEff"                "CR_m.HFIAvgMaxTempNPP.pEff"           "CR_m.HFIAvgMinTempAvgMaxTemp.pEff"   
+[19] "CR_m.HFIAvgMinTempNPP.pEff"           "CR_m.HFINDVIAvgMaxTemp.pEff"          "CR_m.HFINDVIAvgMinTemp.pEff"         
+[22] "CR_m.HFINDVINPP.pEff"                 "CR_m.HFIRoadAvgMaxTemp.pEff"          "CR_m.HFIRoadAvgMinTemp.pEff"         
+[25] "CR_m.HFIRoadNDVI.pEff"                "CR_m.HFIRoadNPP.pEff"                 "CR_m.NDVIAvgMaxTempNPP.pEff"         
+[28] "CR_m.NDVIAvgMinTempAvgMaxTemp.pEff"   "CR_m.NDVIAvgMinTempNPP.pEff"          "CR_m.PrecipAvgMaxTempNPP.pEff"       
+[31] "CR_m.PrecipAvgMinTempAvgMaxTemp.pEff" "CR_m.PrecipAvgMinTempNPP.pEff"        "CR_m.PrecipElevAvgMaxTemp.pEff"      
+[34] "CR_m.PrecipElevAvgMinTemp.pEff"       "CR_m.PrecipElevHFI.pEff"              "CR_m.PrecipElevNDVI.pEff"            
+[37] "CR_m.PrecipElevNPP.pEff"              "CR_m.PrecipElevRoad.pEff"             "CR_m.PrecipHFIAvgMaxTemp.pEff"       
+[40] "CR_m.PrecipHFIAvgMinTemp.pEff"        "CR_m.PrecipHFINDVI.pEff"              "CR_m.PrecipHFINPP.pEff"              
+[43] "CR_m.PrecipHFIRoad.pEff"              "CR_m.PrecipNDVIAvgMaxTemp.pEff"       "CR_m.PrecipNDVIAvgMinTemp.pEff"      
+[46] "CR_m.PrecipNDVINPP.pEff"              "CR_m.PrecipRoadAvgMaxTemp.pEff"       "CR_m.PrecipRoadAvgMinTemp.pEff"      
+[49] "CR_m.PrecipRoadNDVI.pEff"             "CR_m.PrecipRoadNPP.pEff"              "CR_m.psi1.pEff"                      
+[52] "CR_m.psi2.pEff"                       "CR_m.psi3.pEff"                       "CR_m.psiAvgMaxTempNDVI.pEff"         
+[55] "CR_m.psiAvgMaxTempPrecip.pEff"        "CR_m.psiAvgMaxTempRoad.pEff"          "CR_m.psiAvgMinTempAvgMaxTemp.pEff"   
+[58] "CR_m.psiAvgMinTempElev.pEff"          "CR_m.psiAvgMinTempHFI.pEff"           "CR_m.psiAvgMinTempNDVI.pEff"         
+[61] "CR_m.psiAvgMinTempNPP.pEff"           "CR_m.psiAvgMinTempPrecip.pEff"        "CR_m.psiAvgMinTempRoad.pEff"         
+[64] "CR_m.psiElev.pEff"                    "CR_m.psiElevAvgMaxTemp.pEff"          "CR_m.psiElevNDVI.pEff"               
+[67] "CR_m.psiElevPrecip.pEff"              "CR_m.psiElevRoad.pEff"                "CR_m.psiHFI.pEff"                    
+[70] "CR_m.psiHFIAvgMaxTemp.pEff"           "CR_m.psiHFIAvgMinTemp.pEff"           "CR_m.psiHFIElev.pEff"                
+[73] "CR_m.psiHFINDVI.pEff"                 "CR_m.psiHFINPP.pEff"                  "CR_m.psiHFIPrecip.pEff"              
+[76] "CR_m.psiHFIRoad.pEff"                 "CR_m.psiNDVI.pEff"                    "CR_m.psiNDVIRoad.pEff"               
+[79] "CR_m.psiNPP.pEff"                     "CR_m.psiPrec.pEff"                    "CR_m.psiPrecipNDVI.pEff"             
+[82] "CR_m.psiPrecipRoad.pEff"              "CR_m.psiRoad.pEff"                    "CR_m.psiTempmax.pEff"                
+[85] "CR_m.psiTempmin.pEff"                 "CR_m.RoadAvgMaxTempNPP.pEff"          "CR_m.RoadAvgMinTempAvgMaxTemp.pEff"  
+[88] "CR_m.RoadAvgMinTempNPP.pEff"          "CR_m.RoadNDVIAvgMaxTemp.pEff"         "CR_m.RoadNDVIAvgMinTemp.pEff"        
+[91] "CR_m.RoadNDVINPP.pEff"               
+
+[1] "CR_m.AvgMinTempAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.4934"
+[1] "p=  0.487"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + AvgMaxTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.2895 0.211 -1.370  0.1708
+AvgMinTemp   10.5525 4.369  2.415  0.0157
+AvgMaxTemp  -11.1580 4.481 -2.490  0.0128
+NPP          -0.0794 0.243 -0.327  0.7435
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4894 0.3636 -1.346   0.178
+Eff          -0.0518 0.0541 -0.959   0.338
+
+AIC: 1354.569 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 60 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.6477"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMaxTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.1495 0.183 -0.818   0.413
+Elev          1.2075 0.796  1.517   0.129
+AvgMaxTemp    0.6647 0.794  0.837   0.403
+NPP           0.0516 0.224  0.231   0.818
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4964 0.3638 -1.364   0.172
+Eff          -0.0509 0.0541 -0.941   0.347
+
+AIC: 1362.662 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 39 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.6257"
+[1] "p=  0.4869"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMinTemp + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.308 0.216 -1.42 0.15491
+Elev           1.966 0.852  2.31 0.02102
+AvgMinTemp    12.509 4.675  2.68 0.00745
+AvgMaxTemp   -11.244 4.709 -2.39 0.01694
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4816 0.3636 -1.325   0.185
+Eff          -0.0525 0.0541 -0.971   0.332
+
+AIC: 1348.991 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevAvgMinTempNPP.pEff"
+[1] "𝜓=  0.7455"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMinTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept)  -0.1488 0.185 -0.8060  0.4203
+Elev          2.1579 0.857  2.5180  0.0118
+AvgMinTemp    1.6545 0.857  1.9298  0.0536
+NPP           0.0027 0.230  0.0117  0.9907
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4902 0.3637 -1.348   0.178
+Eff          -0.0516 0.0541 -0.954   0.340
+
+AIC: 1359.439 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 45 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevHFIAvgMaxTemp.pEff"
+[1] "𝜓=  0.6446"
+[1] "p=  0.4869"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.219 0.197 -1.11 0.26696
+Elev           1.600 0.838  1.91 0.05613
+HFI           -0.785 0.279 -2.81 0.00488
+AvgMaxTemp     1.315 0.850  1.55 0.12202
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4873 0.3636 -1.340   0.180
+Eff          -0.0522 0.0541 -0.966   0.334
+
+AIC: 1352.533 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevHFIAvgMinTemp.pEff"
+[1] "𝜓=  0.6834"
+[1] "p=  0.4869"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.224 0.198 -1.13  0.2579
+Elev           1.993 0.865  2.30  0.0213
+HFI           -0.722 0.281 -2.56  0.0104
+AvgMinTemp     1.682 0.855  1.97  0.0492
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.4851 0.3636 -1.33   0.182
+Eff          -0.0525 0.0541 -0.97   0.332
+
+AIC: 1350.938 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevHFINDVI.pEff"
+[1] "𝜓=  0.4614"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.2254 0.197 -1.143  0.2530
+Elev          0.3095 0.233  1.331  0.1831
+HFI          -0.7164 0.278 -2.573  0.0101
+NDVI         -0.0834 0.211 -0.396  0.6919
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4918 0.3637 -1.352   0.176
+Eff          -0.0518 0.0541 -0.958   0.338
+
+AIC: 1354.848 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevHFINPP.pEff"
+[1] "𝜓=  0.4973"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.272 0.206 -1.32 0.18697
+Elev           0.450 0.215  2.09 0.03629
+HFI           -1.038 0.386 -2.69 0.00711
+NPP            0.488 0.277  1.76 0.07853
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4942 0.3637 -1.359   0.174
+Eff          -0.0512 0.0541 -0.945   0.345
+
+AIC: 1351.892 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 39 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevHFIRoad.pEff"
+[1] "𝜓=  0.6743"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + d.Road, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.113 0.213 -0.528 0.597163
+Elev           0.742 0.286  2.589 0.009620
+HFI            0.269 0.336  0.799 0.424403
+d.Road         1.258 0.375  3.352 0.000802
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5010 0.3636 -1.378   0.168
+Eff          -0.0503 0.0541 -0.929   0.353
+
+AIC: 1338.852 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 43 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevNDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.6407"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.1502 0.183 -0.822   0.411
+Elev          1.1837 0.830  1.426   0.154
+NDVI         -0.0165 0.211 -0.078   0.938
+AvgMaxTemp    0.6666 0.804  0.829   0.407
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4949 0.3637 -1.361   0.174
+Eff          -0.0511 0.0541 -0.945   0.344
+
+AIC: 1362.709 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 41 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevNDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.7467"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept) -0.14884 0.185 -0.8061  0.4202
+Elev         2.16776 0.882  2.4577  0.0140
+NDVI         0.00956 0.213  0.0448  0.9642
+AvgMinTemp   1.66073 0.856  1.9405  0.0523
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4903 0.3637 -1.348   0.178
+Eff          -0.0516 0.0541 -0.954   0.340
+
+AIC: 1359.437 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevNDVINPP.pEff"
+[1] "𝜓=  0.5457"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.1494 0.183 -0.818  0.4131
+Elev          0.5436 0.231  2.354  0.0186
+NDVI         -0.0457 0.207 -0.221  0.8253
+NPP           0.0637 0.222  0.287  0.7739
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4997 0.3638 -1.373    0.17
+Eff          -0.0506 0.0541 -0.935    0.35
+
+AIC: 1363.32 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevRoadAvgMaxTemp.pEff"
+[1] "𝜓=  0.7236"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.124 0.211 -0.588 0.556674
+Elev           1.231 0.839  1.467 0.142412
+d.Road         1.076 0.282  3.816 0.000135
+AvgMaxTemp     0.625 0.834  0.749 0.454052
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4984 0.3636 -1.371   0.170
+Eff          -0.0506 0.0541 -0.936   0.349
+
+AIC: 1338.908 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 40 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevRoadAvgMinTemp.pEff"
+[1] "𝜓=  0.7722"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.125 0.211 -0.595 0.551650
+Elev           1.643 0.876  1.875 0.060795
+d.Road         1.037 0.281  3.688 0.000226
+AvgMinTemp     1.048 0.869  1.207 0.227528
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4967 0.3636 -1.366   0.172
+Eff          -0.0508 0.0541 -0.939   0.348
+
+AIC: 1337.98 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevRoadNDVI.pEff"
+[1] "𝜓=  0.6225"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)  -0.1383 0.210 -0.659 0.510153
+Elev          0.5904 0.266  2.219 0.026477
+d.Road        1.0742 0.278  3.869 0.000109
+NDVI         -0.0856 0.226 -0.379 0.704900
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4988 0.3636 -1.372    0.17
+Eff          -0.0506 0.0541 -0.935    0.35
+
+AIC: 1339.329 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.ElevRoadNPP.pEff"
+[1] "𝜓=  0.7054"
+[1] "p=  0.4879"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.119 0.210 -0.566 5.71e-01
+Elev           0.884 0.276  3.205 1.35e-03
+d.Road         1.254 0.293  4.281 1.86e-05
+NPP            0.535 0.290  1.842 6.54e-02
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5125 0.3637 -1.409   0.159
+Eff          -0.0482 0.0541 -0.891   0.373
+
+AIC: 1335.333 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "CR_m.HFIAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.4292"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMaxTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.261 0.204 -1.28 0.20026
+HFI           -1.015 0.374 -2.71 0.00663
+AvgMaxTemp    -0.356 0.217 -1.64 0.10165
+NPP            0.446 0.273  1.63 0.10233
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)   -0.496 0.3638 -1.364   0.173
+Eff           -0.051 0.0541 -0.942   0.346
+
+AIC: 1353.701 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "CR_m.HFIAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.4608"
+[1] "p=  0.4869"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMinTemp + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.353 0.225 -1.57  0.1155
+HFI           -0.479 0.326 -1.47  0.1414
+AvgMinTemp     8.944 5.012  1.78  0.0743
+AvgMaxTemp    -9.466 5.170 -1.83  0.0671
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4870 0.3636 -1.339   0.180
+Eff          -0.0524 0.0541 -0.969   0.332
+
+AIC: 1352.734 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "CR_m.HFIAvgMinTempNPP.pEff"
+[1] "𝜓=  0.43"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMinTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.257 0.203 -1.27 0.20498
+HFI           -1.036 0.371 -2.79 0.00528
+AvgMinTemp    -0.337 0.213 -1.58 0.11364
+NPP            0.453 0.274  1.65 0.09840
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4965 0.3638 -1.365   0.172
+Eff          -0.0509 0.0541 -0.941   0.347
+
+AIC: 1353.885 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "CR_m.HFINDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5549"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0492 0.219 -0.225 0.82233
+HFI          -0.0918 0.291 -0.315 0.75243
+d.Road        1.1273 0.408  2.761 0.00577
+NDVI         -0.2727 0.208 -1.313 0.18912
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5080 0.3630 -1.399   0.162
+Eff          -0.0497 0.0541 -0.919   0.358
+
+AIC: 1344.3 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 41 
+Bootstrap iterations: 0 
+
+[1] "CR_m.HFINDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.5592"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0981 0.215 -0.457 0.64780
+HFI           0.1967 0.331  0.594 0.55279
+d.Road        1.2363 0.382  3.237 0.00121
+AvgMinTemp   -0.6026 0.283 -2.129 0.03324
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5065 0.3635 -1.393   0.164
+Eff          -0.0497 0.0541 -0.919   0.358
+
+AIC: 1341.308 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 46 
+Bootstrap iterations: 0 
+
+[1] "CR_m.HFINDVINPP.pEff"
+[1] "𝜓=  0.4289"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + NDVI + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.251 0.200 -1.26 0.20943
+HFI           -1.064 0.359 -2.96 0.00305
+NDVI          -0.258 0.192 -1.35 0.17737
+NPP            0.382 0.259  1.47 0.14091
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4909 0.3636 -1.350   0.177
+Eff          -0.0515 0.0541 -0.952   0.341
+
+AIC: 1354.505 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "CR_m.HFIRoadAvgMaxTemp.pEff"
+[1] "𝜓=  0.5622"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.105 0.214 -0.492 0.623006
+HFI            0.282 0.349  0.809 0.418260
+d.Road         1.265 0.381  3.319 0.000903
+AvgMaxTemp    -0.679 0.296 -2.297 0.021647
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.5056 0.3636 -1.39   0.164
+Eff          -0.0498 0.0541 -0.92   0.357
+
+AIC: 1340.477 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 42 
+Bootstrap iterations: 0 
+
+[1] "CR_m.HFIRoadAvgMinTemp.pEff"
+[1] "𝜓=  0.5592"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0981 0.215 -0.457 0.64780
+HFI           0.1967 0.331  0.594 0.55279
+d.Road        1.2363 0.382  3.237 0.00121
+AvgMinTemp   -0.6026 0.283 -2.129 0.03324
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5065 0.3635 -1.393   0.164
+Eff          -0.0497 0.0541 -0.919   0.358
+
+AIC: 1341.308 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 46 
+Bootstrap iterations: 0 
+
+[1] "CR_m.HFIRoadNDVI.pEff"
+[1] "𝜓=  0.5549"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0492 0.219 -0.225 0.82233
+HFI          -0.0918 0.291 -0.315 0.75243
+d.Road        1.1273 0.408  2.761 0.00577
+NDVI         -0.2727 0.208 -1.313 0.18912
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5080 0.3630 -1.399   0.162
+Eff          -0.0497 0.0541 -0.919   0.358
+
+AIC: 1344.3 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 41 
+Bootstrap iterations: 0 
+
+[1] "CR_m.HFIRoadNPP.pEff"
+[1] "𝜓=  0.5791"
+[1] "p=  0.4879"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0258 0.224 -0.115  0.9086
+HFI          -0.2525 0.341 -0.741  0.4588
+d.Road        1.1212 0.437  2.568  0.0102
+NPP           0.1837 0.245  0.748  0.4543
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5177 0.3630 -1.426   0.154
+Eff          -0.0485 0.0541 -0.897   0.370
+
+AIC: 1345.547 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 40 
+Bootstrap iterations: 0 
+
+[1] "CR_m.NDVIAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.4572"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + AvgMaxTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.1446 0.182 -0.796  0.4258
+NDVI         -0.1040 0.200 -0.520  0.6031
+AvgMaxTemp   -0.4590 0.223 -2.062  0.0392
+NPP           0.0416 0.220  0.189  0.8500
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5014 0.3638 -1.378   0.168
+Eff          -0.0504 0.0541 -0.932   0.351
+
+AIC: 1364.749 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.NDVIAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.4821"
+[1] "p=  0.4868"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + AvgMinTemp + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.301 0.213 -1.41  0.1571
+NDVI          -0.215 0.208 -1.03  0.3012
+AvgMinTemp    11.148 4.519  2.47  0.0136
+AvgMaxTemp   -11.691 4.628 -2.53  0.0115
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4816 0.3634 -1.325   0.185
+Eff          -0.0528 0.0541 -0.977   0.328
+
+AIC: 1353.594 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "CR_m.NDVIAvgMinTempNPP.pEff"
+[1] "𝜓=  0.4592"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + AvgMinTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.1423 0.181 -0.788  0.4308
+NDVI         -0.1244 0.201 -0.619  0.5358
+AvgMinTemp   -0.3964 0.223 -1.779  0.0752
+NPP           0.0261 0.220  0.119  0.9056
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5008 0.3638 -1.377   0.169
+Eff          -0.0505 0.0541 -0.933   0.351
+
+AIC: 1365.923 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.4893"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMaxTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.153 0.187 -0.818 0.41352
+Precip         0.553 0.261  2.118 0.03421
+AvgMaxTemp    -0.848 0.275 -3.087 0.00202
+NPP            0.133 0.230  0.581 0.56145
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5093 0.3637 -1.400   0.161
+Eff          -0.0494 0.0541 -0.914   0.361
+
+AIC: 1359.647 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 42 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.5195"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMinTemp + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.259 0.208 -1.246  0.2126
+Precip         0.235 0.255  0.921  0.3571
+AvgMinTemp     8.612 4.391  1.961  0.0499
+AvgMaxTemp    -9.335 4.443 -2.101  0.0356
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4948 0.3637 -1.360   0.174
+Eff          -0.0511 0.0541 -0.946   0.344
+
+AIC: 1353.783 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipAvgMinTempNPP.pEff"
+[1] "𝜓=  0.4916"
+[1] "p=  0.4877"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMinTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.148 0.185 -0.800  0.4235
+Precip         0.553 0.267  2.071  0.0383
+AvgMinTemp    -0.812 0.281 -2.895  0.0038
+NPP            0.131 0.231  0.567  0.5706
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5096 0.3637 -1.401   0.161
+Eff          -0.0494 0.0541 -0.913   0.361
+
+AIC: 1361.139 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 39 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipElevAvgMaxTemp.pEff"
+[1] "𝜓=  0.7318"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.171 0.189 -0.904  0.3658
+Precip         0.655 0.275  2.385  0.0171
+Elev           1.719 0.841  2.043  0.0410
+AvgMaxTemp     0.797 0.811  0.982  0.3260
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4978 0.3636 -1.369   0.171
+Eff          -0.0508 0.0541 -0.939   0.348
+
+AIC: 1355.602 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipElevAvgMinTemp.pEff"
+[1] "𝜓=  0.7925"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.165 0.190 -0.869 0.38479
+Precip         0.594 0.266  2.228 0.02590
+Elev           2.371 0.872  2.719 0.00655
+AvgMinTemp     1.509 0.863  1.748 0.08051
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.4927 0.3637 -1.35   0.175
+Eff          -0.0514 0.0541 -0.95   0.342
+
+AIC: 1353.398 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipElevHFI.pEff"
+[1] "𝜓=  0.5404"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + Elev, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.239 0.200 -1.19  0.2335
+Precip         0.391 0.275  1.42  0.1549
+HFI           -0.546 0.299 -1.82  0.0684
+Elev           0.654 0.304  2.15  0.0313
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4929 0.3637 -1.355   0.175
+Eff          -0.0515 0.0541 -0.953   0.341
+
+AIC: 1352.765 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 42 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipElevNDVI.pEff"
+[1] "𝜓=  0.6171"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.1762 0.189 -0.933 0.35082
+Precip        0.6529 0.277  2.356 0.01845
+Elev          0.9098 0.296  3.079 0.00208
+NDVI         -0.0774 0.212 -0.366 0.71473
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5013 0.3636 -1.379   0.168
+Eff          -0.0504 0.0541 -0.933   0.351
+
+AIC: 1356.444 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 39 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipElevNPP.pEff"
+[1] "𝜓=  0.6483"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.162 0.190 -0.855 0.392601
+Precip         0.687 0.287  2.394 0.016666
+Elev           1.018 0.298  3.417 0.000634
+NPP            0.180 0.235  0.768 0.442576
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5066 0.3636 -1.393   0.164
+Eff          -0.0497 0.0541 -0.919   0.358
+
+AIC: 1356.025 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipElevRoad.pEff"
+[1] "𝜓=  0.6526"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + d.Road, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.161 0.213 -0.757 0.44924
+Precip         0.181 0.276  0.657 0.51131
+Elev           0.755 0.314  2.405 0.01619
+d.Road         1.006 0.289  3.476 0.00051
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4990 0.3636 -1.372    0.17
+Eff          -0.0506 0.0541 -0.935    0.35
+
+AIC: 1339.029 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipHFIAvgMaxTemp.pEff"
+[1] "𝜓=  0.4346"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.223 0.197 -1.131  0.2582
+Precip         0.251 0.254  0.988  0.3233
+HFI           -0.604 0.301 -2.011  0.0443
+AvgMaxTemp    -0.455 0.289 -1.575  0.1152
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4952 0.3637 -1.362   0.173
+Eff          -0.0513 0.0541 -0.949   0.342
+
+AIC: 1355.35 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipHFIAvgMinTemp.pEff"
+[1] "𝜓=  0.434"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.219 0.196 -1.118  0.2636
+Precip         0.237 0.255  0.929  0.3531
+HFI           -0.640 0.292 -2.192  0.0284
+AvgMinTemp    -0.414 0.283 -1.462  0.1438
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4952 0.3637 -1.362   0.173
+Eff          -0.0514 0.0541 -0.949   0.342
+
+AIC: 1355.723 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 44 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipHFINDVI.pEff"
+[1] "𝜓=  0.4243"
+[1] "p=  0.487"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.2140 0.194 -1.106 0.26889
+Precip        0.0736 0.197  0.374 0.70855
+HFI          -0.7806 0.269 -2.903 0.00369
+NDVI         -0.2395 0.200 -1.197 0.23132
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4902 0.3636 -1.348   0.178
+Eff          -0.0519 0.0541 -0.959   0.338
+
+AIC: 1356.494 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipHFINPP.pEff"
+[1] "𝜓=  0.442"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.2334 0.197 -1.183 0.23685
+Precip       -0.0582 0.191 -0.304 0.76108
+HFI          -1.0652 0.360 -2.960 0.00308
+NPP           0.3407 0.261  1.305 0.19196
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)   -0.496 0.3637 -1.363   0.173
+Eff           -0.051 0.0541 -0.942   0.346
+
+AIC: 1356.32 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipHFIRoad.pEff"
+[1] "𝜓=  0.5643"
+[1] "p=  0.4877"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + d.Road, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0173 0.225 -0.077 0.93864
+Precip       -0.1883 0.216 -0.871 0.38400
+HFI          -0.1239 0.289 -0.428 0.66856
+d.Road        1.2134 0.440  2.758 0.00581
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5140 0.3630 -1.416   0.157
+Eff          -0.0491 0.0541 -0.909   0.363
+
+AIC: 1345.336 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipNDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.4728"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.164 0.187 -0.881 0.37808
+Precip         0.545 0.255  2.134 0.03284
+NDVI          -0.154 0.205 -0.754 0.45056
+AvgMaxTemp    -0.735 0.267 -2.750 0.00597
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5034 0.3636 -1.384   0.166
+Eff          -0.0502 0.0541 -0.929   0.353
+
+AIC: 1359.393 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipNDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.4806"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.139 0.178 -0.782  0.4344
+Precip         0.203 0.191  1.065  0.2869
+NDVI          -0.362 0.199 -1.822  0.0685
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4959 0.3636 -1.364   0.173
+Eff          -0.0507 0.0541 -0.938   0.348
+
+AIC: 1366.329 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipNDVINPP.pEff"
+[1] "𝜓=  0.4795"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.142 0.178 -0.794  0.4270
+Precip         0.201 0.191  1.056  0.2909
+NDVI          -0.344 0.201 -1.712  0.0869
+NPP           -0.106 0.210 -0.508  0.6118
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4934 0.3636 -1.357   0.175
+Eff          -0.0512 0.0541 -0.946   0.344
+
+AIC: 1368.061 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 50 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipRoadAvgMaxTemp.pEff"
+[1] "𝜓=  0.5379"
+[1] "p=  0.4875"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)  -0.1358 0.214 -0.634 0.525839
+Precip        0.0738 0.258  0.286 0.774508
+d.Road        1.0476 0.301  3.483 0.000496
+AvgMaxTemp   -0.5980 0.294 -2.037 0.041616
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5041 0.3636 -1.387   0.166
+Eff          -0.0501 0.0541 -0.925   0.355
+
+AIC: 1341.036 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 41 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipRoadAvgMinTemp.pEff"
+[1] "𝜓=  0.5417"
+[1] "p=  0.4875"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)  -0.1232 0.214 -0.575 0.565154
+Precip        0.0693 0.261  0.265 0.791019
+d.Road        1.0730 0.305  3.517 0.000437
+AvgMinTemp   -0.5646 0.296 -1.911 0.056062
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5052 0.3635 -1.390   0.165
+Eff          -0.0499 0.0541 -0.923   0.356
+
+AIC: 1341.582 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipRoadNDVI.pEff"
+[1] "𝜓=  0.56"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)  -0.0329 0.215 -0.153 0.878501
+Precip       -0.1314 0.223 -0.590 0.555305
+d.Road        1.2395 0.342  3.620 0.000295
+NDVI         -0.2525 0.211 -1.194 0.232506
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5094 0.3630 -1.403   0.161
+Eff          -0.0495 0.0541 -0.915   0.360
+
+AIC: 1344.051 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 42 
+Bootstrap iterations: 0 
+
+[1] "CR_m.PrecipRoadNPP.pEff"
+[1] "𝜓=  0.5935"
+[1] "p=  0.488"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z  P(>|z|)
+(Intercept)   0.0175 0.222  0.0786 0.937369
+Precip       -0.2284 0.224 -1.0208 0.307369
+d.Road        1.3876 0.380  3.6504 0.000262
+NPP           0.1485 0.224  0.6626 0.507615
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)   -0.522 0.3630 -1.437   0.151
+Eff           -0.048 0.0541 -0.887   0.375
+
+AIC: 1345.077 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psi1.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ 1, data = CR_umf)
+
+Occupancy (logit-scale):
+ Estimate    SE     z P(>|z|)
+   -0.133 0.176 -0.76   0.447
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.5035 0.3637 -1.38   0.166
+Eff          -0.0498 0.0541 -0.92   0.357
+
+AIC: 1366.257 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psi2.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ 1 + 1, data = CR_umf)
+
+Occupancy (logit-scale):
+ Estimate    SE     z P(>|z|)
+   -0.133 0.176 -0.76   0.447
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.5035 0.3637 -1.38   0.166
+Eff          -0.0498 0.0541 -0.92   0.357
+
+AIC: 1366.257 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psi3.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ 1 + 1 + 1, data = CR_umf)
+
+Occupancy (logit-scale):
+ Estimate    SE     z P(>|z|)
+   -0.133 0.176 -0.76   0.447
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.5035 0.3637 -1.38   0.166
+Eff          -0.0498 0.0541 -0.92   0.357
+
+AIC: 1366.257 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiAvgMaxTempNDVI.pEff"
+[1] "𝜓=  0.4323"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.145 0.182 -0.797  0.4254
+AvgMaxTemp    -0.445 0.210 -2.122  0.0338
+NDVI          -0.103 0.200 -0.517  0.6053
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5004 0.3637 -1.376   0.169
+Eff          -0.0506 0.0541 -0.935   0.350
+
+AIC: 1362.785 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 31 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiAvgMaxTempPrecip.pEff"
+[1] "𝜓=  0.4699"
+[1] "p=  0.4875"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp + Precip, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.160 0.186 -0.857 0.39137
+AvgMaxTemp    -0.793 0.256 -3.100 0.00194
+Precip         0.525 0.252  2.080 0.03756
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)   -0.506 0.3637 -1.391   0.164
+Eff           -0.050 0.0541 -0.924   0.355
+
+AIC: 1357.97 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiAvgMaxTempRoad.pEff"
+[1] "𝜓=  0.5556"
+[1] "p=  0.4875"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp + d.Road, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.127 0.212 -0.597 0.550196
+AvgMaxTemp    -0.552 0.243 -2.274 0.022950
+d.Road         1.077 0.287  3.758 0.000171
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)   -0.504 0.3635 -1.387   0.165
+Eff           -0.050 0.0541 -0.925   0.355
+
+AIC: 1339.119 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.5"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.288 0.211 -1.36  0.1723
+AvgMinTemp    10.487 4.360  2.41  0.0161
+AvgMaxTemp   -11.119 4.479 -2.48  0.0130
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4909 0.3636 -1.350   0.177
+Eff          -0.0516 0.0541 -0.954   0.340
+
+AIC: 1352.681 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 49 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiAvgMinTempElev.pEff"
+[1] "𝜓=  0.8681"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + Elev, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.149 0.185 -0.806  0.4200
+AvgMinTemp     1.656 0.849  1.951  0.0510
+Elev           2.158 0.856  2.522  0.0117
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4901 0.3637 -1.348   0.178
+Eff          -0.0516 0.0541 -0.955   0.340
+
+AIC: 1357.439 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 31 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiAvgMinTempHFI.pEff"
+[1] "𝜓=  0.3815"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + HFI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.213 0.195 -1.10 0.27337
+AvgMinTemp    -0.240 0.205 -1.17 0.24159
+HFI           -0.742 0.273 -2.72 0.00651
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4948 0.3637 -1.360   0.174
+Eff          -0.0515 0.0541 -0.952   0.341
+
+AIC: 1354.624 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 43 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiAvgMinTempNDVI.pEff"
+[1] "𝜓=  0.4367"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.142 0.181 -0.789  0.4302
+AvgMinTemp    -0.387 0.209 -1.854  0.0638
+NDVI          -0.124 0.201 -0.618  0.5363
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5001 0.3637 -1.375   0.169
+Eff          -0.0506 0.0541 -0.935   0.350
+
+AIC: 1363.937 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 31 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiAvgMinTempNPP.pEff"
+[1] "𝜓=  0.4474"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.1399 0.181 -0.775  0.4382
+AvgMinTemp   -0.4540 0.203 -2.232  0.0256
+NPP           0.0254 0.221  0.115  0.9087
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5028 0.3638 -1.382   0.167
+Eff          -0.0502 0.0541 -0.929   0.353
+
+AIC: 1364.31 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiAvgMinTempPrecip.pEff"
+[1] "𝜓=  0.4737"
+[1] "p=  0.4875"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.155 0.185 -0.839 0.40151
+Precip         0.522 0.257  2.032 0.04211
+AvgMinTemp    -0.754 0.259 -2.913 0.00357
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5059 0.3637 -1.391   0.164
+Eff          -0.0499 0.0541 -0.924   0.356
+
+AIC: 1359.448 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiAvgMinTempRoad.pEff"
+[1] "𝜓=  0.5615"
+[1] "p=  0.4875"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + d.Road, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.115 0.212 -0.541 0.588671
+AvgMinTemp    -0.521 0.241 -2.158 0.030896
+d.Road         1.100 0.292  3.769 0.000164
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5054 0.3635 -1.390   0.164
+Eff          -0.0499 0.0541 -0.923   0.356
+
+AIC: 1339.652 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 39 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiElev.pEff"
+[1] "𝜓=  0.633"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ Elev, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.149 0.183 -0.817 0.41396
+Elev           0.545 0.191  2.856 0.00429
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4987 0.3637 -1.371   0.170
+Eff          -0.0508 0.0541 -0.939   0.348
+
+AIC: 1359.451 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiElevAvgMaxTemp.pEff"
+[1] "𝜓=  0.716"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.150 0.183 -0.821   0.411
+Elev           1.202 0.796  1.510   0.131
+AvgMaxTemp     0.677 0.793  0.854   0.393
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4951 0.3637 -1.361   0.173
+Eff          -0.0511 0.0541 -0.945   0.345
+
+AIC: 1360.715 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiElevNDVI.pEff"
+[1] "𝜓=  0.5581"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.1497 0.183 -0.820  0.4124
+Elev          0.5219 0.217  2.402  0.0163
+NDVI         -0.0458 0.207 -0.221  0.8248
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.4981 0.3637 -1.37   0.171
+Eff          -0.0508 0.0541 -0.94   0.347
+
+AIC: 1361.402 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 31 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiElevPrecip.pEff"
+[1] "𝜓=  0.6884"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + Precip, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.175 0.189 -0.925 0.354963
+Elev           0.945 0.280  3.381 0.000721
+Precip         0.648 0.277  2.344 0.019099
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5023 0.3636 -1.381   0.167
+Eff          -0.0503 0.0541 -0.931   0.352
+
+AIC: 1354.578 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiElevRoad.pEff"
+[1] "𝜓=  0.6991"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.137 0.210 -0.652 0.514103
+Elev           0.632 0.243  2.598 0.009375
+d.Road         1.074 0.279  3.850 0.000118
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4999 0.3636 -1.375   0.169
+Eff          -0.0505 0.0541 -0.933   0.351
+
+AIC: 1337.473 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiHFI.pEff"
+[1] "𝜓=  0.306"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ HFI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.201 0.191 -1.05 0.29276
+HFI           -0.819 0.261 -3.14 0.00168
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.4945 0.3637 -1.36   0.174
+Eff          -0.0514 0.0541 -0.95   0.342
+
+AIC: 1353.993 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiHFIAvgMaxTemp.pEff"
+[1] "𝜓=  0.3802"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.216 0.195 -1.11 0.26891
+HFI           -0.723 0.277 -2.61 0.00899
+AvgMaxTemp    -0.267 0.210 -1.27 0.20312
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4947 0.3637 -1.360   0.174
+Eff          -0.0515 0.0541 -0.952   0.341
+
+AIC: 1354.376 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 39 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiHFIAvgMinTemp.pEff"
+[1] "𝜓=  0.3815"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.213 0.195 -1.10 0.27337
+HFI           -0.742 0.273 -2.72 0.00651
+AvgMinTemp    -0.240 0.205 -1.17 0.24159
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4948 0.3637 -1.360   0.174
+Eff          -0.0515 0.0541 -0.952   0.341
+
+AIC: 1354.624 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiHFIElev.pEff"
+[1] "𝜓=  0.4585"
+[1] "p=  0.4871"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + Elev, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.223 0.197 -1.13  0.2572
+HFI           -0.710 0.277 -2.56  0.0105
+Elev           0.353 0.205  1.72  0.0851
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4930 0.3637 -1.356   0.175
+Eff          -0.0517 0.0541 -0.955   0.339
+
+AIC: 1353.006 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiHFINDVI.pEff"
+[1] "𝜓=  0.3785"
+[1] "p=  0.487"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.215 0.194 -1.11 0.26806
+HFI           -0.798 0.266 -3.00 0.00267
+NDVI          -0.215 0.188 -1.14 0.25225
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4905 0.3636 -1.349   0.177
+Eff          -0.0519 0.0541 -0.959   0.338
+
+AIC: 1354.634 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiHFINPP.pEff"
+[1] "𝜓=  0.421"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.228 0.196 -1.17 0.24370
+HFI           -1.035 0.340 -3.04 0.00236
+NPP            0.323 0.253  1.28 0.20200
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)   -0.495 0.3637 -1.362   0.173
+Eff           -0.051 0.0541 -0.943   0.346
+
+AIC: 1354.412 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 32 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiHFIPrecip.pEff"
+[1] "𝜓=  0.4021"
+[1] "p=  0.4872"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + Precip, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept) -0.20166 0.192 -1.052 0.29264
+HFI         -0.81993 0.264 -3.112 0.00186
+Precip      -0.00596 0.186 -0.032 0.97450
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.4946 0.3637 -1.36   0.174
+Eff          -0.0514 0.0541 -0.95   0.342
+
+AIC: 1355.992 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 40 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiHFIRoad.pEff"
+[1] "𝜓=  0.6147"
+[1] "p=  0.4877"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept) -0.00912 0.224 -0.0407 0.96751
+HFI         -0.13745 0.289 -0.4753 0.63460
+d.Road       1.17281 0.440  2.6640 0.00772
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5141 0.3629 -1.417   0.157
+Eff          -0.0492 0.0541 -0.911   0.362
+
+AIC: 1344.105 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiNDVI.pEff"
+[1] "𝜓=  0.4264"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.138 0.177 -0.777   0.437
+NDVI          -0.297 0.184 -1.609   0.108
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4973 0.3636 -1.368   0.171
+Eff          -0.0506 0.0541 -0.936   0.349
+
+AIC: 1365.484 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 41 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiNDVIRoad.pEff"
+[1] "𝜓=  0.5998"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + d.Road, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)  -0.0321 0.215 -0.15 0.881036
+NDVI         -0.2818 0.207 -1.36 0.173074
+d.Road        1.2063 0.338  3.57 0.000353
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5093 0.3629 -1.403   0.161
+Eff          -0.0495 0.0541 -0.916   0.360
+
+AIC: 1342.402 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 40 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiNPP.pEff"
+[1] "𝜓=  0.4583"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.136 0.176 -0.773   0.439
+NPP           -0.167 0.208 -0.803   0.422
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4980 0.3638 -1.369   0.171
+Eff          -0.0507 0.0541 -0.937   0.349
+
+AIC: 1367.572 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiPrec.pEff"
+[1] "𝜓=  0.5231"
+[1] "p=  0.4876"
+
+
+Call:
+occu(formula = ~Eff ~ Precip, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.1337 0.176 -0.761   0.446
+Precip        0.0925 0.179  0.518   0.605
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.5034 0.3637 -1.38   0.166
+Eff          -0.0498 0.0541 -0.92   0.358
+
+AIC: 1367.987 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiPrecipNDVI.pEff"
+[1] "𝜓=  0.4806"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.139 0.178 -0.782  0.4344
+Precip         0.203 0.191  1.065  0.2869
+NDVI          -0.362 0.199 -1.822  0.0685
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4959 0.3636 -1.364   0.173
+Eff          -0.0507 0.0541 -0.938   0.348
+
+AIC: 1366.329 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 37 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiPrecipRoad.pEff"
+[1] "𝜓=  0.6215"
+[1] "p=  0.4878"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z  P(>|z|)
+(Intercept)   0.0101 0.220  0.0459 0.963358
+Precip       -0.1947 0.217 -0.8961 0.370209
+d.Road        1.3343 0.364  3.6662 0.000246
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)   -0.516 0.3629 -1.422   0.155
+Eff           -0.049 0.0541 -0.906   0.365
+
+AIC: 1343.524 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiRoad.pEff"
+[1] "𝜓=  0.7871"
+[1] "p=  0.4877"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   0.0222 0.219 0.101 0.919346
+d.Road        1.3073 0.364 3.588 0.000334
+
+Detection (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.516 0.363 -1.424   0.155
+Eff           -0.049 0.054 -0.907   0.364
+
+AIC: 1342.337 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiTempmax.pEff"
+[1] "𝜓=  0.3793"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.143 0.182 -0.787 0.43145
+AvgMaxTemp    -0.493 0.190 -2.598 0.00939
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5020 0.3638 -1.380   0.168
+Eff          -0.0504 0.0541 -0.932   0.351
+
+AIC: 1361.054 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 41 
+Bootstrap iterations: 0 
+
+[1] "CR_m.psiTempmin.pEff"
+[1] "𝜓=  0.3905"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.140 0.180 -0.776  0.4377
+AvgMinTemp    -0.445 0.188 -2.369  0.0178
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5022 0.3638 -1.381   0.167
+Eff          -0.0504 0.0541 -0.931   0.352
+
+AIC: 1362.323 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "CR_m.RoadAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5682"
+[1] "p=  0.488"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + AvgMaxTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -0.124 0.210 -0.59 0.555269
+d.Road         1.223 0.290  4.21 0.000025
+AvgMaxTemp    -0.795 0.276 -2.88 0.003917
+NPP            0.494 0.288  1.72 0.085999
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5162 0.3637 -1.419   0.156
+Eff          -0.0479 0.0541 -0.885   0.376
+
+AIC: 1337.576 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "CR_m.RoadAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.5713"
+[1] "p=  0.4873"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + AvgMinTemp + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.219 0.229 -0.957 0.33849
+d.Road         0.922 0.281  3.280 0.00104
+AvgMinTemp     5.722 4.320  1.325 0.18532
+AvgMaxTemp    -6.361 4.437 -1.434 0.15168
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.4977 0.3636 -1.369   0.171
+Eff          -0.0507 0.0541 -0.938   0.348
+
+AIC: 1338.738 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.RoadAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5719"
+[1] "p=  0.4881"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + AvgMinTemp + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.110 0.210 -0.526 5.99e-01
+d.Road         1.247 0.294  4.247 2.17e-05
+AvgMinTemp    -0.774 0.274 -2.823 4.76e-03
+NPP            0.503 0.295  1.707 8.79e-02
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.5182 0.3637 -1.42   0.154
+Eff          -0.0476 0.0541 -0.88   0.379
+
+AIC: 1338.077 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "CR_m.RoadNDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5299"
+[1] "p=  0.4874"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + NDVI + AvgMaxTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.131 0.211 -0.619 0.535600
+d.Road         1.076 0.283  3.802 0.000144
+NDVI          -0.144 0.218 -0.659 0.509867
+AvgMaxTemp    -0.491 0.258 -1.903 0.056994
+
+Detection (logit-scale):
+            Estimate     SE     z P(>|z|)
+(Intercept)  -0.5017 0.3635 -1.38   0.168
+Eff          -0.0503 0.0541 -0.93   0.352
+
+AIC: 1340.679 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 40 
+Bootstrap iterations: 0 
+
+[1] "CR_m.RoadNDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.5333"
+[1] "p=  0.4875"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + NDVI + AvgMinTemp, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)   -0.120 0.211 -0.567 0.570538
+d.Road         1.096 0.288  3.811 0.000138
+NDVI          -0.150 0.219 -0.688 0.491497
+AvgMinTemp    -0.456 0.257 -1.777 0.075626
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5026 0.3635 -1.383   0.167
+Eff          -0.0502 0.0541 -0.928   0.353
+
+AIC: 1341.173 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "CR_m.RoadNDVINPP.pEff"
+[1] "𝜓=  0.58"
+[1] "p=  0.4878"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + NDVI + NPP, data = CR_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0283 0.215 -0.131 0.89553
+d.Road        1.2435 0.342  3.633 0.00028
+NDVI         -0.3168 0.213 -1.490 0.13621
+NPP           0.1702 0.221  0.771 0.44069
+
+Detection (logit-scale):
+            Estimate     SE      z P(>|z|)
+(Intercept)  -0.5141 0.3631 -1.416   0.157
+Eff          -0.0486 0.0541 -0.899   0.368
+
+AIC: 1343.806 
+Number of sites: 141
+optim convergence code: 0
+optim iterations: 45 
+Bootstrap iterations: 0 
+

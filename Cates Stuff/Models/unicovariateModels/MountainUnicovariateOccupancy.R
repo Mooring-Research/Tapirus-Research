@@ -6,7 +6,7 @@
 #> Files needed:
 #> Collapsed_Capture_Mountain_Tapir_revised_DR.rds >> tapir occurance records
 #> Effort_Mountain_Tapir_revised_DR.rds >> effort table
-#> Mt_T_Covs4.csv now MT_covs.csv (17 jul 2023) >> covariate table
+#> Mt_T_Covs4.csv NOW> MT_covs.csv (17 jul 2023) >> covariate table
 
 
 #clear system
