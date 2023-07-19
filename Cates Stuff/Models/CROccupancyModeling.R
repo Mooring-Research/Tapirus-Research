@@ -1,26 +1,37 @@
 ###------------------------------------------------------------------------------###
-### Running models on baird's
-### Edited 2023-6-29 by Christian 
+### Running multivariate models on baird's
+### Edited by: CA 19Jul2023
 ###------------------------------------------------------------------------------###
 
+#> Files needed:
+#> tapir_CR.rds >> tapir occurance records
+#> eff_CR.rds >> effort table
+#> cv_t3.csv >> covariate table
+
+
 rm(list=ls())
-setwd("C:/Users/chris/Documents/Research/Tapir Research/Code and Data/all Tapir's data/Costa Rica (Baird Tapir)")
+
 library(unmarked)
+#setwd("C:/Users/chris/Documents/Research/Tapir Research/Code and Data/all Tapir's data/Costa Rica (Baird Tapir)")#Directory of R-project "Models" on github
+setwd("C:/Users/chris/Tapirus-Research/Cates Stuff/Models")
+#dir()#
 
-tapir_t<- readRDS("scripts/tapir_CR.rds")
-head(tapir_t)
-eff_t<- readRDS("scripts/eff_CR.rds")
-head(eff_t)
-cv_t3<- read.csv("cv_t3.csv")
-head(cv_t3)
-cv_t3<- cbind(cv_t3[,2:5], round(scale(cv_t3[,6:ncol(cv_t3)]),3))
 
-rownames(tapir_t) == rownames(eff_t)
-rownames(eff_t) == cv_t3$Station
+#occurance recs
+CR_tapir<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Costa Rica (Baird Tapir)/Scripts/tapir_CR.rds") 
+#effort table
+CR_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Costa Rica (Baird Tapir)/Scripts/eff_CR.rds")
+#covariates
+CR_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Costa Rica (Baird Tapir)/cv_t3.csv")
 
-umf<- unmarkedFrameOccu(y=tapir_t, siteCovs=cv_t3, obsCovs=list(Eff=eff_t))
-summary(umf)
+# #remove first column and scale all numerical values
+# CR_cv<- cbind(CR_cv[,c(2:5, 7)], round(scale(CR_cv[,c(6, 8:ncol(CR_cv))])))
 
+#rownames(CR_tapir) == rownames(CR_eff)
+#rownames(CR_eff) == CR_cv$Station
+
+CR_umf<- unmarkedFrameOccu(y=CR_tapir, siteCovs= as.data.frame(scale(CR_cov[,-c(1:5)])), obsCovs=list(Eff=CR_eff))
+#summary(CR_umf)
 #-----------------------------------------------------------------------
 # Running Null model
 mod0 <- occu(~1~1, umf)  # Null Model

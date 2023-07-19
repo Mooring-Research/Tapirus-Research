@@ -1,6 +1,6 @@
 ###------------------------------------------------------------------------------###
 ### Running Unicovariate models on Mountain tapir
-### CA 12Jul2023
+### CA 17Jul2023
 ###------------------------------------------------------------------------------###
 
 #> Files needed:
@@ -12,8 +12,7 @@
 #clear system
 rm(list=ls())
 library(unmarked)
-# library(corrgram)
-# library(ggcorrplot)
+library(corrplot)
 
 #set wd
 setwd("C:/Users/chris/Tapirus-Research/Cates Stuff/Models")#Directory of R-project "Models" on github
@@ -64,50 +63,58 @@ MT_detlist<-fitList(
                     MT_m.psiTempmax.pEff ,
                     MT_m.psiNDVI.pEff    ,
                     MT_m.psiTempmin.pEff ,
-                    MT_m.psiNPP.pEff    ,
-                    MT_m.psiHFI.pEff 
+                    MT_m.psiNPP.pEff  
 )
 
 # modSel compares AND ranks the models against each other!
 modSel(MT_detlist) 
 
+#continuous variables, elev, d.road, precip, NDVI, minT, maxT, NPP
+columns<- c(6, 8:13)
 
-sink("unicovariateModselAll.txt", append = TRUE)
-print("Mountain Tapir Model Selection")
-modSel(MT_detlist)
+# Create a correlation matrix plot
+corrplot(cor(MT_cov[,columns]), method = "shade", type = "upper", diag = TRUE, tl.cex = 0.8)
+
+sink("MT_mods.txt", append = FALSE)
+  print("**Mountain Tapir Models**")
+  modSel(MT_detlist)
+  cat("\n**P and 𝜓**\n")
+  getStats()
+  cat("\n***Correlation Matrix***\n")
+  cor(MT_cov[, columns])
 sink()
-
-#function for psi value
-pf <- function(x) {
-  occu <- 0
-  if(length(x@estimates@estimates$state@estimates) > 2) {
-    for(i in 2:length(x@estimates@estimates$state@estimates)) {
-      occu <- (occu + plogis(x@estimates@estimates$state@estimates[i])) 
-    }
-    occu <- occu/(length(x@estimates@estimates$state@estimates)-1)
-  } else {
-    occu <- plogis(x@estimates@estimates$state@estimates[2])
-  }
-  print(paste("𝜓= ", signif(occu, digits = 4)))
-}
-
-# Function to give detection probabilities (p) for models 
-pd <- function(x) {
-  detp <- 0
-  if(length(x@estimates@estimates$det@estimates) > 2) {
-    for(i in 2:length(x@estimates@estimates$det@estimates)) {
-      detp <- (detp + plogis(x@estimates@estimates$det@estimates[i])) 
-    }
-    detp <- detp/(length(x@estimates@estimates$det@estimates)-1)
-  } else {
-    detp <- plogis(x@estimates@estimates$det@estimates[2])
-  }
-  print(paste("p= ", signif(detp, digits=4)))
-}
-
-#function of both funcs
-pfpd<- function(x){
-  print(x@formula)
-  pf(x)
-  pd(x)
-}
+# 
+# #function for psi value
+# pf <- function(x) {
+#   occu <- 0
+#   if(length(x@estimates@estimates$state@estimates) > 2) {
+#     for(i in 2:length(x@estimates@estimates$state@estimates)) {
+#       occu <- (occu + plogis(x@estimates@estimates$state@estimates[i])) 
+#     }
+#     occu <- occu/(length(x@estimates@estimates$state@estimates)-1)
+#   } else {
+#     occu <- plogis(x@estimates@estimates$state@estimates[2])
+#   }
+#   print(paste("𝜓= ", signif(occu, digits = 4)))
+# }
+# 
+# # Function to give detection probabilities (p) for models 
+# pd <- function(x) {
+#   detp <- 0
+#   if(length(x@estimates@estimates$det@estimates) > 2) {
+#     for(i in 2:length(x@estimates@estimates$det@estimates)) {
+#       detp <- (detp + plogis(x@estimates@estimates$det@estimates[i])) 
+#     }
+#     detp <- detp/(length(x@estimates@estimates$det@estimates)-1)
+#   } else {
+#     detp <- plogis(x@estimates@estimates$det@estimates[2])
+#   }
+#   print(paste("p= ", signif(detp, digits=4)))
+# }
+# 
+# #function of both funcs
+# pfpd<- function(x){
+#   print(x@formula)
+#   pf(x)
+#   pd(x)
+# }

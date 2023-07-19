@@ -1,0 +1,57 @@
+[1] "**Mountain Tapir Models**"
+                     nPars    AIC delta  AICwt cumltvWt
+MT_m.psiTempmin.pEff     4 517.53 0.000 0.3524     0.35
+MT_m.psiTempmax.pEff     4 517.60 0.068 0.3406     0.69
+MT_m.psiElev.pEff        4 518.45 0.918 0.2227     0.92
+MT_m.psiNDVI.pEff        4 522.02 4.488 0.0374     0.95
+MT_m.psiNPP.pEff         4 523.25 5.721 0.0202     0.97
+MT_m.psi1.pEff           3 523.82 6.293 0.0152     0.99
+MT_m.psiRoad.pEff        4 525.70 8.166 0.0059     0.99
+MT_m.psiPrec.pEff        4 525.78 8.253 0.0057     1.00
+
+**P and 𝜓**
+[1] "MT_m.psi1.pEff"       "MT_m.psiElev.pEff"    "MT_m.psiNDVI.pEff"    "MT_m.psiNPP.pEff"     "MT_m.psiPrec.pEff"   
+[6] "MT_m.psiRoad.pEff"    "MT_m.psiTempmax.pEff" "MT_m.psiTempmin.pEff"
+
+[1] "MT_m.psi1.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.6214"
+
+[1] "MT_m.psiElev.pEff"
+[1] "𝜓=  0.3295"
+[1] "p=  0.6225"
+
+[1] "MT_m.psiNDVI.pEff"
+[1] "𝜓=  0.622"
+[1] "p=  0.6219"
+
+[1] "MT_m.psiNPP.pEff"
+[1] "𝜓=  0.6046"
+[1] "p=  0.6221"
+
+[1] "MT_m.psiPrec.pEff"
+[1] "𝜓=  0.5124"
+[1] "p=  0.6214"
+
+[1] "MT_m.psiRoad.pEff"
+[1] "𝜓=  0.5216"
+[1] "p=  0.6211"
+
+[1] "MT_m.psiTempmax.pEff"
+[1] "𝜓=  0.6858"
+[1] "p=  0.6225"
+
+[1] "MT_m.psiTempmin.pEff"
+[1] "𝜓=  0.6903"
+[1] "p=  0.6225"
+
+
+***Correlation Matrix***
+                 Elev     d.Road     Precip       NDVI AvgMinTemp AvgMaxTemp        NPP
+Elev        1.0000000  0.4773677 -0.1436933 -0.8357563 -0.8400972 -0.8405289 -0.7373418
+d.Road      0.4773677  1.0000000 -0.3372382 -0.5154280 -0.5942364 -0.5931725 -0.3694691
+Precip     -0.1436933 -0.3372382  1.0000000  0.3225451  0.3610690  0.3363099  0.2442996
+NDVI       -0.8357563 -0.5154280  0.3225451  1.0000000  0.7669650  0.7573188  0.7278790
+AvgMinTemp -0.8400972 -0.5942364  0.3610690  0.7669650  1.0000000  0.9973164  0.6871173
+AvgMaxTemp -0.8405289 -0.5931725  0.3363099  0.7573188  0.9973164  1.0000000  0.6718758
+NPP        -0.7373418 -0.3694691  0.2442996  0.7278790  0.6871173  0.6718758  1.0000000

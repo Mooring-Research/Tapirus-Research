@@ -1,0 +1,101 @@
+[1] "**Malayan Tapir Models**"
+                     nPars     AIC delta AICwt cumltvWt
+MA_m.psiNDVI.pEff        4 2138.39  0.00 0.256     0.26
+MA_m.psiTempmax.pEff     4 2138.96  0.57 0.192     0.45
+MA_m.psiTempmin.pEff     4 2139.57  1.18 0.142     0.59
+MA_m.psiElev.pEff        4 2139.62  1.23 0.138     0.73
+MA_m.psiPrec.pEff        4 2139.76  1.37 0.129     0.86
+MA_m.psiRoad.pEff        4 2141.58  3.19 0.052     0.91
+MA_m.psi1.pEff           3 2141.86  3.47 0.045     0.95
+MA_m.psiHFI.pEff         4 2142.73  4.34 0.029     0.98
+MA_m.psiNPP.pEff         4 2143.76  5.37 0.017     1.00
+
+**P and 𝜓**
+ [1] "CR_m.psi1.pEff"       "CR_m.psiElev.pEff"    "CR_m.psiHFI.pEff"     "CR_m.psiNDVI.pEff"    "CR_m.psiNPP.pEff"    
+ [6] "CR_m.psiPrecp.Eff"    "CR_m.psiRoad.pEff"    "CR_m.psiTempmax.pEff" "CR_m.psiTempmin.pEff" "MA_m.psi1.pEff"      
+[11] "MA_m.psiElev.pEff"    "MA_m.psiHFI.pEff"     "MA_m.psiNDVI.pEff"    "MA_m.psiNPP.pEff"     "MA_m.psiPrec.pEff"   
+[16] "MA_m.psiRoad.pEff"    "MA_m.psiTempmax.pEff" "MA_m.psiTempmin.pEff"
+
+[1] "CR_m.psi1.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.4876"
+
+[1] "CR_m.psiElev.pEff"
+[1] "𝜓=  0.633"
+[1] "p=  0.4873"
+
+[1] "CR_m.psiHFI.pEff"
+[1] "𝜓=  0.306"
+[1] "p=  0.4872"
+
+[1] "CR_m.psiNDVI.pEff"
+[1] "𝜓=  0.4264"
+[1] "p=  0.4874"
+
+[1] "CR_m.psiNPP.pEff"
+[1] "𝜓=  0.4583"
+[1] "p=  0.4873"
+
+[1] "CR_m.psiPrecp.Eff"
+[1] "𝜓=  0.5231"
+[1] "p=  0.4876"
+
+[1] "CR_m.psiRoad.pEff"
+[1] "𝜓=  0.7871"
+[1] "p=  0.4877"
+
+[1] "CR_m.psiTempmax.pEff"
+[1] "𝜓=  0.3793"
+[1] "p=  0.4874"
+
+[1] "CR_m.psiTempmin.pEff"
+[1] "𝜓=  0.3905"
+[1] "p=  0.4874"
+
+[1] "MA_m.psi1.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.6201"
+
+[1] "MA_m.psiElev.pEff"
+[1] "𝜓=  0.4288"
+[1] "p=  0.6202"
+
+[1] "MA_m.psiHFI.pEff"
+[1] "𝜓=  0.5393"
+[1] "p=  0.6201"
+
+[1] "MA_m.psiNDVI.pEff"
+[1] "𝜓=  0.5805"
+[1] "p=  0.62"
+
+[1] "MA_m.psiNPP.pEff"
+[1] "𝜓=  0.5107"
+[1] "p=  0.6202"
+
+[1] "MA_m.psiPrec.pEff"
+[1] "𝜓=  0.4311"
+[1] "p=  0.6201"
+
+[1] "MA_m.psiRoad.pEff"
+[1] "𝜓=  0.4509"
+[1] "p=  0.6203"
+
+[1] "MA_m.psiTempmax.pEff"
+[1] "𝜓=  0.5767"
+[1] "p=  0.6203"
+
+[1] "MA_m.psiTempmin.pEff"
+[1] "𝜓=  0.5718"
+[1] "p=  0.6202"
+
+
+***Correlation Matrix***
+               Precip        Elev           HFI      d.Road        NDVI    AvgMinTemp   AvgMaxTemp         NPP
+Precip      1.0000000  0.92002748 -0.0680528036 -0.14319142 -0.55381106 -0.8695751680 -0.857095830  0.29475710
+Elev        0.9200275  1.00000000 -0.0833028264  0.05524525 -0.43433852 -0.8403993412 -0.844773701  0.12195695
+HFI        -0.0680528 -0.08330283  1.0000000000  0.01126473 -0.04813766  0.0007437804  0.009777253  0.01605033
+d.Road     -0.1431914  0.05524525  0.0112647319  1.00000000  0.20174126 -0.0325680300 -0.102182496 -0.76773024
+NDVI       -0.5538111 -0.43433852 -0.0481376567  0.20174126  1.00000000  0.4708835886  0.438661425 -0.28890150
+AvgMinTemp -0.8695752 -0.84039934  0.0007437804 -0.03256803  0.47088359  1.0000000000  0.994686674 -0.15058088
+AvgMaxTemp -0.8570958 -0.84477370  0.0097772527 -0.10218250  0.43866142  0.9946866743  1.000000000 -0.08964122
+NPP         0.2947571  0.12195695  0.0160503324 -0.76773024 -0.28890150 -0.1505808825 -0.089641219  1.00000000
