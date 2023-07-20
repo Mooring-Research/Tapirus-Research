@@ -78,7 +78,6 @@ AM_m.psiHFIElev.pEff	            <- occu(~Eff~ HFI + Elev, AM_umf)
 AM_m.psiHFIRoad.pEff	            <- occu(~Eff~ HFI + d.Road, AM_umf)
 AM_m.psiHFINDVI.pEff	            <- occu(~Eff~ HFI + NDVI, AM_umf)
 AM_m.psiHFIAvgMaxTemp.pEff	      <- occu(~Eff~ HFI + AvgMaxTemp, AM_umf)
-AM_m.psiHFIAvgMinTemp.pEff	      <- occu(~Eff~ HFI + AvgMinTemp, AM_umf)
 AM_m.psiHFINPP.pEff	              <- occu(~Eff~ HFI + NPP, AM_umf)#<^DOUBLE	
 
 AM_m.psi3.pEff 					  		          <- occu(~Eff~ 1+1+1, AM_umf) #3 effnull
@@ -178,7 +177,6 @@ AM_detlist<- fitList( AM_m.psi1.pEff	,
   AM_m.psiHFIRoad.pEff	          		, 
   AM_m.psiHFINDVI.pEff	          		, 
   AM_m.psiHFIAvgMaxTemp.pEff	      		,
-  AM_m.psiHFIAvgMinTemp.pEff	      		,
   AM_m.psiHFINPP.pEff	              		,
   AM_m.psi3.pEff 					  		, 
   AM_m.PrecipElevHFI.pEff           		, 
