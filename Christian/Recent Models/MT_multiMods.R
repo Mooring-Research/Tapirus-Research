@@ -13,10 +13,10 @@ rm(list=ls())
 
 library(unmarked)
 #grabs this handy function from another file
-source("C:/Users/chris/Tapirus-Research/Cates Stuff/Models/modelsOutputToFile_function.R")
+source("C:/Users/chris/Tapirus-Research/Christian/Recent Models/modelsOutputToFile_function.R")
 
 #set wd
-setwd("C:/Users/chris/Tapirus-Research/Cates Stuff/Models")#Directory of R-project "Models" on github
+setwd("C:/Users/chris/Tapirus-Research/Christian/Recent Models")
 
 ######Read in Tapir table and Effort###########
 MT_tapir<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Peru (Mountain Tapir)/Model Selection/Collapsed_Capture_Mountain_Tapir_revised_DR.rds")
@@ -24,7 +24,7 @@ MT_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's d
 
 ######Read in Elev and HFI Table##############
 #MT_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Peru (Mountain Tapir)/Model Selection/Mt_T_Covs4.csv")
-MT_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Peru (Mountain Tapir)/MT_covs.csv", comment.char = "#")
+MT_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Peru (Mountain Tapir)/MT_covs_new.csv", comment.char = "#")
 
 #####Model-Prep######################
 #Double check that all modeling columns are scaled correctly 
@@ -37,8 +37,8 @@ MT_m.psi1.pEff						        <- occu(~Eff~ 1, MT_umf)  #effnull
 MT_m.psiElev.pEff				         	<- occu(~Eff~ Elev, MT_umf)
 MT_m.psiPrec.pEff				        	<- occu(~Eff~ Precip, MT_umf)
 MT_m.psiRoad.pEff			        	  <- occu(~Eff~ d.Road, MT_umf)
-MT_m.psiTempmin.pEff			      	<- occu(~Eff~ AvgMinTemp, MT_umf)
-MT_m.psiTempMTx.pEff			      	<- occu(~Eff~ AvgMaxTemp, MT_umf) 
+MT_m.psiAvgMinTemp.pEff			      	<- occu(~Eff~ AvgMinTemp, MT_umf)
+MT_m.psiAvgMaxTemp.pEff			      	<- occu(~Eff~ AvgMaxTemp, MT_umf) 
 MT_m.psiNDVI.pEff				        	<- occu(~Eff~ NDVI, MT_umf) 
 MT_m.psiNPP.pEff                  <- occu(~Eff~ NPP, MT_umf)#<^SINGLE
 
@@ -70,66 +70,66 @@ MT_m.psiNDVIRoad.pEff				      <- occu(~Eff~ NDVI + d.Road, MT_umf)
 
 MT_m.psi3.pEff 					  		          <- occu(~Eff~ 1+1+1, MT_umf) #3 effnull
 # MT_m.PrecipElevHFI.pEff           		  <- occu(~Eff~ Precip + HFI + Elev, MT_umf)	
-MT_m.PrecipElevRoad.pEff          		  <- occu(~Eff~ Precip + Elev + d.Road, MT_umf)
-MT_m.PrecipElevNDVI.pEff          		  <- occu(~Eff~ Precip + Elev + NDVI, MT_umf)
-MT_m.PrecipElevAvgMinTemp.pEff    		  <- occu(~Eff~ Precip + Elev + AvgMinTemp, MT_umf)
-MT_m.PrecipElevAvgMaxTemp.pEff    	  	<- occu(~Eff~ Precip + Elev + AvgMaxTemp, MT_umf) 
-MT_m.PrecipElevNPP.pEff           		  <- occu(~Eff~ Precip + Elev + NPP, MT_umf)
-# MT_m.PrecipHFIRoad.pEff                 <- occu(~Eff~ Precip + HFI + d.Road, MT_umf)
-# MT_m.PrecipHFINDVI.pEff                 <- occu(~Eff~ Precip + HFI + NDVI, MT_umf)
-# MT_m.PrecipHFIAvgMinTemp.pEff           <- occu(~Eff~ Precip + HFI + AvgMinTemp, MT_umf)
-# MT_m.PrecipHFIAvgMaxTemp.pEff           <- occu(~Eff~ Precip + HFI + AvgMaxTemp, MT_umf)
-# MT_m.PrecipHFINPP.pEff                  <- occu(~Eff~ Precip + HFI + NPP, MT_umf)
-MT_m.PrecipRoadNDVI.pEff                <- occu(~Eff~ Precip + d.Road + NDVI, MT_umf)
-MT_m.PrecipRoadAvgMinTemp.pEff          <- occu(~Eff~ Precip + d.Road + AvgMinTemp, MT_umf)
-MT_m.PrecipRoadAvgMaxTemp.pEff          <- occu(~Eff~ Precip + d.Road + AvgMaxTemp, MT_umf)
-MT_m.PrecipRoadNPP.pEff                 <- occu(~Eff~ Precip + d.Road + NPP, MT_umf)
-MT_m.PrecipNDVIAvgMinTemp.pEff          <- occu(~Eff~ Precip + NDVI + NDVI, MT_umf)
-MT_m.PrecipNDVIAvgMaxTemp.pEff          <- occu(~Eff~ Precip + NDVI + AvgMaxTemp, MT_umf)
-MT_m.PrecipNDVINPP.pEff                 <- occu(~Eff~ Precip + NDVI + NPP, MT_umf)
-MT_m.PrecipAvgMinTempAvgMaxTemp.pEff    <- occu(~Eff~ Precip + AvgMinTemp + AvgMaxTemp, MT_umf)
-MT_m.PrecipAvgMinTempNPP.pEff           <- occu(~Eff~ Precip + AvgMinTemp + NPP, MT_umf)
-MT_m.PrecipAvgMaxTempNPP.pEff           <- occu(~Eff~ Precip + AvgMaxTemp + NPP, MT_umf)
+MT_m.psiPrecipElevRoad.pEff          		  <- occu(~Eff~ Precip + Elev + d.Road, MT_umf)
+MT_m.psiPrecipElevNDVI.pEff          		  <- occu(~Eff~ Precip + Elev + NDVI, MT_umf)
+MT_m.psiPrecipElevAvgMinTemp.pEff    		  <- occu(~Eff~ Precip + Elev + AvgMinTemp, MT_umf)
+MT_m.psiPrecipElevAvgMaxTemp.pEff    	  	<- occu(~Eff~ Precip + Elev + AvgMaxTemp, MT_umf) 
+MT_m.psiPrecipElevNPP.pEff           		  <- occu(~Eff~ Precip + Elev + NPP, MT_umf)
+# MT_m.psiPrecipHFIRoad.pEff                 <- occu(~Eff~ Precip + HFI + d.Road, MT_umf)
+# MT_m.psiPrecipHFINDVI.pEff                 <- occu(~Eff~ Precip + HFI + NDVI, MT_umf)
+# MT_m.psiPrecipHFIAvgMinTemp.pEff           <- occu(~Eff~ Precip + HFI + AvgMinTemp, MT_umf)
+# MT_m.psiPrecipHFIAvgMaxTemp.pEff           <- occu(~Eff~ Precip + HFI + AvgMaxTemp, MT_umf)
+# MT_m.psiPrecipHFINPP.pEff                  <- occu(~Eff~ Precip + HFI + NPP, MT_umf)
+MT_m.psiPrecipRoadNDVI.pEff                <- occu(~Eff~ Precip + d.Road + NDVI, MT_umf)
+MT_m.psiPrecipRoadAvgMinTemp.pEff          <- occu(~Eff~ Precip + d.Road + AvgMinTemp, MT_umf)
+MT_m.psiPrecipRoadAvgMaxTemp.pEff          <- occu(~Eff~ Precip + d.Road + AvgMaxTemp, MT_umf)
+MT_m.psiPrecipRoadNPP.pEff                 <- occu(~Eff~ Precip + d.Road + NPP, MT_umf)
+MT_m.psiPrecipNDVIAvgMinTemp.pEff          <- occu(~Eff~ Precip + NDVI + NDVI, MT_umf)
+MT_m.psiPrecipNDVIAvgMaxTemp.pEff          <- occu(~Eff~ Precip + NDVI + AvgMaxTemp, MT_umf)
+MT_m.psiPrecipNDVINPP.pEff                 <- occu(~Eff~ Precip + NDVI + NPP, MT_umf)
+MT_m.psiPrecipAvgMinTempAvgMaxTemp.pEff    <- occu(~Eff~ Precip + AvgMinTemp + AvgMaxTemp, MT_umf)
+MT_m.psiPrecipAvgMinTempNPP.pEff           <- occu(~Eff~ Precip + AvgMinTemp + NPP, MT_umf)
+MT_m.psiPrecipAvgMaxTempNPP.pEff           <- occu(~Eff~ Precip + AvgMaxTemp + NPP, MT_umf)
 
-# MT_m.ElevHFIRoad.pEff                   <- occu(~Eff~ Elev + HFI + d.Road, MT_umf)
-# MT_m.ElevHFINDVI.pEff                   <- occu(~Eff~ Elev + HFI + NDVI, MT_umf)
-# MT_m.ElevHFIAvgMinTemp.pEff             <- occu(~Eff~ Elev + HFI + AvgMinTemp, MT_umf)
-# MT_m.ElevHFIAvgMaxTemp.pEff             <- occu(~Eff~ Elev + HFI + AvgMaxTemp, MT_umf)
-# MT_m.ElevHFINPP.pEff                    <- occu(~Eff~ Elev + HFI + NPP, MT_umf)
-MT_m.ElevRoadNDVI.pEff                  <- occu(~Eff~ Elev + d.Road + NDVI, MT_umf)
-MT_m.ElevRoadAvgMinTemp.pEff            <- occu(~Eff~ Elev + d.Road + AvgMinTemp, MT_umf)
-MT_m.ElevRoadAvgMaxTemp.pEff            <- occu(~Eff~ Elev + d.Road + AvgMaxTemp, MT_umf)
-MT_m.ElevRoadNPP.pEff                   <- occu(~Eff~ Elev + d.Road + NPP, MT_umf)
-MT_m.ElevNDVIAvgMinTemp.pEff            <- occu(~Eff~ Elev + NDVI + AvgMinTemp, MT_umf)
-MT_m.ElevNDVIAvgMaxTemp.pEff            <- occu(~Eff~ Elev + NDVI + AvgMaxTemp, MT_umf)
-MT_m.ElevNDVINPP.pEff                   <- occu(~Eff~ Elev + NDVI + NPP, MT_umf)
-MT_m.ElevAvgMinTempAvgMaxTemp.pEff      <- occu(~Eff~ Elev + AvgMinTemp + AvgMaxTemp , MT_umf)
-MT_m.ElevAvgMinTempNPP.pEff             <- occu(~Eff~ Elev + AvgMinTemp + NPP , MT_umf)
-MT_m.ElevAvgMaxTempNPP.pEff             <- occu(~Eff~ Elev + AvgMaxTemp + NPP, MT_umf)
+# MT_m.psiElevHFIRoad.pEff                   <- occu(~Eff~ Elev + HFI + d.Road, MT_umf)
+# MT_m.psiElevHFINDVI.pEff                   <- occu(~Eff~ Elev + HFI + NDVI, MT_umf)
+# MT_m.psiElevHFIAvgMinTemp.pEff             <- occu(~Eff~ Elev + HFI + AvgMinTemp, MT_umf)
+# MT_m.psiElevHFIAvgMaxTemp.pEff             <- occu(~Eff~ Elev + HFI + AvgMaxTemp, MT_umf)
+# MT_m.psiElevHFINPP.pEff                    <- occu(~Eff~ Elev + HFI + NPP, MT_umf)
+MT_m.psiElevRoadNDVI.pEff                  <- occu(~Eff~ Elev + d.Road + NDVI, MT_umf)
+MT_m.psiElevRoadAvgMinTemp.pEff            <- occu(~Eff~ Elev + d.Road + AvgMinTemp, MT_umf)
+MT_m.psiElevRoadAvgMaxTemp.pEff            <- occu(~Eff~ Elev + d.Road + AvgMaxTemp, MT_umf)
+MT_m.psiElevRoadNPP.pEff                   <- occu(~Eff~ Elev + d.Road + NPP, MT_umf)
+MT_m.psiElevNDVIAvgMinTemp.pEff            <- occu(~Eff~ Elev + NDVI + AvgMinTemp, MT_umf)
+MT_m.psiElevNDVIAvgMaxTemp.pEff            <- occu(~Eff~ Elev + NDVI + AvgMaxTemp, MT_umf)
+MT_m.psiElevNDVINPP.pEff                   <- occu(~Eff~ Elev + NDVI + NPP, MT_umf)
+MT_m.psiElevAvgMinTempAvgMaxTemp.pEff      <- occu(~Eff~ Elev + AvgMinTemp + AvgMaxTemp , MT_umf)
+MT_m.psiElevAvgMinTempNPP.pEff             <- occu(~Eff~ Elev + AvgMinTemp + NPP , MT_umf)
+MT_m.psiElevAvgMaxTempNPP.pEff             <- occu(~Eff~ Elev + AvgMaxTemp + NPP, MT_umf)
 
-# MT_m.HFIRoadNDVI.pEff                   <- occu(~Eff~ HFI + d.Road + NDVI, MT_umf)
-# MT_m.HFIRoadAvgMinTemp.pEff             <- occu(~Eff~ HFI + d.Road + AvgMinTemp, MT_umf)
-# MT_m.HFIRoadAvgMaxTemp.pEff             <- occu(~Eff~ HFI + d.Road + AvgMaxTemp, MT_umf)
-# MT_m.HFIRoadNPP.pEff                    <- occu(~Eff~ HFI + d.Road + NPP, MT_umf)
-# MT_m.HFINDVIAvgMinTemp.pEff             <- occu(~Eff~ HFI + d.Road + AvgMinTemp, MT_umf)
-# MT_m.HFINDVIAvgMaxTemp.pEff             <- occu(~Eff~ HFI + d.Road + NDVI, MT_umf)
-# MT_m.HFINDVINPP.pEff                    <- occu(~Eff~ HFI + NDVI + NPP, MT_umf)
-# MT_m.HFIAvgMinTempAvgMaxTemp.pEff       <- occu(~Eff~ HFI + AvgMinTemp + AvgMaxTemp, MT_umf)
-# MT_m.HFIAvgMinTempNPP.pEff              <- occu(~Eff~ HFI + AvgMinTemp + NPP, MT_umf)
-# MT_m.HFIAvgMaxTempNPP.pEff              <- occu(~Eff~ HFI + AvgMaxTemp + NPP, MT_umf)
+# MT_m.psiHFIRoadNDVI.pEff                   <- occu(~Eff~ HFI + d.Road + NDVI, MT_umf)
+# MT_m.psiHFIRoadAvgMinTemp.pEff             <- occu(~Eff~ HFI + d.Road + AvgMinTemp, MT_umf)
+# MT_m.psiHFIRoadAvgMaxTemp.pEff             <- occu(~Eff~ HFI + d.Road + AvgMaxTemp, MT_umf)
+# MT_m.psiHFIRoadNPP.pEff                    <- occu(~Eff~ HFI + d.Road + NPP, MT_umf)
+# MT_m.psiHFINDVIAvgMinTemp.pEff             <- occu(~Eff~ HFI + d.Road + AvgMinTemp, MT_umf)
+# MT_m.psiHFINDVIAvgMaxTemp.pEff             <- occu(~Eff~ HFI + d.Road + NDVI, MT_umf)
+# MT_m.psiHFINDVINPP.pEff                    <- occu(~Eff~ HFI + NDVI + NPP, MT_umf)
+# MT_m.psiHFIAvgMinTempAvgMaxTemp.pEff       <- occu(~Eff~ HFI + AvgMinTemp + AvgMaxTemp, MT_umf)
+# MT_m.psiHFIAvgMinTempNPP.pEff              <- occu(~Eff~ HFI + AvgMinTemp + NPP, MT_umf)
+# MT_m.psiHFIAvgMaxTempNPP.pEff              <- occu(~Eff~ HFI + AvgMaxTemp + NPP, MT_umf)
 
-MT_m.RoadNDVIAvgMinTemp.pEff            <- occu(~Eff~ d.Road + NDVI + AvgMinTemp, MT_umf)
-MT_m.RoadNDVIAvgMaxTemp.pEff            <- occu(~Eff~ d.Road + NDVI + AvgMaxTemp, MT_umf)
-MT_m.RoadNDVINPP.pEff                   <- occu(~Eff~ d.Road + NDVI + NPP, MT_umf)
-MT_m.RoadAvgMinTempAvgMaxTemp.pEff      <- occu(~Eff~ d.Road + AvgMinTemp + AvgMaxTemp, MT_umf)
-MT_m.RoadAvgMinTempNPP.pEff             <- occu(~Eff~ d.Road + AvgMinTemp + NPP, MT_umf)
-MT_m.RoadAvgMaxTempNPP.pEff             <- occu(~Eff~ d.Road + AvgMaxTemp + NPP, MT_umf)
+MT_m.psiRoadNDVIAvgMinTemp.pEff            <- occu(~Eff~ d.Road + NDVI + AvgMinTemp, MT_umf)
+MT_m.psiRoadNDVIAvgMaxTemp.pEff            <- occu(~Eff~ d.Road + NDVI + AvgMaxTemp, MT_umf)
+MT_m.psiRoadNDVINPP.pEff                   <- occu(~Eff~ d.Road + NDVI + NPP, MT_umf)
+MT_m.psiRoadAvgMinTempAvgMaxTemp.pEff      <- occu(~Eff~ d.Road + AvgMinTemp + AvgMaxTemp, MT_umf)
+MT_m.psiRoadAvgMinTempNPP.pEff             <- occu(~Eff~ d.Road + AvgMinTemp + NPP, MT_umf)
+MT_m.psiRoadAvgMaxTempNPP.pEff             <- occu(~Eff~ d.Road + AvgMaxTemp + NPP, MT_umf)
 
-MT_m.NDVIAvgMinTempAvgMaxTemp.pEff      <- occu(~Eff~ NDVI + AvgMinTemp + AvgMaxTemp, MT_umf)
-MT_m.NDVIAvgMinTempNPP.pEff             <- occu(~Eff~ NDVI + AvgMinTemp + NPP, MT_umf)
-MT_m.NDVIAvgMaxTempNPP.pEff             <- occu(~Eff~ NDVI + AvgMaxTemp + NPP, MT_umf)
+MT_m.psiNDVIAvgMinTempAvgMaxTemp.pEff      <- occu(~Eff~ NDVI + AvgMinTemp + AvgMaxTemp, MT_umf)
+MT_m.psiNDVIAvgMinTempNPP.pEff             <- occu(~Eff~ NDVI + AvgMinTemp + NPP, MT_umf)
+MT_m.psiNDVIAvgMaxTempNPP.pEff             <- occu(~Eff~ NDVI + AvgMaxTemp + NPP, MT_umf)
 
-MT_m.AvgMinTempAvgMaxTempNPP.pEff       <- occu(~Eff~ AvgMinTemp + AvgMaxTemp + NPP, MT_umf)#<^TRIPLE
+MT_m.psiAvgMinTempAvgMaxTempNPP.pEff       <- occu(~Eff~ AvgMinTemp + AvgMaxTemp + NPP, MT_umf)#<^TRIPLE
 
 
 
@@ -140,8 +140,8 @@ MT_detlist<- fitList(
   MT_m.psiElev.pEff				    ,
   MT_m.psiPrec.pEff				    ,
   MT_m.psiRoad.pEff			        ,
-  MT_m.psiTempmin.pEff			    ,
-  MT_m.psiTempMTx.pEff			    ,
+  MT_m.psiAvgMinTemp.pEff			    ,
+  MT_m.psiAvgMaxTemp.pEff			    ,
   MT_m.psiNDVI.pEff				    ,
   MT_m.psiNPP.pEff                 	,
   MT_m.psi2.pEff					    ,
@@ -170,70 +170,70 @@ MT_detlist<- fitList(
   # MT_m.psiHFIAvgMinTemp.pEff	     	,
   # MT_m.psiHFINPP.pEff	             	,
   MT_m.psi3.pEff 					  	,
-  #MT_m.PrecipElevHFI.pEff           	,
-  MT_m.PrecipElevRoad.pEff          	,
-  MT_m.PrecipElevNDVI.pEff          	,
-  MT_m.PrecipElevAvgMinTemp.pEff    	,
-  MT_m.PrecipElevAvgMaxTemp.pEff    	,
-  MT_m.PrecipElevNPP.pEff           	,
-  #MT_m.PrecipHFIRoad.pEff             ,
-  # MT_m.PrecipHFINDVI.pEff             ,
-  # MT_m.PrecipHFIAvgMinTemp.pEff       ,
-  # MT_m.PrecipHFIAvgMaxTemp.pEff       ,
-  # MT_m.PrecipHFINPP.pEff              ,
-  MT_m.PrecipRoadNDVI.pEff            ,
-  MT_m.PrecipRoadAvgMinTemp.pEff      ,
-  MT_m.PrecipRoadAvgMaxTemp.pEff      ,
-  MT_m.PrecipRoadNPP.pEff             ,
-  MT_m.PrecipNDVIAvgMinTemp.pEff      ,
-  MT_m.PrecipNDVIAvgMaxTemp.pEff      ,
-  MT_m.PrecipNDVINPP.pEff             ,
-  MT_m.PrecipAvgMinTempAvgMaxTemp.pEff,
-  MT_m.PrecipAvgMinTempNPP.pEff       ,
-  MT_m.PrecipAvgMaxTempNPP.pEff       ,
-  # MT_m.ElevHFIRoad.pEff               ,
-  # MT_m.ElevHFINDVI.pEff               ,
-  # MT_m.ElevHFIAvgMinTemp.pEff         ,
-  # MT_m.ElevHFIAvgMaxTemp.pEff         ,
-  # MT_m.ElevHFINPP.pEff                ,
-  MT_m.ElevRoadNDVI.pEff              ,
-  MT_m.ElevRoadAvgMinTemp.pEff        ,
-  MT_m.ElevRoadAvgMaxTemp.pEff        ,
-  MT_m.ElevRoadNPP.pEff               ,
-  MT_m.ElevNDVIAvgMinTemp.pEff        ,
-  MT_m.ElevNDVIAvgMaxTemp.pEff        ,
-  MT_m.ElevNDVINPP.pEff               ,
-  MT_m.ElevAvgMinTempAvgMaxTemp.pEff  ,
-  MT_m.ElevAvgMinTempNPP.pEff         ,
-  MT_m.ElevAvgMaxTempNPP.pEff         ,
-  # MT_m.HFIRoadNDVI.pEff               ,
-  # MT_m.HFIRoadAvgMinTemp.pEff         ,
-  # MT_m.HFIRoadAvgMaxTemp.pEff         ,
-  # MT_m.HFIRoadNPP.pEff                ,
-  # MT_m.HFINDVIAvgMinTemp.pEff         ,
-  # MT_m.HFINDVIAvgMaxTemp.pEff         ,
-  # MT_m.HFINDVINPP.pEff                ,
-  # MT_m.HFIAvgMinTempAvgMaxTemp.pEff   ,
-  # MT_m.HFIAvgMinTempNPP.pEff          ,
-  # MT_m.HFIAvgMaxTempNPP.pEff          ,
-  MT_m.RoadNDVIAvgMinTemp.pEff        ,
-  MT_m.RoadNDVIAvgMaxTemp.pEff        ,
-  MT_m.RoadNDVINPP.pEff               ,
-  MT_m.RoadAvgMinTempAvgMaxTemp.pEff  ,
-  MT_m.RoadAvgMinTempNPP.pEff         ,
-  MT_m.RoadAvgMaxTempNPP.pEff         ,
-  MT_m.NDVIAvgMinTempAvgMaxTemp.pEff  ,
-  MT_m.NDVIAvgMinTempNPP.pEff         ,
-  MT_m.NDVIAvgMaxTempNPP.pEff         ,
-  MT_m.AvgMinTempAvgMaxTempNPP.pEff    
+  #MT_m.psiPrecipElevHFI.pEff           	,
+  MT_m.psiPrecipElevRoad.pEff          	,
+  MT_m.psiPrecipElevNDVI.pEff          	,
+  MT_m.psiPrecipElevAvgMinTemp.pEff    	,
+  MT_m.psiPrecipElevAvgMaxTemp.pEff    	,
+  MT_m.psiPrecipElevNPP.pEff           	,
+  #MT_m.psiPrecipHFIRoad.pEff             ,
+  # MT_m.psiPrecipHFINDVI.pEff             ,
+  # MT_m.psiPrecipHFIAvgMinTemp.pEff       ,
+  # MT_m.psiPrecipHFIAvgMaxTemp.pEff       ,
+  # MT_m.psiPrecipHFINPP.pEff              ,
+  MT_m.psiPrecipRoadNDVI.pEff            ,
+  MT_m.psiPrecipRoadAvgMinTemp.pEff      ,
+  MT_m.psiPrecipRoadAvgMaxTemp.pEff      ,
+  MT_m.psiPrecipRoadNPP.pEff             ,
+  MT_m.psiPrecipNDVIAvgMinTemp.pEff      ,
+  MT_m.psiPrecipNDVIAvgMaxTemp.pEff      ,
+  MT_m.psiPrecipNDVINPP.pEff             ,
+  MT_m.psiPrecipAvgMinTempAvgMaxTemp.pEff,
+  MT_m.psiPrecipAvgMinTempNPP.pEff       ,
+  MT_m.psiPrecipAvgMaxTempNPP.pEff       ,
+  # MT_m.psiElevHFIRoad.pEff               ,
+  # MT_m.psiElevHFINDVI.pEff               ,
+  # MT_m.psiElevHFIAvgMinTemp.pEff         ,
+  # MT_m.psiElevHFIAvgMaxTemp.pEff         ,
+  # MT_m.psiElevHFINPP.pEff                ,
+  MT_m.psiElevRoadNDVI.pEff              ,
+  MT_m.psiElevRoadAvgMinTemp.pEff        ,
+  MT_m.psiElevRoadAvgMaxTemp.pEff        ,
+  MT_m.psiElevRoadNPP.pEff               ,
+  MT_m.psiElevNDVIAvgMinTemp.pEff        ,
+  MT_m.psiElevNDVIAvgMaxTemp.pEff        ,
+  MT_m.psiElevNDVINPP.pEff               ,
+  MT_m.psiElevAvgMinTempAvgMaxTemp.pEff  ,
+  MT_m.psiElevAvgMinTempNPP.pEff         ,
+  MT_m.psiElevAvgMaxTempNPP.pEff         ,
+  # MT_m.psiHFIRoadNDVI.pEff               ,
+  # MT_m.psiHFIRoadAvgMinTemp.pEff         ,
+  # MT_m.psiHFIRoadAvgMaxTemp.pEff         ,
+  # MT_m.psiHFIRoadNPP.pEff                ,
+  # MT_m.psiHFINDVIAvgMinTemp.pEff         ,
+  # MT_m.psiHFINDVIAvgMaxTemp.pEff         ,
+  # MT_m.psiHFINDVINPP.pEff                ,
+  # MT_m.psiHFIAvgMinTempAvgMaxTemp.pEff   ,
+  # MT_m.psiHFIAvgMinTempNPP.pEff          ,
+  # MT_m.psiHFIAvgMaxTempNPP.pEff          ,
+  MT_m.psiRoadNDVIAvgMinTemp.pEff        ,
+  MT_m.psiRoadNDVIAvgMaxTemp.pEff        ,
+  MT_m.psiRoadNDVINPP.pEff               ,
+  MT_m.psiRoadAvgMinTempAvgMaxTemp.pEff  ,
+  MT_m.psiRoadAvgMinTempNPP.pEff         ,
+  MT_m.psiRoadAvgMaxTempNPP.pEff         ,
+  MT_m.psiNDVIAvgMinTempAvgMaxTemp.pEff  ,
+  MT_m.psiNDVIAvgMinTempNPP.pEff         ,
+  MT_m.psiNDVIAvgMaxTempNPP.pEff         ,
+  MT_m.psiAvgMinTempAvgMaxTempNPP.pEff    
   
 )
 
 #####Output####
 columns<- c(6:13) #"Precip"  "Elev" "HFI" "d.Road"  "NDVI" "AvgMinTemp" "AvgMaxTemp" "NPP"       
-sink("MT_multiMods.txt", append = FALSE)
+sink("MT_multiMods2.txt", append = FALSE)
 
-cat("19, July 2023\n")
+cat("20, July 2023\n")
 cat("\n***Correlation Matrix***\n")
 cor(MT_cov[, columns]) #correlation MTtrix on numerical fields
 print("**Mountain Tapir Models**")
@@ -243,3 +243,4 @@ cat("\n**Summaries**\n")
 getStats() #print p and psi for all models function in C:/Users/chris/Tapirus-Research/Cates Stuff/Models/unicovariateModels/printPandPsi.R
 
 sink()
+

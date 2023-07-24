@@ -1,4 +1,4 @@
-19, July 2023
+20, July 2023
 
 ***Correlation Matrix***
                  Elev HFI     d.Road     Precip       NDVI AvgMinTemp AvgMaxTemp        NPP
@@ -24,8 +24,8 @@ MT_m.RoadNDVIAvgMinTemp.pEff             6 514.22  2.00 5.7e-02     0.74
 MT_m.PrecipRoadAvgMaxTemp.pEff           6 514.36  2.14 5.3e-02     0.79
 MT_m.RoadNDVIAvgMaxTemp.pEff             6 514.38  2.16 5.2e-02     0.85
 MT_m.psiElevRoad.pEff                    5 516.43  4.21 1.9e-02     0.86
-MT_m.psiTempmin.pEff                     4 517.53  5.31 1.1e-02     0.88
-MT_m.psiTempMTx.pEff                     4 517.60  5.38 1.1e-02     0.89
+MT_m.psiAvgTempmin.pEff                  4 517.53  5.31 1.1e-02     0.88
+MT_m.psiAvgTempMax.pEff                  4 517.60  5.38 1.1e-02     0.89
 MT_m.PrecipElevRoad.pEff                 6 518.00  5.78 8.6e-03     0.89
 MT_m.ElevRoadNPP.pEff                    6 518.25  6.03 7.6e-03     0.90
 MT_m.ElevRoadNDVI.pEff                   6 518.43  6.21 7.0e-03     0.91
@@ -75,26 +75,36 @@ MT_m.PrecipRoadNPP.pEff                  6 526.05 13.83 1.5e-04     1.00
 MT_m.psiPrecipRoad.pEff                  5 527.56 15.34 7.2e-05     1.00
 
 **Summaries**
- [1] "MT_m.AvgMinTempAvgMaxTempNPP.pEff"    "MT_m.ElevAvgMaxTempNPP.pEff"          "MT_m.ElevAvgMinTempAvgMaxTemp.pEff"  
- [4] "MT_m.ElevAvgMinTempNPP.pEff"          "MT_m.ElevNDVIAvgMaxTemp.pEff"         "MT_m.ElevNDVIAvgMinTemp.pEff"        
- [7] "MT_m.ElevNDVINPP.pEff"                "MT_m.ElevRoadAvgMaxTemp.pEff"         "MT_m.ElevRoadAvgMinTemp.pEff"        
-[10] "MT_m.ElevRoadNDVI.pEff"               "MT_m.ElevRoadNPP.pEff"                "MT_m.NDVIAvgMaxTempNPP.pEff"         
-[13] "MT_m.NDVIAvgMinTempAvgMaxTemp.pEff"   "MT_m.NDVIAvgMinTempNPP.pEff"          "MT_m.PrecipAvgMaxTempNPP.pEff"       
-[16] "MT_m.PrecipAvgMinTempAvgMaxTemp.pEff" "MT_m.PrecipAvgMinTempNPP.pEff"        "MT_m.PrecipElevAvgMaxTemp.pEff"      
-[19] "MT_m.PrecipElevAvgMinTemp.pEff"       "MT_m.PrecipElevNDVI.pEff"             "MT_m.PrecipElevNPP.pEff"             
-[22] "MT_m.PrecipElevRoad.pEff"             "MT_m.PrecipNDVIAvgMaxTemp.pEff"       "MT_m.PrecipNDVIAvgMinTemp.pEff"      
-[25] "MT_m.PrecipNDVINPP.pEff"              "MT_m.PrecipRoadAvgMaxTemp.pEff"       "MT_m.PrecipRoadAvgMinTemp.pEff"      
-[28] "MT_m.PrecipRoadNDVI.pEff"             "MT_m.PrecipRoadNPP.pEff"              "MT_m.psi1.pEff"                      
-[31] "MT_m.psi2.pEff"                       "MT_m.psi3.pEff"                       "MT_m.psiAvgMaxTempNDVI.pEff"         
-[34] "MT_m.psiAvgMaxTempPrecip.pEff"        "MT_m.psiAvgMaxTempRoad.pEff"          "MT_m.psiAvgMinTempAvgMaxTemp.pEff"   
-[37] "MT_m.psiAvgMinTempElev.pEff"          "MT_m.psiAvgMinTempNDVI.pEff"          "MT_m.psiAvgMinTempNPP.pEff"          
-[40] "MT_m.psiAvgMinTempPrecip.pEff"        "MT_m.psiAvgMinTempRoad.pEff"          "MT_m.psiElev.pEff"                   
-[43] "MT_m.psiElevAvgMaxTemp.pEff"          "MT_m.psiElevNDVI.pEff"                "MT_m.psiElevPrecip.pEff"             
-[46] "MT_m.psiElevRoad.pEff"                "MT_m.psiNDVI.pEff"                    "MT_m.psiNDVIRoad.pEff"               
-[49] "MT_m.psiNPP.pEff"                     "MT_m.psiPrec.pEff"                    "MT_m.psiPrecipNDVI.pEff"             
-[52] "MT_m.psiPrecipRoad.pEff"              "MT_m.psiRoad.pEff"                    "MT_m.psiTempmin.pEff"                
-[55] "MT_m.psiTempMTx.pEff"                 "MT_m.RoadAvgMaxTempNPP.pEff"          "MT_m.RoadAvgMinTempAvgMaxTemp.pEff"  
-[58] "MT_m.RoadAvgMinTempNPP.pEff"          "MT_m.RoadNDVIAvgMaxTemp.pEff"         "MT_m.RoadNDVIAvgMinTemp.pEff"        
+ [1] "MT_m.AvgMinTempAvgMaxTempNPP.pEff"    "MT_m.ElevAvgMaxTempNPP.pEff"         
+ [3] "MT_m.ElevAvgMinTempAvgMaxTemp.pEff"   "MT_m.ElevAvgMinTempNPP.pEff"         
+ [5] "MT_m.ElevNDVIAvgMaxTemp.pEff"         "MT_m.ElevNDVIAvgMinTemp.pEff"        
+ [7] "MT_m.ElevNDVINPP.pEff"                "MT_m.ElevRoadAvgMaxTemp.pEff"        
+ [9] "MT_m.ElevRoadAvgMinTemp.pEff"         "MT_m.ElevRoadNDVI.pEff"              
+[11] "MT_m.ElevRoadNPP.pEff"                "MT_m.NDVIAvgMaxTempNPP.pEff"         
+[13] "MT_m.NDVIAvgMinTempAvgMaxTemp.pEff"   "MT_m.NDVIAvgMinTempNPP.pEff"         
+[15] "MT_m.PrecipAvgMaxTempNPP.pEff"        "MT_m.PrecipAvgMinTempAvgMaxTemp.pEff"
+[17] "MT_m.PrecipAvgMinTempNPP.pEff"        "MT_m.PrecipElevAvgMaxTemp.pEff"      
+[19] "MT_m.PrecipElevAvgMinTemp.pEff"       "MT_m.PrecipElevNDVI.pEff"            
+[21] "MT_m.PrecipElevNPP.pEff"              "MT_m.PrecipElevRoad.pEff"            
+[23] "MT_m.PrecipNDVIAvgMaxTemp.pEff"       "MT_m.PrecipNDVIAvgMinTemp.pEff"      
+[25] "MT_m.PrecipNDVINPP.pEff"              "MT_m.PrecipRoadAvgMaxTemp.pEff"      
+[27] "MT_m.PrecipRoadAvgMinTemp.pEff"       "MT_m.PrecipRoadNDVI.pEff"            
+[29] "MT_m.PrecipRoadNPP.pEff"              "MT_m.psi1.pEff"                      
+[31] "MT_m.psi2.pEff"                       "MT_m.psi3.pEff"                      
+[33] "MT_m.psiAvgMaxTempNDVI.pEff"          "MT_m.psiAvgMaxTempPrecip.pEff"       
+[35] "MT_m.psiAvgMaxTempRoad.pEff"          "MT_m.psiAvgMinTempAvgMaxTemp.pEff"   
+[37] "MT_m.psiAvgMinTempElev.pEff"          "MT_m.psiAvgMinTempNDVI.pEff"         
+[39] "MT_m.psiAvgMinTempNPP.pEff"           "MT_m.psiAvgMinTempPrecip.pEff"       
+[41] "MT_m.psiAvgMinTempRoad.pEff"          "MT_m.psiAvgTempMax.pEff"             
+[43] "MT_m.psiAvgTempmin.pEff"              "MT_m.psiElev.pEff"                   
+[45] "MT_m.psiElevAvgMaxTemp.pEff"          "MT_m.psiElevNDVI.pEff"               
+[47] "MT_m.psiElevPrecip.pEff"              "MT_m.psiElevRoad.pEff"               
+[49] "MT_m.psiNDVI.pEff"                    "MT_m.psiNDVIRoad.pEff"               
+[51] "MT_m.psiNPP.pEff"                     "MT_m.psiPrec.pEff"                   
+[53] "MT_m.psiPrecipNDVI.pEff"              "MT_m.psiPrecipRoad.pEff"             
+[55] "MT_m.psiRoad.pEff"                    "MT_m.RoadAvgMaxTempNPP.pEff"         
+[57] "MT_m.RoadAvgMinTempAvgMaxTemp.pEff"   "MT_m.RoadAvgMinTempNPP.pEff"         
+[59] "MT_m.RoadNDVIAvgMaxTemp.pEff"         "MT_m.RoadNDVIAvgMinTemp.pEff"        
 [61] "MT_m.RoadNDVINPP.pEff"               
 
 [1] "MT_m.AvgMinTempAvgMaxTempNPP.pEff"
@@ -1144,6 +1154,54 @@ optim convergence code: 0
 optim iterations: 27 
 Bootstrap iterations: 0 
 
+[1] "MT_m.psiAvgTempMax.pEff"
+[1] "𝜓=  0.6858"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.620 0.264 -2.35  0.0188
+AvgMaxTemp     0.781 0.304  2.57  0.0102
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.140 -2.34  0.0195
+Eff              0.5 0.308  1.63  0.1041
+
+AIC: 517.5972 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 53 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgTempmin.pEff"
+[1] "𝜓=  0.6903"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.630 0.266 -2.37  0.0178
+AvgMinTemp     0.802 0.316  2.54  0.0112
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.140 -2.34  0.0195
+Eff              0.5 0.308  1.63  0.1041
+
+AIC: 517.529 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
 [1] "MT_m.psiElev.pEff"
 [1] "𝜓=  0.3295"
 [1] "p=  0.6225"
@@ -1437,54 +1495,6 @@ AIC: 525.6953
 Number of sites: 85
 optim convergence code: 0
 optim iterations: 35 
-Bootstrap iterations: 0 
-
-[1] "MT_m.psiTempmin.pEff"
-[1] "𝜓=  0.6903"
-[1] "p=  0.6225"
-
-
-Call:
-occu(formula = ~Eff ~ AvgMinTemp, data = MT_umf)
-
-Occupancy (logit-scale):
-            Estimate    SE     z P(>|z|)
-(Intercept)   -0.630 0.266 -2.37  0.0178
-AvgMinTemp     0.802 0.316  2.54  0.0112
-
-Detection (logit-scale):
-            Estimate    SE     z P(>|z|)
-(Intercept)     -5.0 2.140 -2.34  0.0195
-Eff              0.5 0.308  1.63  0.1041
-
-AIC: 517.529 
-Number of sites: 85
-optim convergence code: 0
-optim iterations: 38 
-Bootstrap iterations: 0 
-
-[1] "MT_m.psiTempMTx.pEff"
-[1] "𝜓=  0.6858"
-[1] "p=  0.6225"
-
-
-Call:
-occu(formula = ~Eff ~ AvgMaxTemp, data = MT_umf)
-
-Occupancy (logit-scale):
-            Estimate    SE     z P(>|z|)
-(Intercept)   -0.620 0.264 -2.35  0.0188
-AvgMaxTemp     0.781 0.304  2.57  0.0102
-
-Detection (logit-scale):
-            Estimate    SE     z P(>|z|)
-(Intercept)     -5.0 2.140 -2.34  0.0195
-Eff              0.5 0.308  1.63  0.1041
-
-AIC: 517.5972 
-Number of sites: 85
-optim convergence code: 0
-optim iterations: 53 
 Bootstrap iterations: 0 
 
 [1] "MT_m.RoadAvgMaxTempNPP.pEff"

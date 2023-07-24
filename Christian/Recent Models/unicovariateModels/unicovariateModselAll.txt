@@ -33,7 +33,7 @@ MA_m.psiHFI.pEff         4 2143.70 46.19 9.3e-11     1.00
 "p=  0.6208"
 
 
-[1] "Mountain Tapir Model Selection"
+[1] "Mountain Tapir Model Selection"**old**
                      nPars    AIC delta AICwt cumltvWt
 MT_m.psiTempmax.pEff     4 523.30  0.00 0.211     0.21
 MT_m.psiTempmin.pEff     4 523.45  0.16 0.195     0.41
