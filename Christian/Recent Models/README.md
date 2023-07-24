@@ -1,4 +1,4 @@
-# Recent Models folder
+# Recent Models
 ## Unicovariate modeling 
 
 For each species, an unmarkedFitOccu (unmarked package) frame was created with detection, covariate, and effort tables for each species of Tapir for every covariate available for that tapir.
