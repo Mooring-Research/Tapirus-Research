@@ -5,7 +5,7 @@ Our research has built off of other's work, that being said, there is a lot of d
 resources specific to our work are found in the 'Cate', 'Christian', and 'data cleaning and model scripts' folders. Some of the methods we used ourselves, and many more we didn't, are found in 'Honors Projects.'
 we did not use can be found in 'Honors Projects'. 
 
-*Christian** most up-to-date Tapir modeling and circadian behaviour data cleaning.
+*Christian* most up-to-date Tapir modeling and circadian behaviour data cleaning.
 
 *Cate* circadian, RAI, and lunar behaviour plotting
 
@@ -17,5 +17,5 @@ temperature derivation and extraction.
 Script history can be traced backwards as follows: 'Christian/Recent models' > 'Christian/old model scripts' > 'data cleaning and model scripts' > 'Honors Projects'
 
 ### Tools
-We used the packages unmarked (to run our occupancy models and determine the best one) and overlap to make our circadian rythm figures. The data used for the circadian
-plots was calculated using the funtion elaborated in 'Christian
+We used the packages unmarked (to run our occupancy models and determine the best one) and overlap to make our circadian rythm figures. The heat maps use the top multicovariate model for each species; and there some exceptions due to correlations or choppy rasters (HFI). 
+The data used for the circadian plots was calculated using the funtion elaborated in 'Christian.'
