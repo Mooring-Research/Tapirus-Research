@@ -4,9 +4,10 @@ For example, the sun’s location at 07:00 in January will be different than 07:
 To adjust for the variability in the sun's path and the camera trap's location on the Earth, this function utilizes the study site's time zone, longitude and latitude, 
 and detection time for each sighting. 
 
-Function below calculates the 'solar time' for a given location, date, and time. After finding the intervals from 00:00 to sunrise and sunset to 00:00 using the location, time, and timezone, the function creates a new field and then, given what interval the record's timestamp (in radians) lies in (00:00 - sunrise, sunrise - 
-sunset, or sunset -00:00), calculates the timestamp's ratio of that standardized interval. The product of that ratio and the length of the interval in which it lies places the timestamp on that interval. Next, the added pi term adjusts for where that interval lies in relation to the other intervals. The result is a vector of 
-timestamps which range from 0 - 2pi. 
+The function below calculates the 'solar time' for a given location and time. After finding the intervals from 00:00 to sunrise and sunset to 00:00 using the location, time,
+and timezone, the function creates a new field and then, given what interval the record's timestamp (in radians) lies in (00:00 - sunrise, sunrise - 
+sunset, or sunset -00:00), calculates the timestamp's ratio of that standardized interval. The product of that ratio and the length of the interval of interest places the 
+timestamp on that interval, 0 < timestamp < length_of_interval. Next, the added pi term adjusts for where that interval lies in relation to the other intervals. The result is a vector of timestamps which range from 0 - 2pi. 
 ```R 
 solarhour <- function(dat, tzone) {
 	#inputs:
