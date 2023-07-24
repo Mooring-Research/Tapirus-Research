@@ -2,7 +2,7 @@
 This repository includes the scripts used to model the Tapir's occupancy and activity. The work has spanned several years and includes
 much more analysis of many more genera than just Tapirus. 
 Our research has built off of other's work, that being said, there is a lot of data that had been processed prior to our research. The 
-resources specific to our work are found in the 'Cate', 'Christian', and 'data cleaning and model scripts' folders. Other methods that 
+resources specific to our work are found in the 'Cate', 'Christian', and 'data cleaning and model scripts' folders. Some of the methods we used ourselves, and many more we didn't, are found in 'Honors Projects.'
 we did not use can be found in 'Honors Projects'. 
 
 *Christian** most up-to-date Tapir modeling and circadian behaviour data cleaning.
