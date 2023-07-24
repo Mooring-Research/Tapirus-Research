@@ -1,6 +1,6 @@
 ###------------------------------------------------------------------------------###
 ### Running multivariate models on Malayan tapir
-### CA 19Jul2023
+### CA 24Jul2023
 ###------------------------------------------------------------------------------###
 
 #> Files needed:
@@ -32,7 +32,12 @@ MA_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's 
 
 #unmarked frame
 #double check what columns are scaled!!
-MA_umf<- unmarkedFrameOccu(y=MA_tapir[,-1], siteCovs= as.data.frame(scale(MA_cov[,-c(1:6)])), obsCovs=list(Eff=MA_eff[,-1]))
+MA_cov<- MA_cov[,which(names(MA_cov) %in% c("Elev", "HFI", "NPP", "NDVI", "d.Road", "AvgMaxTemp", "AvgMinTemp", "Precip"))]
+
+colsToScale<- which(names(MA_cov) %in% c("Elev", "NPP", "NDVI", "d.Road", "AvgMaxTemp", "AvgMinTemp", "Precip")) #scale all but HFI
+MA_cov[colsToScale]<- scale(MA_cov[,colsToScale])
+
+MA_umf<- unmarkedFrameOccu(y=MA_tapir[,-1], siteCovs= MA_cov, obsCovs=list(Eff=MA_eff[,-1]))
 
 
 
@@ -236,12 +241,12 @@ MA_detlist<- fitList(
 )
 
 #####Output####
-columns<- c(7:13) #"Precip"  "Elev" "HFI" "d.Road"  "NDVI" "AvgMinTemp" "AvgMaxTemp" "NPP"       
-sink("MA_multiMods2.txt", append = FALSE)
+      
+#sink("Multivariate model summaries/MA_multiMods3.txt", append = FALSE)
 
-  cat("19, July 2023\n")
+  cat("24, July 2023\n")
   cat("\n***Correlation Matrix***\n")
-  cor(MA_cov[, columns]) #correlation matrix on numerical fields
+  cor(MA_cov) #correlation matrix on numerical fields  #"Precip"  "Elev" "HFI" "d.Road"  "NDVI" "AvgMinTemp" "AvgMaxTemp" "NPP" 
   print("**Malayan Tapir Models**")
   cat()
   modSel(MA_detlist) #model selection table

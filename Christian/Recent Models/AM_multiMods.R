@@ -1,6 +1,6 @@
 ###------------------------------------------------------------------------------###
 ### Running multivariate models on lowland tapir
-### CA 19Jul2023
+### CA 24Jul2023
 ###------------------------------------------------------------------------------###
 
 #> Files needed:
@@ -27,19 +27,12 @@ AM_eff<- readRDS("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's d
 #read in covariate table
 AM_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's data/Amazon (Lowland Tapir)/cv_t_AM_v2.csv")
 
-#scale covariates
-AM_cov<- cbind(AM_cov[,c(1:4)], round(scale(AM_cov[,5:ncol(AM_cov)]),3))
+names(AM_cov)[which(names(AM_cov) %in% c("Avg.Max.Temp", "Avg.Min.Temp", "MAP"))] <- c("AvgMaxTemp","AvgMinTemp", "Precip")
 
-names(AM_cov)[c(16,17,18)] <- c("AvgMaxTemp","AvgMinTemp", "Precip")
-
-
-#ensure rownames match
-# rownames(AM_tapir) == rownames(AM_eff)
-# rownames(AM_eff) == AM_cv$Station
-
-# Checking for sitecov correlations
-#as.dist(cor(AM_cv[,-c(1:4)]))
-# Some sitecovs are correlated: Road&Elev, ED&PD&DC (do not include correlated covs in the same model)
+AM_cov<- AM_cov[,which(names(AM_cov) %in% c("Elev", "HFI", "NPP", "NDVI", "d.Road", "AvgMaxTemp", "AvgMinTemp", "Precip"))]
+#scale covs #exclude location info, for all covs except HFI scaled
+colsToScale<- c(1,3:8) #!HFI
+AM_cov[,colsToScale]<- scale(AM_cov[, colsToScale])
 
 #Establish Unmarked Data Frame##############################################################
 
@@ -79,7 +72,7 @@ AM_m.psiHFIElev.pEff	            <- occu(~Eff~ HFI + Elev, AM_umf)
 AM_m.psiHFIRoad.pEff	            <- occu(~Eff~ HFI + d.Road, AM_umf)
 AM_m.psiHFINDVI.pEff	            <- occu(~Eff~ HFI + NDVI, AM_umf)
 AM_m.psiHFIAvgMaxTemp.pEff	      <- occu(~Eff~ HFI + AvgMaxTemp, AM_umf)
-AM_m.psiHFINPP.pEff	              <- occu(~Eff~ HFI + NPP, AM_umf)#<^DOUBLE	
+AM_m.psiHFINPP.pEff	              <- occu(~Eff~ HFI + NPP, AM_umf)#<^DOUBLE
 
 AM_m.psi3.pEff 					  		          <- occu(~Eff~ 1+1+1, AM_umf) #3 effnull
 AM_m.psiPrecipElevHFI.pEff           		  <- occu(~Eff~ Precip + HFI + Elev, AM_umf)	
@@ -147,7 +140,7 @@ AM_m.psiAvgMinTempAvgMaxTempNPP.pEff       <- occu(~Eff~ AvgMinTemp + AvgMaxTemp
 
 ######Model list#####
 AM_detlist<- fitList( AM_m.psi1.pEff	,
-   AM_m.psiHFI.pEff 						,
+  AM_m.psiHFI.pEff 						,
   AM_m.psiElev.pEff						,
   AM_m.psiPrec.pEff						,
   AM_m.psiRoad.pEff			    		,
@@ -174,23 +167,23 @@ AM_detlist<- fitList( AM_m.psi1.pEff	,
   AM_m.psiPrecipNDVI.pEff					,
   AM_m.psiNDVIRoad.pEff					,
   AM_m.psiHFIPrecip.pEff	          		,
-  AM_m.psiHFIElev.pEff	          		, 
-  AM_m.psiHFIRoad.pEff	          		, 
-  AM_m.psiHFINDVI.pEff	          		, 
+  AM_m.psiHFIElev.pEff	          		,
+  AM_m.psiHFIRoad.pEff	          		,
+  AM_m.psiHFINDVI.pEff	          		,
   AM_m.psiHFIAvgMaxTemp.pEff	      		,
   AM_m.psiHFINPP.pEff	              		,
   AM_m.psi3.pEff 					  		, 
-  AM_m.psiPrecipElevHFI.pEff           		, 
+  AM_m.psiPrecipElevHFI.pEff           		,
   AM_m.psiPrecipElevRoad.pEff          		, 
   AM_m.psiPrecipElevNDVI.pEff          		, 
   AM_m.psiPrecipElevAvgMinTemp.pEff    		, 
   AM_m.psiPrecipElevAvgMaxTemp.pEff    	  	,
   AM_m.psiPrecipElevNPP.pEff           		, 
-  AM_m.psiPrecipHFIRoad.pEff                ,	
-  AM_m.psiPrecipHFINDVI.pEff                ,	
-  AM_m.psiPrecipHFIAvgMinTemp.pEff          ,	
-  AM_m.psiPrecipHFIAvgMaxTemp.pEff          ,	
-  AM_m.psiPrecipHFINPP.pEff                 ,	
+  AM_m.psiPrecipHFIRoad.pEff                ,
+  AM_m.psiPrecipHFINDVI.pEff                ,
+  AM_m.psiPrecipHFIAvgMinTemp.pEff          ,
+  AM_m.psiPrecipHFIAvgMaxTemp.pEff          ,
+  AM_m.psiPrecipHFINPP.pEff                 ,
   AM_m.psiPrecipRoadNDVI.pEff               ,	
   AM_m.psiPrecipRoadAvgMinTemp.pEff         ,	
   AM_m.psiPrecipRoadAvgMaxTemp.pEff         ,	
@@ -201,11 +194,11 @@ AM_detlist<- fitList( AM_m.psi1.pEff	,
   AM_m.psiPrecipAvgMinTempAvgMaxTemp.pEff   ,	
   AM_m.psiPrecipAvgMinTempNPP.pEff          ,	
   AM_m.psiPrecipAvgMaxTempNPP.pEff          ,	
-  AM_m.psiElevHFIRoad.pEff                  ,	
-  AM_m.psiElevHFINDVI.pEff                  ,	
-  AM_m.psiElevHFIAvgMinTemp.pEff            ,	
-  AM_m.psiElevHFIAvgMaxTemp.pEff            ,	
-  AM_m.psiElevHFINPP.pEff                   ,	
+  AM_m.psiElevHFIRoad.pEff                  ,
+  AM_m.psiElevHFINDVI.pEff                  ,
+  AM_m.psiElevHFIAvgMinTemp.pEff            ,
+  AM_m.psiElevHFIAvgMaxTemp.pEff            ,
+  AM_m.psiElevHFINPP.pEff                   ,
   AM_m.psiElevRoadNDVI.pEff                 ,	
   AM_m.psiElevRoadAvgMinTemp.pEff           ,	
   AM_m.psiElevRoadAvgMaxTemp.pEff           ,	
@@ -216,16 +209,16 @@ AM_detlist<- fitList( AM_m.psi1.pEff	,
   AM_m.psiElevAvgMinTempAvgMaxTemp.pEff     ,	
   AM_m.psiElevAvgMinTempNPP.pEff            ,	
   AM_m.psiElevAvgMaxTempNPP.pEff            ,	
-  AM_m.psiHFIRoadNDVI.pEff                  ,	
-  AM_m.psiHFIRoadAvgMinTemp.pEff            ,	
-  AM_m.psiHFIRoadAvgMaxTemp.pEff            ,	
-  AM_m.psiHFIRoadNPP.pEff                   ,	
-  AM_m.psiHFINDVIAvgMinTemp.pEff            ,	
-  AM_m.psiHFINDVIAvgMaxTemp.pEff            ,	
-  AM_m.psiHFINDVINPP.pEff                   ,	
-  AM_m.psiHFIAvgMinTempAvgMaxTemp.pEff      ,	
-  AM_m.psiHFIAvgMinTempNPP.pEff             ,	
-  AM_m.psiHFIAvgMaxTempNPP.pEff             ,	
+  AM_m.psiHFIRoadNDVI.pEff                  ,
+  AM_m.psiHFIRoadAvgMinTemp.pEff            ,
+  AM_m.psiHFIRoadAvgMaxTemp.pEff            ,
+  AM_m.psiHFIRoadNPP.pEff                   ,
+  AM_m.psiHFINDVIAvgMinTemp.pEff            ,
+  AM_m.psiHFINDVIAvgMaxTemp.pEff            ,
+  AM_m.psiHFINDVINPP.pEff                   ,
+  AM_m.psiHFIAvgMinTempAvgMaxTemp.pEff      ,
+  AM_m.psiHFIAvgMinTempNPP.pEff             ,
+  AM_m.psiHFIAvgMaxTempNPP.pEff             ,
   AM_m.psiRoadNDVIAvgMinTemp.pEff           ,	
   AM_m.psiRoadNDVIAvgMaxTemp.pEff           ,	
   AM_m.psiRoadNDVINPP.pEff                  ,	
@@ -329,13 +322,14 @@ AM_detlist<- fitList( AM_m.psi1.pEff	,
 
 
 #####output#####
-columns<- c(5:18)
 
-sink("AM_multiMods2.txt", append = FALSE)
+columns<- c(1:8)
 
-cat("19, July 2023\n")
+#sink("Multivariate model summaries/AM_multiMods2.txt", append = FALSE)
+
+cat("24, July 2023\n")
 cat("\n***Correlation Matrix***\n")
-cor(AM_cov[, columns]) #correlation matrix on numerical fields
+cor(AM_cov) #correlation matrix on numerical fields
 print("\n**Lowland Tapir Models**")
 cat()
 modSel(AM_detlist) #model selection table

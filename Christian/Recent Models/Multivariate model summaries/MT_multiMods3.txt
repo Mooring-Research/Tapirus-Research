@@ -1,0 +1,2496 @@
+24, July 2023
+
+***Correlation Matrix***
+                 Elev     d.Road     Precip       NDVI AvgMinTemp AvgMaxTemp        NPP
+Elev        1.0000000  0.4773677 -0.1436933 -0.8357563 -0.8400972 -0.8405289  0.4016063
+d.Road      0.4773677  1.0000000 -0.3372382 -0.5154280 -0.5942364 -0.5931725 -0.2393405
+Precip     -0.1436933 -0.3372382  1.0000000  0.3225451  0.3610690  0.3363099  0.5076371
+NDVI       -0.8357563 -0.5154280  0.3225451  1.0000000  0.7669650  0.7573188 -0.1900845
+AvgMinTemp -0.8400972 -0.5942364  0.3610690  0.7669650  1.0000000  0.9973164 -0.1327601
+AvgMaxTemp -0.8405289 -0.5931725  0.3363099  0.7573188  0.9973164  1.0000000 -0.1561068
+NPP         0.4016063 -0.2393405  0.5076371 -0.1900845 -0.1327601 -0.1561068  1.0000000
+
+[1] "**Mountain Tapir Models**"
+                                        nPars    AIC delta   AICwt cumltvWt
+MT_m.psiAvgMinTempRoad.pEff                 5 512.22  0.00 1.3e-01     0.13
+MT_m.psiAvgMaxTempRoad.pEff                 5 512.40  0.18 1.2e-01     0.25
+MT_m.psiElevRoadAvgMinTemp.pEff             6 513.90  1.68 5.6e-02     0.31
+MT_m.psiElevRoadAvgMaxTemp.pEff             6 514.03  1.81 5.3e-02     0.36
+MT_m.psiPrecipRoadAvgMinTemp.pEff           6 514.11  1.89 5.1e-02     0.41
+MT_m.psiRoadAvgMinTempNPP.pEff              6 514.19  1.97 4.9e-02     0.46
+MT_m.psiRoadAvgMinTempAvgMaxTemp.pEff       6 514.22  1.99 4.8e-02     0.51
+MT_m.psiRoadNDVIAvgMinTemp.pEff             6 514.22  2.00 4.8e-02     0.55
+MT_m.psiHFIRoadAvgMinTemp.pEff              6 514.22  2.00 4.8e-02     0.60
+MT_m.psiHFINDVIAvgMinTemp.pEff              6 514.22  2.00 4.8e-02     0.65
+MT_m.psiPrecipRoadAvgMaxTemp.pEff           6 514.36  2.14 4.5e-02     0.70
+MT_m.psiRoadNDVIAvgMaxTemp.pEff             6 514.38  2.16 4.4e-02     0.74
+MT_m.psiRoadAvgMaxTempNPP.pEff              6 514.40  2.18 4.4e-02     0.78
+MT_m.psiHFIRoadAvgMaxTemp.pEff              6 514.40  2.18 4.4e-02     0.83
+MT_m.psiElevRoad.pEff                       5 516.43  4.21 1.6e-02     0.84
+MT_m.psiAvgMinTemp.pEff                     4 517.53  5.31 9.2e-03     0.85
+MT_m.psiAvgMaxTemp.pEff                     4 517.60  5.38 8.9e-03     0.86
+MT_m.psiElevRoadNPP.pEff                    6 517.97  5.75 7.4e-03     0.87
+MT_m.psiPrecipElevRoad.pEff                 6 518.00  5.78 7.3e-03     0.88
+MT_m.psiAvgMinTempNPP.pEff                  5 518.33  6.11 6.1e-03     0.88
+MT_m.psiElevRoadNDVI.pEff                   6 518.43  6.21 5.9e-03     0.89
+MT_m.psiElevHFIRoad.pEff                    6 518.43  6.21 5.8e-03     0.89
+MT_m.psiElev.pEff                           4 518.45  6.23 5.8e-03     0.90
+MT_m.psiAvgMinTempPrecip.pEff               5 518.81  6.59 4.8e-03     0.90
+MT_m.psiAvgMaxTempPrecip.pEff               5 518.99  6.77 4.4e-03     0.91
+MT_m.psiAvgMinTempElev.pEff                 5 519.16  6.94 4.1e-03     0.91
+MT_m.psiElevAvgMaxTemp.pEff                 5 519.19  6.97 4.0e-03     0.92
+MT_m.psiAvgMinTempNDVI.pEff                 5 519.44  7.22 3.5e-03     0.92
+MT_m.psiAvgMinTempAvgMaxTemp.pEff           5 519.53  7.30 3.4e-03     0.92
+MT_m.psiHFIAvgMinTemp.pEff                  5 519.53  7.31 3.4e-03     0.93
+MT_m.psiAvgMinTempHFI.pEff                  5 519.53  7.31 3.4e-03     0.93
+MT_m.psiAvgMaxTempNDVI.pEff                 5 519.54  7.32 3.4e-03     0.93
+MT_m.psiHFIAvgMaxTemp.pEff                  5 519.60  7.38 3.3e-03     0.94
+MT_m.psiNDVIAvgMinTempNPP.pEff              6 520.08  7.85 2.6e-03     0.94
+MT_m.psiAvgMinTempAvgMaxTempNPP.pEff        6 520.19  7.97 2.4e-03     0.94
+MT_m.psiElevNDVI.pEff                       5 520.22  8.00 2.4e-03     0.94
+MT_m.psiPrecipAvgMinTempNPP.pEff            6 520.29  8.07 2.3e-03     0.95
+MT_m.psiElevAvgMinTempNPP.pEff              6 520.33  8.11 2.3e-03     0.95
+MT_m.psiHFIAvgMinTempNPP.pEff               6 520.33  8.11 2.3e-03     0.95
+MT_m.psiNDVIAvgMaxTempNPP.pEff              6 520.35  8.12 2.2e-03     0.95
+MT_m.psiElevPrecip.pEff                     5 520.44  8.22 2.1e-03     0.96
+MT_m.psiHFIElev.pEff                        5 520.45  8.23 2.1e-03     0.96
+MT_m.psiPrecipAvgMaxTempNPP.pEff            6 520.48  8.26 2.1e-03     0.96
+MT_m.psiElevAvgMaxTempNPP.pEff              6 520.49  8.27 2.1e-03     0.96
+MT_m.psiHFIAvgMaxTempNPP.pEff               6 520.51  8.29 2.1e-03     0.96
+MT_m.psiElevNDVIAvgMinTemp.pEff             6 520.61  8.39 2.0e-03     0.97
+MT_m.psiPrecipElevAvgMinTemp.pEff           6 520.70  8.48 1.9e-03     0.97
+MT_m.psiElevNDVIAvgMaxTemp.pEff             6 520.70  8.48 1.9e-03     0.97
+MT_m.psiPrecipAvgMinTempAvgMaxTemp.pEff     6 520.71  8.49 1.9e-03     0.97
+MT_m.psiPrecipHFIAvgMinTemp.pEff            6 520.81  8.59 1.8e-03     0.97
+MT_m.psiPrecipElevAvgMaxTemp.pEff           6 520.82  8.60 1.8e-03     0.97
+MT_m.psiPrecipNDVIAvgMaxTemp.pEff           6 520.96  8.73 1.7e-03     0.98
+MT_m.psiPrecipHFIAvgMaxTemp.pEff            6 520.99  8.77 1.6e-03     0.98
+MT_m.psiNDVIRoad.pEff                       5 521.03  8.81 1.6e-03     0.98
+MT_m.psiElevAvgMinTempAvgMaxTemp.pEff       6 521.16  8.94 1.5e-03     0.98
+MT_m.psiElevHFIAvgMinTemp.pEff              6 521.16  8.94 1.5e-03     0.98
+MT_m.psiElevHFIAvgMaxTemp.pEff              6 521.19  8.97 1.5e-03     0.98
+MT_m.psiNDVIAvgMinTempAvgMaxTemp.pEff       6 521.43  9.21 1.3e-03     0.99
+MT_m.psiHFIAvgMinTempAvgMaxTemp.pEff        6 521.53  9.30 1.2e-03     0.99
+MT_m.psiNDVI.pEff                           4 522.02  9.80 9.7e-04     0.99
+MT_m.psiElevNDVINPP.pEff                    6 522.11  9.89 9.3e-04     0.99
+MT_m.psiPrecipElevNPP.pEff                  6 522.20  9.98 8.9e-04     0.99
+MT_m.psiPrecipElevNDVI.pEff                 6 522.22 10.00 8.8e-04     0.99
+MT_m.psiElevHFINDVI.pEff                    6 522.22 10.00 8.8e-04     0.99
+MT_m.psiElevHFINPP.pEff                     6 522.26 10.04 8.6e-04     0.99
+MT_m.psiPrecipElevHFI.pEff                  6 522.44 10.22 7.9e-04     0.99
+MT_m.psiRoadNDVINPP.pEff                    6 522.70 10.47 6.9e-04     0.99
+MT_m.psiPrecipRoadNDVI.pEff                 6 523.03 10.81 5.9e-04     0.99
+MT_m.psiHFIRoadNDVI.pEff                    6 523.03 10.81 5.9e-04     0.99
+MT_m.psiHFINDVIAvgMaxTemp.pEff              6 523.03 10.81 5.9e-04     1.00
+MT_m.psiNPP.pEff                            4 523.71 11.49 4.2e-04     1.00
+MT_m.psi1.pEff                              3 523.82 11.60 3.9e-04     1.00
+MT_m.psi2.pEff                              3 523.82 11.60 3.9e-04     1.00
+MT_m.psi3.pEff                              3 523.82 11.60 3.9e-04     1.00
+MT_m.psiPrecipNDVI.pEff                     5 523.83 11.61 3.9e-04     1.00
+MT_m.psiPrecipNDVIAvgMinTemp.pEff           5 523.83 11.61 3.9e-04     1.00
+MT_m.psiHFINDVI.pEff                        5 524.02 11.80 3.6e-04     1.00
+MT_m.psiPrecipNDVINPP.pEff                  6 524.51 12.29 2.8e-04     1.00
+MT_m.psiHFINDVINPP.pEff                     6 524.67 12.45 2.6e-04     1.00
+MT_m.psiRoad.pEff                           4 525.70 13.47 1.5e-04     1.00
+MT_m.psiHFINPP.pEff                         5 525.71 13.49 1.5e-04     1.00
+MT_m.psiPrec.pEff                           4 525.78 13.56 1.5e-04     1.00
+MT_m.psiHFI.pEff                            4 525.82 13.60 1.5e-04     1.00
+MT_m.psiPrecipHFINDVI.pEff                  6 525.83 13.61 1.4e-04     1.00
+MT_m.psiPrecipRoadNPP.pEff                  6 526.08 13.86 1.3e-04     1.00
+MT_m.psiPrecipHFINPP.pEff                   6 526.27 14.05 1.2e-04     1.00
+MT_m.psiPrecipRoad.pEff                     5 527.56 15.34 6.1e-05     1.00
+MT_m.psiHFIRoad.pEff                        5 527.70 15.47 5.7e-05     1.00
+MT_m.psiHFIRoadNPP.pEff                     6 527.71 15.49 5.7e-05     1.00
+MT_m.psiHFIPrecip.pEff                      5 527.78 15.56 5.4e-05     1.00
+MT_m.psiPrecipHFIRoad.pEff                  6 529.56 17.34 2.2e-05     1.00
+
+**Summaries**
+ [1] "MT_m.PrecipElevHFI.pEff"                 "MT_m.psi1.pEff"                         
+ [3] "MT_m.psi2.pEff"                          "MT_m.psi3.pEff"                         
+ [5] "MT_m.psiAvgMaxTemp.pEff"                 "MT_m.psiAvgMaxTempNDVI.pEff"            
+ [7] "MT_m.psiAvgMaxTempPrecip.pEff"           "MT_m.psiAvgMaxTempRoad.pEff"            
+ [9] "MT_m.psiAvgMinTemp.pEff"                 "MT_m.psiAvgMinTempAvgMaxTemp.pEff"      
+[11] "MT_m.psiAvgMinTempAvgMaxTempNPP.pEff"    "MT_m.psiAvgMinTempElev.pEff"            
+[13] "MT_m.psiAvgMinTempHFI.pEff"              "MT_m.psiAvgMinTempNDVI.pEff"            
+[15] "MT_m.psiAvgMinTempNPP.pEff"              "MT_m.psiAvgMinTempPrecip.pEff"          
+[17] "MT_m.psiAvgMinTempRoad.pEff"             "MT_m.psiElev.pEff"                      
+[19] "MT_m.psiElevAvgMaxTemp.pEff"             "MT_m.psiElevAvgMaxTempNPP.pEff"         
+[21] "MT_m.psiElevAvgMinTempAvgMaxTemp.pEff"   "MT_m.psiElevAvgMinTempNPP.pEff"         
+[23] "MT_m.psiElevHFIAvgMaxTemp.pEff"          "MT_m.psiElevHFIAvgMinTemp.pEff"         
+[25] "MT_m.psiElevHFINDVI.pEff"                "MT_m.psiElevHFINPP.pEff"                
+[27] "MT_m.psiElevHFIRoad.pEff"                "MT_m.psiElevNDVI.pEff"                  
+[29] "MT_m.psiElevNDVIAvgMaxTemp.pEff"         "MT_m.psiElevNDVIAvgMinTemp.pEff"        
+[31] "MT_m.psiElevNDVINPP.pEff"                "MT_m.psiElevPrecip.pEff"                
+[33] "MT_m.psiElevRoad.pEff"                   "MT_m.psiElevRoadAvgMaxTemp.pEff"        
+[35] "MT_m.psiElevRoadAvgMinTemp.pEff"         "MT_m.psiElevRoadNDVI.pEff"              
+[37] "MT_m.psiElevRoadNPP.pEff"                "MT_m.psiHFI.pEff"                       
+[39] "MT_m.psiHFIAvgMaxTemp.pEff"              "MT_m.psiHFIAvgMaxTempNPP.pEff"          
+[41] "MT_m.psiHFIAvgMinTemp.pEff"              "MT_m.psiHFIAvgMinTempAvgMaxTemp.pEff"   
+[43] "MT_m.psiHFIAvgMinTempNPP.pEff"           "MT_m.psiHFIElev.pEff"                   
+[45] "MT_m.psiHFINDVI.pEff"                    "MT_m.psiHFINDVIAvgMaxTemp.pEff"         
+[47] "MT_m.psiHFINDVIAvgMinTemp.pEff"          "MT_m.psiHFINDVINPP.pEff"                
+[49] "MT_m.psiHFINPP.pEff"                     "MT_m.psiHFIPrecip.pEff"                 
+[51] "MT_m.psiHFIRoad.pEff"                    "MT_m.psiHFIRoadAvgMaxTemp.pEff"         
+[53] "MT_m.psiHFIRoadAvgMinTemp.pEff"          "MT_m.psiHFIRoadNDVI.pEff"               
+[55] "MT_m.psiHFIRoadNPP.pEff"                 "MT_m.psiNDVI.pEff"                      
+[57] "MT_m.psiNDVIAvgMaxTempNPP.pEff"          "MT_m.psiNDVIAvgMinTempAvgMaxTemp.pEff"  
+[59] "MT_m.psiNDVIAvgMinTempNPP.pEff"          "MT_m.psiNDVIRoad.pEff"                  
+[61] "MT_m.psiNPP.pEff"                        "MT_m.psiPrec.pEff"                      
+[63] "MT_m.psiPrecipAvgMaxTempNPP.pEff"        "MT_m.psiPrecipAvgMinTempAvgMaxTemp.pEff"
+[65] "MT_m.psiPrecipAvgMinTempNPP.pEff"        "MT_m.psiPrecipElevAvgMaxTemp.pEff"      
+[67] "MT_m.psiPrecipElevAvgMinTemp.pEff"       "MT_m.psiPrecipElevHFI.pEff"             
+[69] "MT_m.psiPrecipElevNDVI.pEff"             "MT_m.psiPrecipElevNPP.pEff"             
+[71] "MT_m.psiPrecipElevRoad.pEff"             "MT_m.psiPrecipHFIAvgMaxTemp.pEff"       
+[73] "MT_m.psiPrecipHFIAvgMinTemp.pEff"        "MT_m.psiPrecipHFINDVI.pEff"             
+[75] "MT_m.psiPrecipHFINPP.pEff"               "MT_m.psiPrecipHFIRoad.pEff"             
+[77] "MT_m.psiPrecipNDVI.pEff"                 "MT_m.psiPrecipNDVIAvgMaxTemp.pEff"      
+[79] "MT_m.psiPrecipNDVIAvgMinTemp.pEff"       "MT_m.psiPrecipNDVINPP.pEff"             
+[81] "MT_m.psiPrecipRoad.pEff"                 "MT_m.psiPrecipRoadAvgMaxTemp.pEff"      
+[83] "MT_m.psiPrecipRoadAvgMinTemp.pEff"       "MT_m.psiPrecipRoadNDVI.pEff"            
+[85] "MT_m.psiPrecipRoadNPP.pEff"              "MT_m.psiRoad.pEff"                      
+[87] "MT_m.psiRoadAvgMaxTempNPP.pEff"          "MT_m.psiRoadAvgMinTempAvgMaxTemp.pEff"  
+[89] "MT_m.psiRoadAvgMinTempNPP.pEff"          "MT_m.psiRoadNDVIAvgMaxTemp.pEff"        
+[91] "MT_m.psiRoadNDVIAvgMinTemp.pEff"         "MT_m.psiRoadNDVINPP.pEff"               
+
+[1] "MT_m.PrecipElevHFI.pEff"
+[1] "𝜓=  0.4291"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + Elev, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0351   NaN    NaN     NaN
+Precip       -0.0271 0.268 -0.101  0.9193
+HFI          -0.1407   NaN    NaN     NaN
+Elev         -0.7117 0.281 -2.532  0.0114
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.135 -2.34  0.0191
+Eff              0.5 0.307  1.63  0.1030
+
+AIC: 522.4372 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 32 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psi1.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.6214"
+
+
+Call:
+occu(formula = ~Eff ~ 1, data = MT_umf)
+
+Occupancy (logit-scale):
+ Estimate    SE     z P(>|z|)
+   -0.565 0.242 -2.33  0.0196
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.960 2.141 -2.32  0.0205
+Eff            0.495 0.308  1.61  0.1075
+
+AIC: 523.8224 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psi2.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.6214"
+
+
+Call:
+occu(formula = ~Eff ~ 1 + 1, data = MT_umf)
+
+Occupancy (logit-scale):
+ Estimate    SE     z P(>|z|)
+   -0.565 0.242 -2.33  0.0196
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.960 2.141 -2.32  0.0205
+Eff            0.495 0.308  1.61  0.1075
+
+AIC: 523.8224 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psi3.pEff"
+[1] "𝜓=  NA"
+[1] "p=  0.6214"
+
+
+Call:
+occu(formula = ~Eff ~ 1 + 1 + 1, data = MT_umf)
+
+Occupancy (logit-scale):
+ Estimate    SE     z P(>|z|)
+   -0.565 0.242 -2.33  0.0196
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.960 2.141 -2.32  0.0205
+Eff            0.495 0.308  1.61  0.1075
+
+AIC: 523.8224 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMaxTemp.pEff"
+[1] "𝜓=  0.6858"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.620 0.264 -2.35  0.0188
+AvgMaxTemp     0.781 0.304  2.57  0.0102
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.140 -2.34  0.0195
+Eff              0.5 0.308  1.63  0.1041
+
+AIC: 517.5972 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 53 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMaxTempNDVI.pEff"
+[1] "𝜓=  0.5885"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.6182 0.264 -2.343  0.0191
+AvgMaxTemp    0.8475 0.422  2.007  0.0447
+NDVI         -0.0923 0.395 -0.234  0.8153
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.141 -2.34  0.0195
+Eff              0.5 0.308  1.63  0.1042
+
+AIC: 519.5436 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 27 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMaxTempPrecip.pEff"
+[1] "𝜓=  0.5723"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp + Precip, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.610 0.264 -2.309 0.02095
+AvgMaxTemp     0.847 0.316  2.680 0.00737
+Precip        -0.222 0.289 -0.768 0.44238
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.137 -2.34  0.0192
+Eff              0.5 0.307  1.63  0.1034
+
+AIC: 518.9898 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 51 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMaxTempRoad.pEff"
+[1] "𝜓=  0.7594"
+[1] "p=  0.6232"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMaxTemp + d.Road, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -0.651 0.283 -2.30 0.021396
+AvgMaxTemp     1.387 0.413  3.36 0.000774
+d.Road         0.937 0.383  2.45 0.014359
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.030 2.122 -2.37  0.0177
+Eff            0.503 0.305  1.65  0.0990
+
+AIC: 512.4033 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 27 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMinTemp.pEff"
+[1] "𝜓=  0.6903"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.630 0.266 -2.37  0.0178
+AvgMinTemp     0.802 0.316  2.54  0.0112
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.140 -2.34  0.0195
+Eff              0.5 0.308  1.63  0.1041
+
+AIC: 517.529 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.5908"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate   SE       z P(>|z|)
+(Intercept)   -0.632 0.27 -2.3429  0.0191
+AvgMinTemp     1.023 3.84  0.2665  0.7898
+AvgMaxTemp    -0.217 3.75 -0.0579  0.9538
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.140 -2.34  0.0195
+Eff              0.5 0.308  1.63  0.1041
+
+AIC: 519.5256 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 54 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMinTempAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5035"
+[1] "p=  0.6233"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + AvgMaxTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.607 0.274 -2.216  0.0267
+AvgMinTemp     2.196 3.954  0.555  0.5786
+AvgMaxTemp    -1.429 3.881 -0.368  0.7127
+NPP           -0.333 0.296 -1.124  0.2610
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.029 2.129 -2.36  0.0182
+Eff            0.503 0.306  1.64  0.1000
+
+AIC: 520.1947 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 59 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMinTempElev.pEff"
+[1] "𝜓=  0.5332"
+[1] "p=  0.6226"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + Elev, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.629 0.267 -2.356  0.0185
+AvgMinTemp     0.559 0.504  1.110  0.2670
+Elev          -0.282 0.467 -0.603  0.5465
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.004 2.138 -2.34  0.0193
+Eff            0.501 0.307  1.63  0.1034
+
+AIC: 519.1617 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 27 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMinTempHFI.pEff"
+[1] "𝜓=  0.5765"
+[1] "p=  0.6224"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + HFI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)   -0.037 7327.436 -5.04e-06  1.0000
+AvgMinTemp     0.800    0.316  2.53e+00  0.0113
+HFI           -0.148 1831.861 -8.08e-05  0.9999
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.140 -2.34  0.0195
+Eff              0.5 0.308  1.63  0.1041
+
+AIC: 519.529 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 28 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMinTempNDVI.pEff"
+[1] "𝜓=  0.5897"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.629 0.266 -2.366  0.0180
+AvgMinTemp     0.892 0.443  2.013  0.0441
+NDVI          -0.120 0.402 -0.298  0.7657
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.142 -2.34  0.0195
+Eff              0.5 0.308  1.62  0.1042
+
+AIC: 519.4415 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 27 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5517"
+[1] "p=  0.6232"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.596 0.270 -2.21  0.0270
+AvgMinTemp     0.748 0.309  2.42  0.0156
+NPP           -0.304 0.285 -1.07  0.2857
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.027 2.130 -2.36  0.0183
+Eff            0.503 0.306  1.64  0.1002
+
+AIC: 518.3306 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 45 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMinTempPrecip.pEff"
+[1] "𝜓=  0.573"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.620 0.266 -2.331 0.01975
+Precip        -0.243 0.290 -0.836 0.40305
+AvgMinTemp     0.878 0.328  2.677 0.00744
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.136 -2.34  0.0192
+Eff              0.5 0.307  1.63  0.1034
+
+AIC: 518.8073 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 42 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiAvgMinTempRoad.pEff"
+[1] "𝜓=  0.7635"
+[1] "p=  0.6233"
+
+
+Call:
+occu(formula = ~Eff ~ AvgMinTemp + d.Road, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -0.666 0.286 -2.33 0.019812
+AvgMinTemp     1.429 0.430  3.33 0.000879
+d.Road         0.946 0.385  2.46 0.013889
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.035 2.124 -2.37  0.0178
+Eff            0.504 0.305  1.65  0.0989
+
+AIC: 512.221 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 27 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElev.pEff"
+[1] "𝜓=  0.3295"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ Elev, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    -0.60 0.260 -2.31  0.0211
+Elev           -0.71 0.282 -2.52  0.0116
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.135 -2.34  0.0191
+Eff              0.5 0.307  1.63  0.1030
+
+AIC: 518.4475 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 39 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevAvgMaxTemp.pEff"
+[1] "𝜓=  0.529"
+[1] "p=  0.6226"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.623 0.265 -2.345   0.019
+Elev          -0.293 0.464 -0.632   0.528
+AvgMaxTemp     0.536 0.487  1.101   0.271
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.005 2.138 -2.34  0.0192
+Eff            0.501 0.307  1.63  0.1033
+
+AIC: 519.1947 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 27 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5263"
+[1] "p=  0.6232"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMaxTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.5921 0.269 -2.204  0.0275
+Elev         -0.0664 0.539 -0.123  0.9020
+AvgMaxTemp    0.6762 0.521  1.299  0.1941
+NPP          -0.2707 0.329 -0.823  0.4106
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.025 2.131 -2.36  0.0184
+Eff            0.503 0.306  1.64  0.1005
+
+AIC: 520.4915 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.5213"
+[1] "p=  0.6226"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMinTemp + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept)   -0.630 0.270 -2.3351  0.0195
+Elev          -0.281 0.467 -0.6016  0.5474
+AvgMinTemp     0.714 3.844  0.1858  0.8526
+AvgMaxTemp    -0.151 3.725 -0.0406  0.9676
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.138 -2.34  0.0193
+Eff              0.5 0.307  1.63  0.1034
+
+AIC: 521.16 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 58 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5329"
+[1] "p=  0.6232"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + AvgMinTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept)  -0.5967 0.270 -2.2096  0.0271
+Elev         -0.0135 0.554 -0.0244  0.9805
+AvgMinTemp    0.7375 0.545  1.3523  0.1763
+NPP          -0.2999 0.336 -0.8921  0.3723
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.027 2.130 -2.36  0.0183
+Eff            0.503 0.306  1.64  0.1003
+
+AIC: 520.33 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevHFIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5072"
+[1] "p=  0.6226"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0366 8530.895 -4.29e-06   1.000
+Elev         -0.2933    0.464 -6.32e-01   0.528
+HFI          -0.1465 2132.726 -6.87e-05   1.000
+AvgMaxTemp    0.5361    0.487  1.10e+00   0.271
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.004 2.138 -2.34  0.0192
+Eff            0.501 0.307  1.63  0.1033
+
+AIC: 521.1947 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 32 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevHFIAvgMinTemp.pEff"
+[1] "𝜓=  0.5098"
+[1] "p=  0.6226"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0369   NaN    NaN     NaN
+Elev         -0.2818 0.465 -0.607   0.544
+HFI          -0.1479   NaN    NaN     NaN
+AvgMinTemp    0.5595 0.488  1.146   0.252
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.004 2.135 -2.34  0.0191
+Eff            0.501 0.307  1.63  0.1032
+
+AIC: 521.1617 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevHFINDVI.pEff"
+[1] "𝜓=  0.3999"
+[1] "p=  0.6227"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0351   NaN    NaN     NaN
+Elev         -0.8913 0.480 -1.859  0.0631
+HFI          -0.1403   NaN    NaN     NaN
+NDVI         -0.2253 0.477 -0.472  0.6367
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.005 2.136 -2.34  0.0191
+Eff            0.501 0.307  1.63  0.1029
+
+AIC: 522.2208 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 25 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevHFINPP.pEff"
+[1] "𝜓=  0.4249"
+[1] "p=  0.6228"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0344   NaN    NaN     NaN
+Elev         -0.6572 0.302 -2.174  0.0297
+HFI          -0.1378   NaN    NaN     NaN
+NPP          -0.1296 0.299 -0.433  0.6647
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.012 2.131 -2.35  0.0187
+Eff            0.502 0.306  1.64  0.1016
+
+AIC: 522.2577 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 31 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevHFIRoad.pEff"
+[1] "𝜓=  0.4593"
+[1] "p=  0.6233"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + HFI + d.Road, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0345 3849.347 -8.95e-06 0.99999
+Elev         -1.0367    0.345 -3.01e+00 0.00262
+HFI          -0.1379  962.338 -1.43e-04 0.99989
+d.Road        0.6208    0.328  1.90e+00 0.05802
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.029 2.123 -2.37  0.0178
+Eff            0.503 0.305  1.65  0.0990
+
+AIC: 518.4311 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 28 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevNDVI.pEff"
+[1] "𝜓=  0.3675"
+[1] "p=  0.6226"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.596 0.260 -2.291  0.0220
+Elev          -0.891 0.480 -1.858  0.0632
+NDVI          -0.225 0.477 -0.472  0.6370
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.005 2.136 -2.34  0.0191
+Eff            0.501 0.307  1.63  0.1029
+
+AIC: 520.2208 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 27 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevNDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.4783"
+[1] "p=  0.6227"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.618 0.266 -2.324  0.0201
+Elev          -0.516 0.569 -0.907  0.3646
+NDVI          -0.343 0.494 -0.695  0.4873
+AvgMaxTemp     0.602 0.497  1.211  0.2258
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.007 2.138 -2.34  0.0192
+Eff            0.501 0.307  1.63  0.1032
+
+AIC: 520.699 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevNDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.48"
+[1] "p=  0.6227"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.624 0.267 -2.337  0.0194
+Elev          -0.510 0.567 -0.900  0.3679
+NDVI          -0.365 0.498 -0.734  0.4632
+AvgMinTemp     0.642 0.517  1.241  0.2147
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.007 2.139 -2.34  0.0192
+Eff            0.501 0.307  1.63  0.1033
+
+AIC: 520.6077 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevNDVINPP.pEff"
+[1] "𝜓=  0.4114"
+[1] "p=  0.6228"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + NDVI + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.586 0.262 -2.235  0.0254
+Elev          -0.820 0.527 -1.555  0.1199
+NDVI          -0.187 0.493 -0.379  0.7049
+NPP           -0.101 0.308 -0.327  0.7433
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.011 2.133 -2.35  0.0188
+Eff            0.502 0.307  1.64  0.1019
+
+AIC: 522.1128 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 32 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevPrecip.pEff"
+[1] "𝜓=  0.4107"
+[1] "p=  0.6227"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + Precip, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.597 0.261 -2.289  0.0221
+Elev          -0.716 0.282 -2.544  0.0110
+Precip        -0.027 0.268 -0.101  0.9198
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.007 2.137 -2.34  0.0191
+Eff            0.501 0.307  1.63  0.1029
+
+AIC: 520.4375 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 26 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevRoad.pEff"
+[1] "𝜓=  0.4561"
+[1] "p=  0.6234"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.586 0.269 -2.18 0.02913
+Elev          -1.037 0.345 -3.01 0.00262
+d.Road         0.621 0.328  1.90 0.05801
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.033 2.125 -2.37  0.0179
+Eff            0.504 0.305  1.65  0.0990
+
+AIC: 516.431 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 57 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevRoadAvgMaxTemp.pEff"
+[1] "𝜓=  0.6343"
+[1] "p=  0.6236"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.644 0.284 -2.268  0.0234
+Elev          -0.296 0.489 -0.605  0.5454
+d.Road         0.937 0.385  2.434  0.0149
+AvgMaxTemp     1.141 0.571  2.000  0.0456
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.043 2.123 -2.38  0.0175
+Eff            0.505 0.305  1.65  0.0980
+
+AIC: 514.0343 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 31 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevRoadAvgMinTemp.pEff"
+[1] "𝜓=  0.6396"
+[1] "p=  0.6236"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.656 0.287 -2.289  0.0221
+Elev          -0.277 0.490 -0.565  0.5718
+d.Road         0.947 0.387  2.448  0.0144
+AvgMinTemp     1.193 0.591  2.017  0.0437
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.043 2.123 -2.38  0.0175
+Eff            0.505 0.305  1.65  0.0980
+
+AIC: 513.8977 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevRoadNDVI.pEff"
+[1] "𝜓=  0.4753"
+[1] "p=  0.6234"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.5862 0.269 -2.181  0.0292
+Elev         -1.0139 0.502 -2.018  0.0436
+d.Road        0.6263 0.340  1.843  0.0653
+NDVI          0.0321 0.517  0.062  0.9506
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.034 2.125 -2.37  0.0178
+Eff            0.504 0.305  1.65  0.0989
+
+AIC: 518.4272 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 42 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiElevRoadNPP.pEff"
+[1] "𝜓=  0.4895"
+[1] "p=  0.6229"
+
+
+Call:
+occu(formula = ~Eff ~ Elev + d.Road + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.610 0.272 -2.245 0.02478
+Elev          -1.199 0.431 -2.785 0.00536
+d.Road         0.743 0.377  1.972 0.04864
+NPP            0.239 0.353  0.676 0.49881
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.016 2.128 -2.36  0.0184
+Eff            0.502 0.306  1.64  0.1009
+
+AIC: 517.9729 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFI.pEff"
+[1] "𝜓=  0.4668"
+[1] "p=  0.6214"
+
+
+Call:
+occu(formula = ~Eff ~ HFI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate  SE   z P(>|z|)
+(Intercept)  -0.0332 NaN NaN     NaN
+HFI          -0.1330 NaN NaN     NaN
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.961 2.141 -2.32  0.0205
+Eff            0.495 0.308  1.61  0.1075
+
+AIC: 525.8224 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5746"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0364 7327.162 -4.97e-06  1.0000
+HFI          -0.1458 1831.792 -7.96e-05  0.9999
+AvgMaxTemp    0.7793    0.304  2.57e+00  0.0103
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.140 -2.34  0.0195
+Eff              0.5 0.308  1.63  0.1041
+
+AIC: 519.5972 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 28 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5225"
+[1] "p=  0.6232"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMaxTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0346 4844.316 -7.15e-06  1.0000
+HFI          -0.1388 1211.080 -1.15e-04  0.9999
+AvgMaxTemp    0.7288    0.300  2.43e+00  0.0153
+NPP          -0.2911    0.285 -1.02e+00  0.3074
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.025 2.130 -2.36  0.0183
+Eff            0.503 0.306  1.64  0.1004
+
+AIC: 520.5067 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIAvgMinTemp.pEff"
+[1] "𝜓=  0.5765"
+[1] "p=  0.6224"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)   -0.037   NaN  NaN     NaN
+HFI           -0.148   NaN  NaN     NaN
+AvgMinTemp     0.800 0.316 2.54  0.0112
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.140 -2.34  0.0195
+Eff              0.5 0.308  1.63  0.1041
+
+AIC: 519.529 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 28 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.5482"
+[1] "p=  0.6226"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMinTemp + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate   SE       z P(>|z|)
+(Intercept)   -0.037  NaN     NaN     NaN
+HFI           -0.149  NaN     NaN     NaN
+AvgMinTemp     1.020 3.84  0.2659   0.790
+AvgMaxTemp    -0.214 3.75 -0.0572   0.954
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.004 2.142 -2.34  0.0195
+Eff            0.501 0.308  1.63  0.1040
+
+AIC: 521.5256 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 47 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5228"
+[1] "p=  0.6232"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + AvgMinTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)   -0.035 6287.962 -5.57e-06  1.0000
+HFI           -0.140 1571.992 -8.93e-05  0.9999
+AvgMinTemp     0.749    0.310  2.42e+00  0.0156
+NPP           -0.304    0.285 -1.07e+00  0.2857
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.026 2.130 -2.36  0.0183
+Eff            0.503 0.306  1.64  0.1003
+
+AIC: 520.3306 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 39 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIElev.pEff"
+[1] "𝜓=  0.3971"
+[1] "p=  0.6226"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + Elev, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0352 4406.958 -0.000008  1.0000
+HFI          -0.1412 1101.741 -0.000128  0.9999
+Elev         -0.7104    0.282 -2.522474  0.0117
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.135 -2.34  0.0191
+Eff              0.5 0.307  1.63  0.1030
+
+AIC: 520.4475 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFINDVI.pEff"
+[1] "𝜓=  0.5441"
+[1] "p=  0.6221"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)   -0.034   NaN  NaN     NaN
+HFI           -0.136   NaN  NaN     NaN
+NDVI           0.499 0.269 1.85  0.0641
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.984 2.137 -2.33  0.0197
+Eff            0.498 0.307  1.62  0.1049
+
+AIC: 524.0174 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 28 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFINDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5967"
+[1] "p=  0.6227"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)  -0.0337   NaN  NaN     NaN
+HFI          -0.1351   NaN  NaN     NaN
+d.Road        0.5353 0.322 1.66  0.0967
+NDVI          0.8148 0.346 2.36  0.0185
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.009 2.129 -2.35  0.0186
+Eff            0.501 0.306  1.64  0.1015
+
+AIC: 523.0284 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFINDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.6627"
+[1] "p=  0.6234"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z  P(>|z|)
+(Intercept)  -0.0392   NaN  NaN      NaN
+HFI          -0.1569   NaN  NaN      NaN
+d.Road        0.9461 0.385 2.46 0.013896
+AvgMinTemp    1.4299 0.430 3.33 0.000877
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.036 2.125 -2.37  0.0178
+Eff            0.504 0.305  1.65  0.0989
+
+AIC: 514.221 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFINDVINPP.pEff"
+[1] "𝜓=  0.4999"
+[1] "p=  0.6228"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + NDVI + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0327 6583.721 -4.97e-06  1.0000
+HFI          -0.1312 1645.932 -7.97e-05  0.9999
+NDVI          0.4486    0.269  1.67e+00  0.0953
+NPP          -0.3142    0.277 -1.14e+00  0.2563
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.012 2.128 -2.36  0.0185
+Eff            0.502 0.306  1.64  0.1011
+
+AIC: 524.6686 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFINPP.pEff"
+[1] "𝜓=  0.4369"
+[1] "p=  0.6223"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0322 4746.647 -6.79e-06   1.000
+HFI          -0.1293 1186.663 -1.09e-04   1.000
+NPP          -0.3801    0.269 -1.41e+00   0.157
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    -4.99 2.130 -2.34   0.019
+Eff             0.50 0.306  1.63   0.103
+
+AIC: 525.7077 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 34 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIPrecip.pEff"
+[1] "𝜓=  0.4897"
+[1] "p=  0.6214"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + Precip, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0331 3.41e+04 -9.72e-07   1.000
+HFI          -0.1328 8.52e+03 -1.56e-05   1.000
+Precip        0.0501 2.49e-01  2.01e-01   0.841
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.962 2.142 -2.32  0.0205
+Eff            0.496 0.308  1.61  0.1075
+
+AIC: 527.7819 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIRoad.pEff"
+[1] "𝜓=  0.4942"
+[1] "p=  0.6214"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0332 4332.965 -7.66e-06   1.000
+HFI          -0.1331 1083.242 -1.23e-04   1.000
+d.Road        0.0865    0.243  3.56e-01   0.722
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.961 2.140 -2.32  0.0204
+Eff            0.495 0.308  1.61  0.1073
+
+AIC: 527.6953 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIRoadAvgMaxTemp.pEff"
+[1] "𝜓=  0.66"
+[1] "p=  0.6234"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z  P(>|z|)
+(Intercept)  -0.0383 3799.708 -1.01e-05 0.999992
+HFI          -0.1533  949.928 -1.61e-04 0.999871
+d.Road        0.9356    0.383  2.44e+00 0.014495
+AvgMaxTemp    1.3868    0.413  3.36e+00 0.000776
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.036 2.124 -2.37  0.0178
+Eff            0.504 0.305  1.65  0.0989
+
+AIC: 514.4032 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIRoadAvgMinTemp.pEff"
+[1] "𝜓=  0.6627"
+[1] "p=  0.6234"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z  P(>|z|)
+(Intercept)  -0.0392   NaN  NaN      NaN
+HFI          -0.1569   NaN  NaN      NaN
+d.Road        0.9461 0.385 2.46 0.013896
+AvgMinTemp    1.4299 0.430 3.33 0.000877
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.036 2.125 -2.37  0.0178
+Eff            0.504 0.305  1.65  0.0989
+
+AIC: 514.221 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIRoadNDVI.pEff"
+[1] "𝜓=  0.5967"
+[1] "p=  0.6227"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE    z P(>|z|)
+(Intercept)  -0.0337   NaN  NaN     NaN
+HFI          -0.1351   NaN  NaN     NaN
+d.Road        0.5353 0.322 1.66  0.0967
+NDVI          0.8148 0.346 2.36  0.0185
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.009 2.129 -2.35  0.0186
+Eff            0.501 0.306  1.64  0.1015
+
+AIC: 523.0284 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiHFIRoadNPP.pEff"
+[1] "𝜓=  0.4589"
+[1] "p=  0.6223"
+
+
+Call:
+occu(formula = ~Eff ~ HFI + d.Road + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept) -0.03225 5518.420 -5.84e-06   1.000
+HFI         -0.12935 1379.607 -9.38e-05   1.000
+d.Road       0.00913    0.253  3.60e-02   0.971
+NPP         -0.37781    0.275 -1.37e+00   0.170
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)    -4.99 2.130 -2.34   0.019
+Eff             0.50 0.306  1.63   0.103
+
+AIC: 527.7064 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 38 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiNDVI.pEff"
+[1] "𝜓=  0.622"
+[1] "p=  0.6219"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.579 0.251 -2.31  0.0210
+NDVI           0.498 0.269  1.85  0.0643
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.981 2.135 -2.33  0.0197
+Eff            0.498 0.307  1.62  0.1049
+
+AIC: 522.0175 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 36 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiNDVIAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5275"
+[1] "p=  0.6233"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + AvgMaxTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.586 0.268 -2.19  0.0287
+NDVI          -0.164 0.411 -0.40  0.6892
+AvgMaxTemp     0.852 0.434  1.96  0.0496
+NPP           -0.312 0.293 -1.06  0.2876
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.029 2.131 -2.36  0.0183
+Eff            0.503 0.306  1.64  0.1003
+
+AIC: 520.3456 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiNDVIAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.5513"
+[1] "p=  0.6224"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + AvgMinTemp + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.635 0.271 -2.346   0.019
+NDVI          -0.128 0.409 -0.312   0.755
+AvgMinTemp     1.347 3.988  0.338   0.735
+AvgMaxTemp    -0.439 3.821 -0.115   0.908
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.141 -2.34  0.0195
+Eff              0.5 0.308  1.62  0.1043
+
+AIC: 521.4283 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 57 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiNDVIAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5259"
+[1] "p=  0.6234"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + AvgMinTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.594 0.270 -2.199  0.0279
+NDVI          -0.213 0.423 -0.502  0.6155
+AvgMinTemp     0.912 0.455  2.002  0.0452
+NPP           -0.334 0.296 -1.129  0.2590
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.032 2.132 -2.36  0.0182
+Eff            0.504 0.306  1.64  0.1001
+
+AIC: 520.0758 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiNDVIRoad.pEff"
+[1] "𝜓=  0.6618"
+[1] "p=  0.6226"
+
+
+Call:
+occu(formula = ~Eff ~ NDVI + d.Road, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.574 0.257 -2.23  0.0256
+NDVI           0.814 0.346  2.35  0.0187
+d.Road         0.534 0.322  1.66  0.0974
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.005 2.127 -2.35  0.0186
+Eff            0.501 0.306  1.64  0.1016
+
+AIC: 521.0284 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 26 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiNPP.pEff"
+[1] "𝜓=  0.4061"
+[1] "p=  0.6227"
+
+
+Call:
+occu(formula = ~Eff ~ NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -0.549 0.247 -2.22  0.0266
+NPP           -0.380 0.269 -1.41  0.1574
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.004 2.134 -2.34  0.0191
+Eff            0.501 0.307  1.63  0.1026
+
+AIC: 523.7077 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 24 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrec.pEff"
+[1] "𝜓=  0.5124"
+[1] "p=  0.6214"
+
+
+Call:
+occu(formula = ~Eff ~ Precip, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.5646 0.242 -2.331  0.0198
+Precip        0.0495 0.249  0.199  0.8423
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.960 2.141 -2.32  0.0205
+Eff            0.495 0.308  1.61  0.1075
+
+AIC: 525.7819 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 25 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.5339"
+[1] "p=  0.6231"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMaxTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.5902 0.268 -2.205  0.0275
+Precip       -0.0573 0.371 -0.155  0.8771
+AvgMaxTemp    0.7526 0.337  2.231  0.0257
+NPP          -0.2561 0.364 -0.703  0.4821
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.023 2.131 -2.36  0.0184
+Eff            0.503 0.306  1.64  0.1007
+
+AIC: 520.4823 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 31 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.519"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMinTemp + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.634 0.272 -2.331  0.0197
+Precip        -0.266 0.299 -0.892  0.3725
+AvgMinTemp     2.106 4.029  0.523  0.6011
+AvgMaxTemp    -1.199 3.909 -0.307  0.7591
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.136 -2.34  0.0193
+Eff              0.5 0.307  1.63  0.1035
+
+AIC: 520.7131 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 60 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipAvgMinTempNPP.pEff"
+[1] "𝜓=  0.5343"
+[1] "p=  0.6219"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + AvgMinTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.599 0.270 -2.224  0.0262
+Precip        -0.076 0.372 -0.205  0.8380
+AvgMinTemp     0.780 0.348  2.240  0.0251
+NPP           -0.256 0.363 -0.707  0.4798
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.988 2.114 -2.36  0.0183
+Eff            0.498 0.304  1.64  0.1014
+
+AIC: 520.2883 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipElevAvgMaxTemp.pEff"
+[1] "𝜓=  0.522"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.611 0.265 -2.304  0.0212
+Precip        -0.183 0.303 -0.603  0.5463
+Elev          -0.198 0.486 -0.407  0.6838
+AvgMaxTemp     0.667 0.536  1.246  0.2128
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.135 -2.34  0.0191
+Eff              0.5 0.307  1.63  0.1031
+
+AIC: 520.8221 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipElevAvgMinTemp.pEff"
+[1] "𝜓=  0.5272"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.619 0.267 -2.321  0.0203
+Precip        -0.208 0.308 -0.673  0.5009
+Elev          -0.162 0.493 -0.329  0.7419
+AvgMinTemp     0.725 0.562  1.292  0.1964
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.135 -2.34  0.0191
+Eff              0.5 0.307  1.63  0.1031
+
+AIC: 520.6976 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipElevHFI.pEff"
+[1] "𝜓=  0.4291"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + Elev, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0351   NaN    NaN     NaN
+Precip       -0.0271 0.268 -0.101  0.9193
+HFI          -0.1407   NaN    NaN     NaN
+Elev         -0.7117 0.281 -2.532  0.0114
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.135 -2.34  0.0191
+Eff              0.5 0.307  1.63  0.1030
+
+AIC: 522.4372 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 32 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipElevNDVI.pEff"
+[1] "𝜓=  0.4116"
+[1] "p=  0.6226"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept)  -0.5977 0.261 -2.2888  0.0221
+Precip        0.0195 0.286  0.0682  0.9456
+Elev         -0.8999 0.496 -1.8127  0.0699
+NDVI         -0.2374 0.509 -0.4667  0.6407
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.004 2.136 -2.34  0.0191
+Eff            0.501 0.307  1.63  0.1030
+
+AIC: 522.2162 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipElevNPP.pEff"
+[1] "𝜓=  0.4404"
+[1] "p=  0.623"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.5852 0.263 -2.225  0.0261
+Precip        0.0814 0.351  0.232  0.8164
+Elev         -0.6293 0.326 -1.932  0.0534
+NPP          -0.1877 0.391 -0.480  0.6315
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.018 2.131 -2.35  0.0186
+Eff            0.502 0.306  1.64  0.1011
+
+AIC: 522.2037 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipElevRoad.pEff"
+[1] "𝜓=  0.4908"
+[1] "p=  0.6235"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + Elev + d.Road, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.600 0.271 -2.213 0.02690
+Precip         0.197 0.300  0.656 0.51214
+Elev          -1.071 0.354 -3.024 0.00249
+d.Road         0.700 0.352  1.991 0.04647
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.036 2.126 -2.37  0.0178
+Eff            0.504 0.306  1.65  0.0988
+
+AIC: 517.9968 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipHFIAvgMaxTemp.pEff"
+[1] "𝜓=  0.536"
+[1] "p=  0.6228"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0358 5374.685 -6.67e-06 0.99999
+Precip       -0.2231    0.289 -7.72e-01 0.43990
+HFI          -0.1435 1343.672 -1.07e-04 0.99991
+AvgMaxTemp    0.8449    0.316  2.68e+00 0.00745
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.009 2.140 -2.34  0.0193
+Eff            0.501 0.308  1.63  0.1033
+
+AIC: 520.9899 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipHFIAvgMinTemp.pEff"
+[1] "𝜓=  0.5364"
+[1] "p=  0.6228"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.0364   NaN    NaN     NaN
+Precip       -0.2430 0.290 -0.838 0.40230
+HFI          -0.1459   NaN    NaN     NaN
+AvgMinTemp    0.8757 0.328  2.673 0.00751
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.010 2.141 -2.34  0.0193
+Eff            0.501 0.308  1.63  0.1032
+
+AIC: 520.8074 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipHFINDVI.pEff"
+[1] "𝜓=  0.5223"
+[1] "p=  0.6221"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0339 3598.012 -9.43e-06  1.0000
+Precip       -0.1162    0.270 -4.31e-01  0.6664
+HFI          -0.1360  899.504 -1.51e-04  0.9999
+NDVI          0.5320    0.279  1.90e+00  0.0568
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.985 2.136 -2.33  0.0196
+Eff            0.498 0.307  1.62  0.1046
+
+AIC: 525.8303 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 33 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipHFINPP.pEff"
+[1] "𝜓=  0.4717"
+[1] "p=  0.6232"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0315 6583.828 -4.78e-06  1.0000
+Precip        0.3704    0.315  1.18e+00  0.2395
+HFI          -0.1262 1645.959 -7.67e-05  0.9999
+NPP          -0.5966    0.335 -1.78e+00  0.0749
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.021 2.127 -2.36  0.0183
+Eff            0.503 0.306  1.64  0.1000
+
+AIC: 526.2718 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipHFIRoad.pEff"
+[1] "𝜓=  0.5072"
+[1] "p=  0.6215"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + HFI + d.Road, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate       SE         z P(>|z|)
+(Intercept)  -0.0331 5757.122 -5.75e-06   1.000
+Precip        0.0972    0.270  3.61e-01   0.718
+HFI          -0.1328 1439.282 -9.23e-05   1.000
+d.Road        0.1221    0.263  4.65e-01   0.642
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.963 2.140 -2.32  0.0204
+Eff            0.496 0.308  1.61  0.1071
+
+AIC: 529.5649 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 40 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipNDVI.pEff"
+[1] "𝜓=  0.5504"
+[1] "p=  0.6221"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.578 0.251 -2.300  0.0214
+Precip        -0.116 0.270 -0.431  0.6665
+NDVI           0.532 0.279  1.904  0.0569
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.986 2.136 -2.33  0.0196
+Eff            0.499 0.307  1.62  0.1046
+
+AIC: 523.8303 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 28 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipNDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.5461"
+[1] "p=  0.6225"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.6095 0.264 -2.307  0.0211
+Precip       -0.2193 0.290 -0.756  0.4495
+NDVI         -0.0728 0.396 -0.184  0.8541
+AvgMaxTemp    0.9006 0.433  2.078  0.0377
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)     -5.0 2.137 -2.34  0.0193
+Eff              0.5 0.307  1.63  0.1035
+
+AIC: 520.956 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipNDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.5504"
+[1] "p=  0.6221"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.578 0.251 -2.300  0.0214
+Precip        -0.116 0.270 -0.431  0.6665
+NDVI           0.532 0.279  1.904  0.0569
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.986 2.136 -2.33  0.0196
+Eff            0.499 0.307  1.62  0.1046
+
+AIC: 523.8303 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 28 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipNDVINPP.pEff"
+[1] "𝜓=  0.5109"
+[1] "p=  0.623"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + NDVI + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.553 0.256 -2.162  0.0306
+Precip         0.141 0.356  0.397  0.6914
+NDVI           0.394 0.303  1.301  0.1931
+NPP           -0.404 0.360 -1.122  0.2619
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.019 2.127 -2.36  0.0183
+Eff            0.503 0.306  1.64  0.1003
+
+AIC: 524.5099 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 40 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipRoad.pEff"
+[1] "𝜓=  0.5274"
+[1] "p=  0.6213"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.5644 0.243 -2.326   0.020
+Precip        0.0972 0.270  0.360   0.719
+d.Road        0.1221 0.263  0.465   0.642
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.960 2.139 -2.32  0.0204
+Eff            0.495 0.307  1.61  0.1072
+
+AIC: 527.5649 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 27 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipRoadAvgMaxTemp.pEff"
+[1] "𝜓=  0.6665"
+[1] "p=  0.6233"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z  P(>|z|)
+(Intercept)  -0.6485 0.283 -2.289 0.022098
+Precip       -0.0662 0.305 -0.217 0.828372
+d.Road        0.9189 0.389  2.363 0.018109
+AvgMaxTemp    1.3939 0.414  3.368 0.000757
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.033 2.122 -2.37  0.0177
+Eff            0.503 0.305  1.65  0.0989
+
+AIC: 514.3561 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipRoadAvgMinTemp.pEff"
+[1] "𝜓=  0.667"
+[1] "p=  0.6233"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE     z  P(>|z|)
+(Intercept)   -0.660 0.286 -2.31 0.020949
+Precip        -0.101 0.306 -0.33 0.741124
+d.Road         0.928 0.390  2.38 0.017391
+AvgMinTemp     1.446 0.431  3.35 0.000802
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.035 2.123 -2.37  0.0177
+Eff            0.504 0.305  1.65  0.0988
+
+AIC: 514.1106 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipRoadNDVI.pEff"
+[1] "𝜓=  0.608"
+[1] "p=  0.6227"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + NDVI, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE        z P(>|z|)
+(Intercept) -0.57434 0.257 -2.23231  0.0256
+Precip       0.00103 0.287  0.00361  0.9971
+d.Road       0.53549 0.333  1.60886  0.1076
+NDVI         0.81474 0.348  2.34328  0.0191
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.009 2.129 -2.35  0.0186
+Eff            0.501 0.306  1.64  0.1016
+
+AIC: 523.0284 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiPrecipRoadNPP.pEff"
+[1] "𝜓=  0.4957"
+[1] "p=  0.6232"
+
+
+Call:
+occu(formula = ~Eff ~ Precip + d.Road + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.535 0.251 -2.128  0.0333
+Precip         0.416 0.335  1.243  0.2139
+d.Road         0.117 0.270  0.432  0.6655
+NPP           -0.595 0.335 -1.776  0.0758
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.024 2.127 -2.36  0.0182
+Eff            0.503 0.306  1.65  0.0997
+
+AIC: 526.0839 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 32 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiRoad.pEff"
+[1] "𝜓=  0.5216"
+[1] "p=  0.6211"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.5654 0.242 -2.333  0.0197
+d.Road        0.0865 0.243  0.356  0.7221
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -4.952 2.136 -2.32  0.0204
+Eff            0.494 0.307  1.61  0.1075
+
+AIC: 525.6953 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 35 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiRoadAvgMaxTempNPP.pEff"
+[1] "𝜓=  0.6693"
+[1] "p=  0.6235"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + AvgMaxTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept)  -0.6480 0.287 -2.2617 0.02371
+d.Road        0.9253 0.403  2.2948 0.02174
+AvgMaxTemp    1.3757 0.434  3.1708 0.00152
+NPP          -0.0255 0.317 -0.0804 0.93590
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.038 2.124 -2.37  0.0177
+Eff            0.504 0.305  1.65  0.0986
+
+AIC: 514.3967 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 55 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiRoadAvgMinTempAvgMaxTemp.pEff"
+[1] "𝜓=  0.6657"
+[1] "p=  0.6234"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + AvgMinTemp + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept)   -0.670 0.289 -2.3152  0.0206
+d.Road         0.946 0.385  2.4604  0.0139
+AvgMinTemp     1.727 4.008  0.4308  0.6666
+AvgMaxTemp    -0.291 3.896 -0.0746  0.9405
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.036 2.125 -2.37  0.0178
+Eff            0.504 0.305  1.65  0.0989
+
+AIC: 514.2154 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 51 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiRoadAvgMinTempNPP.pEff"
+[1] "𝜓=  0.6683"
+[1] "p=  0.6254"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + AvgMinTemp + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.6589 0.290 -2.275 0.02288
+d.Road        0.9254 0.402  2.302 0.02135
+AvgMinTemp    1.4058 0.448  3.140 0.00169
+NPP          -0.0571 0.315 -0.182 0.85590
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.097 2.151 -2.37  0.0178
+Eff            0.513 0.309  1.66  0.0972
+
+AIC: 514.1888 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 30 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiRoadNDVIAvgMaxTemp.pEff"
+[1] "𝜓=  0.6759"
+[1] "p=  0.6234"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + NDVI + AvgMaxTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)  -0.6506 0.283 -2.297 0.02162
+d.Road        0.9416 0.385  2.445 0.01447
+NDVI          0.0587 0.438  0.134 0.89346
+AvgMaxTemp    1.3464 0.508  2.649 0.00807
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.037 2.124 -2.37  0.0177
+Eff            0.504 0.305  1.65  0.0987
+
+AIC: 514.3846 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 29 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiRoadNDVIAvgMinTemp.pEff"
+[1] "𝜓=  0.6766"
+[1] "p=  0.6231"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + NDVI + AvgMinTemp, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE       z P(>|z|)
+(Intercept)  -0.6659 0.286 -2.3282 0.01990
+d.Road        0.9475 0.386  2.4528 0.01417
+NDVI          0.0182 0.446  0.0408 0.96744
+AvgMinTemp    1.4162 0.535  2.6459 0.00815
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.029 2.121 -2.37  0.0177
+Eff            0.503 0.305  1.65  0.0990
+
+AIC: 514.2194 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 44 
+Bootstrap iterations: 0 
+
+[1] "MT_m.psiRoadNDVINPP.pEff"
+[1] "𝜓=  0.5841"
+[1] "p=  0.6231"
+
+
+Call:
+occu(formula = ~Eff ~ d.Road + NDVI + NPP, data = MT_umf)
+
+Occupancy (logit-scale):
+            Estimate    SE      z P(>|z|)
+(Intercept)   -0.562 0.259 -2.168  0.0302
+d.Road         0.470 0.343  1.370  0.1707
+NDVI           0.748 0.361  2.070  0.0385
+NPP           -0.168 0.294 -0.572  0.5673
+
+Detection (logit-scale):
+            Estimate    SE     z P(>|z|)
+(Intercept)   -5.022 2.126 -2.36  0.0182
+Eff            0.503 0.306  1.65  0.1000
+
+AIC: 522.6956 
+Number of sites: 85
+optim convergence code: 0
+optim iterations: 31 
+Bootstrap iterations: 0 
+

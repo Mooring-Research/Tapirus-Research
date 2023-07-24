@@ -1,6 +1,6 @@
 ###------------------------------------------------------------------------------###
 ### Running multivariate models on baird's
-### Edited by: CA 19Jul2023
+### Edited by: CA 24ul2023
 ###------------------------------------------------------------------------------###
 
 #> Files needed:
@@ -12,10 +12,12 @@
 rm(list=ls())
 
 library(unmarked)
+
+setwd("C:/Users/chris/Tapirus-Research/Christian/Recent Models")
+
 #grabs this handy function from another file
 source("C:/Users/chris/Tapirus-Research/Christian/Recent Models/modelsOutputToFile_function.R")
 #setwd("C:/Users/chris/Documents/Research/Tapir Research/Code and Data/all Tapir's data/Costa Rica (Baird Tapir)")#Directory of R-project "Models" on github
-setwd("C:/Users/chris/Tapirus-Research/Christian/Recent Models")
 
 
 #occurance recs
@@ -27,10 +29,14 @@ CR_cov<- read.csv("C:/Users/chris/Documents/Research/Tapir-Research/all Tapir's 
 
 #rename columns to names in models below
 names(CR_cov)[c(16,17)] <- c("AvgMinTemp","AvgMaxTemp")
+#pare down df to what's needed
+CR_cov<- CR_cov[,which(names(CR_cov) %in% c("Elev", "HFI", "NPP", "NDVI", "d.Road", "AvgMaxTemp", "AvgMinTemp", "Precip"))]
 
+#Scaling
+colsToScale<- which(names(CR_cov) %in% c("Elev", "NPP", "NDVI", "d.Road", "AvgMaxTemp", "AvgMinTemp", "Precip"))
+CR_cov[colsToScale]<- scale(CR_cov[,colsToScale])
 
-
-CR_umf<- unmarkedFrameOccu(y=CR_tapir, siteCovs= as.data.frame(scale(CR_cov[,-c(1:5)])), obsCovs=list(Eff=CR_eff))
+CR_umf<- unmarkedFrameOccu(y=CR_tapir, siteCovs= CR_cov, obsCovs=list(Eff=CR_eff))
 #-----------------------------------------------------------------------
 #Running Models#######################################################################
 CR_m.psi1.pEff						        <- occu(~Eff~ 1, CR_umf)  #effnull
@@ -169,27 +175,27 @@ CR_detlist<- fitList( CR_m.psi1.pEff	,
                       CR_m.psiHFIAvgMinTemp.pEff	      		,
                       CR_m.psiHFINPP.pEff	              		,
                       CR_m.psi3.pEff 					  		, 
-                      CR_m.PrecipElevHFI.pEff           		, 
-                      CR_m.PrecipElevRoad.pEff          		, 
-                      CR_m.PrecipElevNDVI.pEff          		, 
-                      CR_m.PrecipElevAvgMinTemp.pEff    		, 
-                      CR_m.PrecipElevAvgMaxTemp.pEff    	  	,
-                      CR_m.PrecipElevNPP.pEff           		, 
-                      CR_m.PrecipHFIRoad.pEff                ,	
-                      CR_m.PrecipHFINDVI.pEff                ,	
-                      CR_m.PrecipHFIAvgMinTemp.pEff          ,	
-                      CR_m.PrecipHFIAvgMaxTemp.pEff          ,	
-                      CR_m.PrecipHFINPP.pEff                 ,	
-                      CR_m.PrecipRoadNDVI.pEff               ,	
-                      CR_m.PrecipRoadAvgMinTemp.pEff         ,	
-                      CR_m.PrecipRoadAvgMaxTemp.pEff         ,	
-                      CR_m.PrecipRoadNPP.pEff                ,	
-                      CR_m.PrecipNDVIAvgMinTemp.pEff         ,	
-                      CR_m.PrecipNDVIAvgMaxTemp.pEff         ,	
-                      CR_m.PrecipNDVINPP.pEff                ,	
-                      CR_m.PrecipAvgMinTempAvgMaxTemp.pEff   ,	
-                      CR_m.PrecipAvgMinTempNPP.pEff          ,	
-                      CR_m.PrecipAvgMaxTempNPP.pEff          ,	
+                      CR_m.psiPrecipElevHFI.pEff           		, 
+                      CR_m.psiPrecipElevRoad.pEff          		, 
+                      CR_m.psiPrecipElevNDVI.pEff          		, 
+                      CR_m.psiPrecipElevAvgMinTemp.pEff    		, 
+                      CR_m.psiPrecipElevAvgMaxTemp.pEff    	  	,
+                      CR_m.psiPrecipElevNPP.pEff           		, 
+                      CR_m.psiPrecipHFIRoad.pEff                ,	
+                      CR_m.psiPrecipHFINDVI.pEff                ,	
+                      CR_m.psiPrecipHFIAvgMinTemp.pEff          ,	
+                      CR_m.psiPrecipHFIAvgMaxTemp.pEff          ,	
+                      CR_m.psiPrecipHFINPP.pEff                 ,	
+                      CR_m.psiPrecipRoadNDVI.pEff               ,	
+                      CR_m.psiPrecipRoadAvgMinTemp.pEff         ,	
+                      CR_m.psiPrecipRoadAvgMaxTemp.pEff         ,	
+                      CR_m.psiPrecipRoadNPP.pEff                ,	
+                      CR_m.psiPrecipNDVIAvgMinTemp.pEff         ,	
+                      CR_m.psiPrecipNDVIAvgMaxTemp.pEff         ,	
+                      CR_m.psiPrecipNDVINPP.pEff                ,	
+                      CR_m.psiPrecipAvgMinTempAvgMaxTemp.pEff   ,	
+                      CR_m.psiPrecipAvgMinTempNPP.pEff          ,	
+                      CR_m.psiPrecipAvgMaxTempNPP.pEff          ,	
                       CR_m.psiElevHFIRoad.pEff                  ,	
                       CR_m.psiElevHFINDVI.pEff                  ,	
                       CR_m.psiElevHFIAvgMinTemp.pEff            ,	
@@ -230,13 +236,12 @@ CR_detlist<- fitList( CR_m.psi1.pEff	,
 
 
 #####output#####
-columns<- c(6:18)
 
-sink("CR_multiMods2.txt", append = FALSE)
+#sink("Multivariate model summaries/CR_multiMods2.txt", append = FALSE)
 
-cat("19, July 2023\n")
+cat("24, July 2023\n")
 cat("\n***Correlation Matrix***\n")
-cor(CR_cov[, columns]) #correlation matrix on numerical fields
+cor(CR_cov) #correlation matrix on numerical fields
 print("\n**Baird's Tapir Models**")
 cat()
 modSel(CR_detlist) #model selection table
