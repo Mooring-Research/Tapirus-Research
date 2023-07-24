@@ -52,7 +52,7 @@ solarhour <- function(dat, tzone) {
     } else if (clockhour[i] <= sunSet[i]) {
       solar[i] <- (((clockhour[i] - sunRise[i])/(sunSet[i] - sunRise[i]))*pi) + ((1/2)*pi) #Daylight observations 
 					#^^ the differences standardize the times to zero. the ratio of those differences * pi put it on the interval from surise to sunset (pi hours)
-					#then the 1/2 pi is added to put it in correct relation to the previous interval (00:00 - sunset).
+					#then the 1/2 pi is added to put it in correct relation to the previous interval (00:00 - sunrise).
     } else {
       solar[i] <- (((clockhour[i] - sunSet[i])/((2*pi) - sunSet[i]))*(1/2)*pi) + ((3/2)*pi) #Postdusk observations
     }
