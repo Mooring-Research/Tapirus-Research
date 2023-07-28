@@ -22,6 +22,7 @@ MA_m.psiRoadNDVIAvgMaxTemp.pEff             6 2136.86  0.94 0.0443    0.320
 MA_m.psiRoadNDVIAvgMinTemp.pEff             6 2137.05  1.13 0.0403    0.361
 MA_m.psiElevRoadNDVI.pEff                   6 2137.06  1.14 0.0401    0.401
 MA_m.psiRoadNDVINPP.pEff                    6 2137.92  2.00 0.0261    0.427
+
 MA_m.psiPrecipRoad.pEff                     5 2138.23  2.32 0.0223    0.449
 MA_m.psiNDVI.pEff                           4 2138.39  2.47 0.0206    0.470
 MA_m.psiAvgMaxTempNDVI.pEff                 5 2138.40  2.49 0.0205    0.490
