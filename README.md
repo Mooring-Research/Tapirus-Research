@@ -16,9 +16,6 @@ temperature derivation and extraction.
 Script history can be traced backwards as follows: 'Christian/Recent models' > 'Christian/old model scripts' > 'data cleaning and model scripts' > 'Honors Projects'
 
 ### Tools
-<<<<<<< HEAD
 We used the packages unmarked (version 1.2.5, https://rbchan.github.io/unmarked/) to run our occupancy models and determine the best one, and overlap package (version 0.3.4, https://www.kent.ac.uk/smsas/personal/msr/overlap.html) to plot the temporal density plots. The data used for the circadian plots was calculated using the function elaborated in 'Christian
-=======
 We used the packages unmarked (to run our occupancy models and determine the best one) and overlap to make our circadian rythm figures. The heat maps use the top multicovariate model for each species; and there some exceptions due to correlations or choppy rasters (i.e. HFI). 
 The data used for the circadian plots was calculated using the funtion elaborated in 'Christian.'
->>>>>>> 1a8d209eb2c974915585807ef5c16a4f58e8e8b1
